@@ -1336,6 +1336,10 @@ function KellyFavStorageManager(cfg) {
         
         if (!data.coptions.baseFolder) {
             data.coptions.baseFolder = env.profile + '/' + 'Storage';
+        } else {
+            var vb = KellyTools.validateFolderPath(data.coptions.baseFolder);
+            if (vb) data.coptions.baseFolder = vb;
+            else data.coptions.baseFolder = env.profile + '/' + 'Storage';
         }
         
         if (!data.coptions.grabber) {
@@ -1347,6 +1351,28 @@ function KellyFavStorageManager(cfg) {
                 quality : 'hd',
                 skipDownloaded : false,
             };
+        } else {
+            // Ensure baseFolder is valid – Chrome MV3 is strict about filename charset
+            if (!data.coptions.grabber.baseFolder || typeof data.coptions.grabber.baseFolder !== 'string') {
+                data.coptions.grabber.baseFolder = env.profile + '/' + 'Downloads';
+            } else {
+                var validated = KellyTools.validateFolderPath(data.coptions.grabber.baseFolder);
+                if (!validated) {
+                    handler.log('validateCfg: grabber.baseFolder invalid "' + data.coptions.grabber.baseFolder + '", fallback to ' + env.profile + '/Downloads', 'KellyStorageManager');
+                    validated = env.profile + '/' + 'Downloads';
+                } else if (validated !== data.coptions.grabber.baseFolder) {
+                    handler.log('validateCfg: grabber.baseFolder sanitized "' + data.coptions.grabber.baseFolder + '" -> "' + validated + '"', 'KellyStorageManager');
+                }
+                data.coptions.grabber.baseFolder = validated;
+            }
+            // also sanitize nameTemplate (without breaking # placeholders, just remove leading/trailing slashes artefacts)
+            if (data.coptions.grabber.nameTemplate && typeof data.coptions.grabber.nameTemplate === 'string') {
+                // keep placeholders but ensure not empty after validate (validateFolderPath would strip # chars – so use careful)
+                var nt = data.coptions.grabber.nameTemplate.trim();
+                if (!nt) data.coptions.grabber.nameTemplate = '#number#_#filename#';
+            }
+            if (typeof data.coptions.grabber.invertNumeration === 'undefined') data.coptions.grabber.invertNumeration = true;
+            if (!data.coptions.grabber.quality) data.coptions.grabber.quality = 'hd';
         }
         
         if (!data.coptions.grid)  {

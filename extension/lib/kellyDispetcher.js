@@ -324,6 +324,46 @@ var KellyEDispetcher = new Object;
 
             response.downloadId = -1;
                  
+            // Log and validate filename before calling downloads.download – Chrome MV3 may silently drop folders if filename invalid
+            if (request.download && request.download.filename) {
+                var origName = request.download.filename;
+                KellyTools.log('[Dispetcher] downloads.download request filename="' + origName + '" conflict="' + (request.download.conflictAction||'') + '"', 'KellyEDispetcher');
+                console.log('[KellyEDispetcher] downloads.download filename="' + origName + '"');
+                // Basic sanity: if filename contains colon or backslash, sanitize
+                // Also ensure validateFolderPath style sanitization without stripping extension
+                try {
+                    var nameToValidate = origName;
+                    var dotIdx = nameToValidate.lastIndexOf('.');
+                    var extPart = '';
+                    var basePart = nameToValidate;
+                    if (dotIdx !== -1 && dotIdx > nameToValidate.lastIndexOf('/')) {
+                        extPart = nameToValidate.substring(dotIdx);
+                        basePart = nameToValidate.substring(0, dotIdx);
+                    }
+                    var validatedBase = KellyTools.validateFolderPath(basePart);
+                    if (validatedBase) {
+                        request.download.filename = validatedBase + extPart;
+                        if (request.download.filename !== origName) {
+                            KellyTools.log('[Dispetcher] filename sanitized "' + origName + '" -> "' + request.download.filename + '"', 'KellyEDispetcher');
+                            console.warn('[KellyEDispetcher] filename sanitized', origName, '->', request.download.filename);
+                        }
+                    } else {
+                        KellyTools.log('[Dispetcher] validatedBase empty for "' + origName + '", keep original', 'KellyEDispetcher', KellyTools.E_ERROR);
+                    }
+                } catch(e) {
+                    KellyTools.log('[Dispetcher] filename validation exception ' + e, 'KellyEDispetcher');
+                }
+                // Ensure not absolute or contains ..
+                if (request.download.filename.charAt(0) === '/' || request.download.filename.indexOf('..') !== -1) {
+                    var cleaned = KellyTools.validateFolderPath(request.download.filename);
+                    KellyTools.log('[Dispetcher] filename had leading / or .., cleaned to "' + cleaned + '"', 'KellyEDispetcher');
+                    if (cleaned) request.download.filename = cleaned;
+                }
+            } else {
+                KellyTools.log('[Dispetcher] downloads.download request without filename', 'KellyEDispetcher', KellyTools.E_ERROR);
+                console.warn('[KellyEDispetcher] no filename in request', request);
+            }
+                 
             var saveDownloadedBlobData = function(localBlob) {
                 KellyTools.getBrowser().downloads.download(request.download, function (downloadId) {
                     
@@ -333,10 +373,14 @@ var KellyEDispetcher = new Object;
                     
                         response.error = KellyEDispetcher.api.runtime.lastError.message;
                         response.downloadId = -1;
+                        KellyTools.log('[Dispetcher] downloads.download FAILED lastError: ' + response.error + ' filename="' + request.download.filename + '"', 'KellyEDispetcher', KellyTools.E_ERROR);
+                        console.error('[KellyEDispetcher] downloads.download FAILED', response.error, 'filename:', request.download.filename, 'download:', request.download);
                         
                     } else {
                     
                         response.downloadId = downloadId;
+                        KellyTools.log('[Dispetcher] downloads.download SUCCESS id=' + downloadId + ' filename="' + request.download.filename + '"', 'KellyEDispetcher');
+                        console.log('[KellyEDispetcher] downloads.download SUCCESS id', downloadId, 'filename', request.download.filename);
                         
                         if (!downloadId || downloadId < 0) {
                             response.downloadId = -1;
