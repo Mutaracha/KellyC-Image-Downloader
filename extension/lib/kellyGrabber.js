@@ -1602,8 +1602,10 @@ function KellyGrabber(cfg) {
         if (typeof folder === 'string' && folder.trim() === '') {
             options.baseFolder = '';
             KellyTools.log('[Grabber] setBaseFolder empty -> root (options.baseFolder="")', 'KellyGrabber');
+            console.log('[Grabber] setBaseFolder empty -> root');
             return options.baseFolder;
         }
+        console.log('[Grabber] setBaseFolder raw', folder, 'trim', folder ? folder.trim() : folder);
         var raw = folder;
         var tmpFolder = KellyTools.validateFolderPath(folder);
         if (tmpFolder) {

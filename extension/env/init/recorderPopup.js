@@ -231,7 +231,7 @@ KellyPopupPage.recordTabList = function(tabs, onReady) {
         }
     };
     
-    // Fallback via chrome.scripting.executeScript for tabs where content script is not injected (parallel safe)
+    // Primary via scripting - more reliable on new Chrome than content-script messaging
     var collectViaScripting = function(tab, callback) {
         var browser = KellyTools.getBrowser();
         if (!browser.scripting || !browser.scripting.executeScript) {
@@ -375,6 +375,7 @@ KellyPopupPage.recordTabList = function(tabs, onReady) {
         
     KellyPopupPage.sendRuntimeMessage({method: "startRecord"}, function(response) {
         KellyTools.log('[PACKET MODE] startRecord [Notify background - ' + (response ? 'OK' : 'FAIL') + ']', 'KellyPopupPage');
+        console.log('[KellyPopupPage] startRecord response', response);
         if (!response || !response.isRecorded) {            
             KellyPopupPage.recordingState = 'disabled';
             KellyPopupPage._packetFinalized = false;
@@ -383,56 +384,83 @@ KellyPopupPage.recordTabList = function(tabs, onReady) {
             KellyPopupPage.updateNotice("Ошибка инициализации записи");
             return;
         }
-        // Start ALL tabs in parallel, fast – per-tab timeout 2500ms + one retry + scripting fallback
-        tabs.forEach(function(tab){
-            var tabId = tab.id;
-            var attempt = 0;
-            var perTabTimer = null;
-            var tryTab = function(){
-                attempt++;
-                perTabTimer = setTimeout(function(){
-                    KellyTools.log('TabRecordPacketMode PER-TAB TIMEOUT tab ' + tabId + ' attempt ' + attempt, 'KellyPopupPage');
-                    console.log('[KellyPopupPage] PER-TAB TIMEOUT', tabId, 'attempt', attempt);
-                    if (attempt < 2) {
-                        tryTab();
+        // NEW: Use scripting as primary for all tabs in parallel, collect results, then single batch addRecord
+        // This avoids content-script messaging timeouts and is more reliable on Chrome 120+
+        var scriptingResults = [];
+        var scriptingDone = 0;
+        var useScriptingPrimary = true; // set false to use old content-script primary
+        if (useScriptingPrimary) {
+            console.log('[KellyPopupPage] Using scripting primary for', tabs.length, 'tabs');
+            tabs.forEach(function(tab){
+                collectViaScripting(tab, function(resp){
+                    scriptingResults.push({tab: tab, resp: resp});
+                    scriptingDone++;
+                    console.log('[KellyPopupPage] scripting primary tab', tab.id, 'resp', resp, 'done', scriptingDone+'/'+tabs.length);
+                    if (resp && resp.isRecorded) {
+                        imagesNum += resp.imagesNum || 0;
+                        successTabs++;
                     } else {
-                        KellyTools.log('TIMEOUT: scripting fallback for tab ' + tabId, 'KellyPopupPage');
-                        console.log('[KellyPopupPage] scripting fallback', tabId);
-                        collectViaScripting(tab, function(fbResp){
-                            if (fbResp && fbResp.isRecorded) {
-                                onTabReady(fbResp, tabId, 'OK via scripting fallback');
-                            } else {
-                                failedTabs.push(tabId);
-                                onTabReady(false, tabId, 'FAIL BY TIMER+fallback');
-                            }
-                        });
+                        failedTabs.push(tab.id);
                     }
-                }, 3500);
-                console.log('[KellyPopupPage] sendTabMessage startTabRecordPacketMode tab', tabId, 'attempt', attempt);
-                KellyPopupPage.sendTabMessage(tabId, {method: "startTabRecordPacketMode"}, function(response){
-                    clearTimeout(perTabTimer);
-                    console.log('[KellyPopupPage] response tab', tabId, response);
-                    if (!response || !response.isRecorded) {
-                        KellyTools.log('Tab ' + tabId + ' startTabRecordPacketMode FAIL attempt ' + attempt, 'KellyPopupPage');
+                    total++;
+                    if (scriptingDone >= tabs.length) {
+                        if (overallTimer) clearTimeout(overallTimer);
+                        finalizePacket();
+                    }
+                });
+            });
+        } else {
+            // Fallback to old content-script primary (kept for reference, not used)
+            tabs.forEach(function(tab){
+                var tabId = tab.id;
+                var attempt = 0;
+                var perTabTimer = null;
+                var tryTab = function(){
+                    attempt++;
+                    perTabTimer = setTimeout(function(){
+                        KellyTools.log('TabRecordPacketMode PER-TAB TIMEOUT tab ' + tabId + ' attempt ' + attempt, 'KellyPopupPage');
+                        console.log('[KellyPopupPage] PER-TAB TIMEOUT', tabId, 'attempt', attempt);
                         if (attempt < 2) {
-                            setTimeout(tryTab, 100);
+                            tryTab();
+                        } else {
+                            KellyTools.log('TIMEOUT: scripting fallback for tab ' + tabId, 'KellyPopupPage');
+                            console.log('[KellyPopupPage] scripting fallback', tabId);
+                            collectViaScripting(tab, function(fbResp){
+                                if (fbResp && fbResp.isRecorded) {
+                                    onTabReady(fbResp, tabId, 'OK via scripting fallback');
+                                } else {
+                                    failedTabs.push(tabId);
+                                    onTabReady(false, tabId, 'FAIL BY TIMER+fallback');
+                                }
+                            });
+                        }
+                    }, 3500);
+                    console.log('[KellyPopupPage] sendTabMessage startTabRecordPacketMode tab', tabId, 'attempt', attempt);
+                    KellyPopupPage.sendTabMessage(tabId, {method: "startTabRecordPacketMode"}, function(response){
+                        clearTimeout(perTabTimer);
+                        console.log('[KellyPopupPage] response tab', tabId, response);
+                        if (!response || !response.isRecorded) {
+                            KellyTools.log('Tab ' + tabId + ' startTabRecordPacketMode FAIL attempt ' + attempt, 'KellyPopupPage');
+                            if (attempt < 2) {
+                                setTimeout(tryTab, 100);
+                                return;
+                            }
+                            collectViaScripting(tab, function(fbResp){
+                                if (fbResp && fbResp.isRecorded) {
+                                    onTabReady(fbResp, tabId, 'OK via scripting after fail');
+                                } else {
+                                    failedTabs.push(tabId);
+                                    onTabReady(false, tabId, 'FAIL after retry+fallback');
+                                }
+                            });
                             return;
                         }
-                        collectViaScripting(tab, function(fbResp){
-                            if (fbResp && fbResp.isRecorded) {
-                                onTabReady(fbResp, tabId, 'OK via scripting after fail');
-                            } else {
-                                failedTabs.push(tabId);
-                                onTabReady(false, tabId, 'FAIL after retry+fallback');
-                            }
-                        });
-                        return;
-                    }
-                    onTabReady(response, tabId, 'OK attempt '+attempt);
-                });
-            };
-            tryTab();
-        });
+                        onTabReady(response, tabId, 'OK attempt '+attempt);
+                    });
+                };
+                tryTab();
+            });
+        }
     });
     
 }
