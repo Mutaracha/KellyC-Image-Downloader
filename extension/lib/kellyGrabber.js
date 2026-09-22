@@ -551,15 +551,20 @@ function KellyGrabber(cfg) {
             };
             
         var baseFolderInput = KellyTools.getElementByClass(handler.container, className + '-controll-baseFolder');
-            baseFolderInput.onchange = function() {
-                
+            var onBaseFolderChange = function() {
                 handler.updateCfg({ options : {baseFolder : this.value} });              
                 this.value = options.baseFolder;
-                
-                delayUpdateOptionsEvent();  
-                
+                console.log('[Grabber] baseFolder input changed to "' + options.baseFolder + '" raw="' + this.value + '"');
+                // Save synchronously, not delayed, to ensure persistence even if popup closed quickly
+                if (events.onOptionsUpdate) events.onOptionsUpdate(handler);
+                // Also keep delayed for compatibility
+                // delayUpdateOptionsEvent();  
                 return;
             };
+            baseFolderInput.onchange = onBaseFolderChange;
+            baseFolderInput.oninput = onBaseFolderChange;
+            // Also listen for blur to ensure last value saved
+            baseFolderInput.onblur = onBaseFolderChange;
         
         var rangeSwitches = handler.container.getElementsByClassName(className + '-controll-rangeSwitch');
         for (var i = 0; i < rangeSwitches.length; i++) {
@@ -1439,15 +1444,17 @@ function KellyGrabber(cfg) {
         if (!options.nameTemplate) {
             options.nameTemplate = '#category_1#/#number#_#filename#';
         }
-        // Migration for broken 1.2.9.8 sanitized template (contains _category_ without #)
-        if (options.nameTemplate.indexOf('#') === -1 && options.nameTemplate.indexOf('_category_') !== -1) {
-            console.warn('[Grabber] getNameTemplate detected broken template "' + options.nameTemplate + '" -> restoring default');
-            options.nameTemplate = '#category_1#/#number#_#filename#';
-        }
-        // Also fallback if template is sanitized underscores version
-        if (options.nameTemplate.indexOf('#') === -1 && options.nameTemplate.indexOf('_number_') !== -1) {
-            console.warn('[Grabber] getNameTemplate broken _number_ without #, restoring');
-            options.nameTemplate = '#category_1#/#number#_#filename#';
+        var nt = options.nameTemplate;
+        var isBroken = nt.indexOf('#') === -1 && (nt.indexOf('_category_') !== -1 || nt.indexOf('_number_') !== -1 || nt.indexOf('_filename_') !== -1);
+        if (isBroken) {
+            var repaired = nt.replace(/_category_/g, '#category_').replace(/_number_/g, '#number#').replace(/_filename_/g, '#filename#');
+            if (repaired.indexOf('#') !== -1) {
+                console.warn('[Grabber] getNameTemplate repaired "' + nt + '" -> "' + repaired + '"');
+                options.nameTemplate = repaired;
+            } else {
+                console.warn('[Grabber] getNameTemplate broken, restoring default', nt);
+                options.nameTemplate = '#category_1#/#number#_#filename#';
+            }
         }
         return options.nameTemplate;
     }
@@ -2650,6 +2657,15 @@ function KellyGrabber(cfg) {
             KellyTools.log('work empty', 'KellyGrabber');
             return false;
         }
+        // Sync baseFolder from UI input if it was typed but not yet saved (oninput may be delayed)
+        try {
+            var bfInput = handler.container ? KellyTools.getElementByClass(handler.container, className + '-controll-baseFolder') : false;
+            if (bfInput && bfInput.value !== options.baseFolder) {
+                console.log('[Grabber] download sync baseFolder from input "' + bfInput.value + '" vs options "' + options.baseFolder + '"');
+                handler.setBaseFolder(bfInput.value);
+                if (events.onOptionsUpdate) events.onOptionsUpdate(handler);
+            }
+        } catch(e) { console.log('download sync baseFolder error', e); }
         
         if (!keepLog) {  
             log = ''; failItems = [];

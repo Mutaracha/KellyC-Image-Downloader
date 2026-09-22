@@ -1378,9 +1378,23 @@ function KellyFavStorageManager(cfg) {
                 var nt = data.coptions.grabber.nameTemplate.trim();
                 var isBroken = nt.indexOf('#') === -1 && (nt.indexOf('_category_') !== -1 || nt.indexOf('_number_') !== -1 || nt.indexOf('_filename_') !== -1);
                 if (!nt || isBroken) {
-                    console.warn('[StorageManager] nameTemplate broken "' + nt + '" -> restoring #category_1#/#number#_#filename#');
-                    console.log('[StorageManager] nameTemplate broken restore');
-                    data.coptions.grabber.nameTemplate = '#category_1#/#number#_#filename#';
+                    // Repair old sanitized template: _filename_ -> #filename# etc. instead of forcing default
+                    var repaired = nt;
+                    repaired = repaired.replace(/_category_/g, '#category_');
+                    repaired = repaired.replace(/_number_/g, '#number#');
+                    repaired = repaired.replace(/_filename_/g, '#filename#');
+                    // Also handle _category_1_ style leftover (underscore before/after)
+                    repaired = repaired.replace(/#category_1#/g, '#category_1#');
+                    // Clean up any remaining double ## or stray _
+                    if (repaired.indexOf('#') !== -1) {
+                        console.warn('[StorageManager] nameTemplate broken "' + nt + '" -> repaired to "' + repaired + '"');
+                        console.log('[StorageManager] nameTemplate repaired', repaired);
+                        data.coptions.grabber.nameTemplate = repaired;
+                    } else {
+                        console.warn('[StorageManager] nameTemplate broken "' + nt + '" -> restoring #category_1#/#number#_#filename#');
+                        console.log('[StorageManager] nameTemplate broken restore');
+                        data.coptions.grabber.nameTemplate = '#category_1#/#number#_#filename#';
+                    }
                 } else {
                     // keep as is, but ensure minimal validate doesn't break # (it keeps # now)
                     // Do not overwrite with validateFolderPath if it would strip #
@@ -1392,10 +1406,8 @@ function KellyFavStorageManager(cfg) {
                         data.coptions.grabber.nameTemplate = nt;
                     }
                 }
-            } else if (data.coptions.grabber.nameTemplate && typeof data.coptions.grabber.nameTemplate === 'string') {
-                // fallback empty
-                var nt2 = data.coptions.grabber.nameTemplate.trim();
-                if (!nt2) data.coptions.grabber.nameTemplate = '#number#_#filename#';
+            } else if (typeof data.coptions.grabber.nameTemplate !== 'string' || !data.coptions.grabber.nameTemplate.trim()) {
+                data.coptions.grabber.nameTemplate = '#number#_#filename#';
             }
             if (typeof data.coptions.grabber.invertNumeration === 'undefined') data.coptions.grabber.invertNumeration = true;
             if (!data.coptions.grabber.quality) data.coptions.grabber.quality = 'hd';

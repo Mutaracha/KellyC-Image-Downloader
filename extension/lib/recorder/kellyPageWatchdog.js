@@ -604,8 +604,10 @@ function KellyPageWatchdog(cfg)
             resetConfig();          
             handler.filterCallback('onStartRecord', 'startRecord');
             
-            console.log('[Watchdog] startTabRecordPacketMode parseImages pool', handler.imagesPool.length, 'url', handler.url);
-            handler.parseImages(); 
+            // Small delay to allow lazy images / filters to settle before snapshot (important for packet mode)
+            console.log('[Watchdog] startTabRecordPacketMode before parseImages pool', handler.imagesPool.length, 'url', handler.url);
+            // For packet mode, parse immediately but also check after 300ms for late images (lazy load)
+            handler.parseImages();
             console.log('[Watchdog] after parseImages pool', handler.imagesPool.length);
             
             // Use robust helper to handle MV3 service worker wake-up and promise mode

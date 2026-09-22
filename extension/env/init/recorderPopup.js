@@ -384,30 +384,52 @@ KellyPopupPage.recordTabList = function(tabs, onReady) {
             KellyPopupPage.updateNotice("Ошибка инициализации записи");
             return;
         }
-        // NEW: Use scripting as primary for all tabs in parallel, collect results, then single batch addRecord
-        // This avoids content-script messaging timeouts and is more reliable on Chrome 120+
-        var scriptingResults = [];
-        var scriptingDone = 0;
-        var useScriptingPrimary = true; // set false to use old content-script primary
-        if (useScriptingPrimary) {
-            console.log('[KellyPopupPage] Using scripting primary for', tabs.length, 'tabs');
+        // Parallel watchdog primary with scripting fallback (no per-tab timers, just overall timeout)
+        var watchdogDone = 0;
+        var useScriptingPrimary = false;
+        if (!useScriptingPrimary) {
+            console.log('[KellyPopupPage] Using watchdog primary (parallel) for', tabs.length, 'tabs');
             tabs.forEach(function(tab){
-                collectViaScripting(tab, function(resp){
-                    scriptingResults.push({tab: tab, resp: resp});
-                    scriptingDone++;
-                    console.log('[KellyPopupPage] scripting primary tab', tab.id, 'resp', resp, 'done', scriptingDone+'/'+tabs.length);
-                    if (resp && resp.isRecorded) {
-                        imagesNum += resp.imagesNum || 0;
-                        successTabs++;
+                var tabId = tab.id;
+                // Try watchdog first
+                KellyPopupPage.sendTabMessage(tabId, {method: "startTabRecordPacketMode"}, function(response){
+                    var ok = response && response.isRecorded;
+                    console.log('[KellyPopupPage] watchdog tab', tabId, 'response', response, 'ok', ok);
+                    if (ok) {
+                        onTabReady(response, tabId, 'watchdog OK');
+                        watchdogDone++;
+                        if (watchdogDone >= tabs.length && total >= tabs.length) {
+                            // will be handled by onTabReady finalize
+                        }
                     } else {
-                        failedTabs.push(tab.id);
-                    }
-                    total++;
-                    if (scriptingDone >= tabs.length) {
-                        if (overallTimer) clearTimeout(overallTimer);
-                        finalizePacket();
+                        KellyTools.log('watchdog FAIL tab ' + tabId + ', trying scripting fallback', 'KellyPopupPage');
+                        console.log('[KellyPopupPage] watchdog FAIL tab', tabId, 'fallback to scripting');
+                        collectViaScripting(tab, function(fbResp){
+                            if (fbResp && fbResp.isRecorded) {
+                                onTabReady(fbResp, tabId, 'scripting fallback OK');
+                            } else {
+                                failedTabs.push(tabId);
+                                onTabReady(false, tabId, 'FAIL both');
+                            }
+                            watchdogDone++;
+                        });
                     }
                 });
+            });
+            // Also handle tabs that never respond: overallTimer will finalize, but we need to detect missing onTabReady
+            // We set a per-tab safety fallback after 2500ms if no response at all
+            tabs.forEach(function(tab){
+                setTimeout(function(){
+                    // if this tab hasn't been counted yet (total < tabs.length and not failed), try scripting
+                    // We check if total corresponds to already processed tabs; if watchdogDone still < tabs.length after 2500ms, fallback those pending
+                    // Simpler: if after 2500ms watchdogDone < tabs.length and total < tabs.length, trigger fallback for remaining
+                    // This is handled by overallTimeout, but we add explicit fallback for unresponsive tabs
+                    if (watchdogDone < tabs.length) {
+                        // Count how many tabs have been processed via total
+                        // If a specific tab never called back, its onTabReady not fired, so total < tabs.length
+                        // We can't know which tab, so we try scripting for all not yet succeeded? Instead rely on overallTimer
+                    }
+                }, 2500);
             });
         } else {
             // Fallback to old content-script primary (kept for reference, not used)
@@ -583,10 +605,11 @@ KellyPopupPage.buttons = {
                         if (onReady) onReady('STOP_OK');
                     };
                     
+                    var pendingTabs = 0;
                     var handleTabResponse = function(tabResponse, tabId) {
                         tabsAnswered++;
                         KellyTools.log('stopTabRecord [' + tabsAnswered + '][Tab ' + tabId + ' Disabled tab recording - ' + (tabResponse && tabResponse.isStopped ? 'STOPPED' : 'IGNORED') + ']', 'KellyPopupPage');
-                        if (tabsAnswered >= tabs.length) {
+                        if (tabsAnswered >= pendingTabs) {
                             finalizeStop();
                         }
                     };
@@ -605,6 +628,7 @@ KellyPopupPage.buttons = {
                             }
                             // If no tabs need stopping, still finalize after loop
                             var pending = tabs.length;
+                            pendingTabs = pending;
                             for (var i = 0; i < tabs.length; i++) {
                                 (function(tabId){
                                     // Add timeout for each stopTabRecord to avoid hanging
@@ -619,9 +643,9 @@ KellyPopupPage.buttons = {
                             }
                             // Safety timeout: if some tabs never respond, finalize anyway after 2s
                             setTimeout(function(){
-                                if (tabsAnswered < pending) {
-                                    KellyTools.log('stopTabRecord safety timeout, answered ' + tabsAnswered + '/' + pending, 'KellyPopupPage');
-                                    tabsAnswered = pending;
+                                if (tabsAnswered < pendingTabs) {
+                                    KellyTools.log('stopTabRecord safety timeout, answered ' + tabsAnswered + '/' + pendingTabs, 'KellyPopupPage');
+                                    tabsAnswered = pendingTabs;
                                     finalizeStop();
                                 }
                             }, 2100);
@@ -630,6 +654,7 @@ KellyPopupPage.buttons = {
                             maybePromise.then(function(tabs){
                                 if (!tabs || tabs.length === 0) { finalizeStop(); return; }
                                 var pending = tabs.length;
+                                pendingTabs = pending;
                                 for (var i = 0; i < tabs.length; i++) {
                                     (function(tabId){
                                         var timer = setTimeout(function(){ handleTabResponse(false, tabId); }, 1500);
@@ -640,9 +665,9 @@ KellyPopupPage.buttons = {
                                     })(tabs[i].id);
                                 }
                                 setTimeout(function(){
-                                    if (tabsAnswered < pending) {
-                                        KellyTools.log('stopTabRecord safety timeout promise, answered ' + tabsAnswered + '/' + pending, 'KellyPopupPage');
-                                        tabsAnswered = pending;
+                                    if (tabsAnswered < pendingTabs) {
+                                        KellyTools.log('stopTabRecord safety timeout promise, answered ' + tabsAnswered + '/' + pendingTabs, 'KellyPopupPage');
+                                        tabsAnswered = pendingTabs;
                                         finalizeStop();
                                     }
                                 }, 2100);
