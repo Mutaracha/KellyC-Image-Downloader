@@ -813,6 +813,33 @@ function KellyGrabber(cfg) {
         });   
 
         logBtn.style.display = 'none';
+
+        var debugLogBtn = handler.addControllEl('download_debug_log', 'Скачать лог дебага', function() {
+            // Filtered log: only relevant entries
+            var filter = ['baseFolder', 'nameTemplate', 'downloadUrl', 'initDownloadItemFile', 'validateFolderPath', 'Grabber', 'Dispetcher', 'StorageManager', 'baseFileFolder'];
+            var text = KellyTools.getLogText(filter);
+            if (!text) text = KellyTools.getLogText();
+            var blob = new Blob([text || '[лог пуст]'], {type: 'text/plain'});
+            var fname = 'kelly_debug_' + KellyTools.getTimeStamp() + '.log';
+            // use grabber's createAndDownloadFile if available, else direct
+            if (handler.createAndDownloadFile) {
+                handler.createAndDownloadFile(text, 'Logs/' + fname);
+            } else {
+                var url = URL.createObjectURL(blob);
+                var a = document.createElement('a'); a.href=url; a.download=fname; document.body.appendChild(a); a.click(); setTimeout(function(){URL.revokeObjectURL(url); a.remove();},1000);
+            }
+            return false;
+        });
+        if (debugLogBtn) {
+            debugLogBtn.title = 'Скачать отфильтрованный лог (baseFolder, nameTemplate, downloadUrl и т.д.)';
+        }
+        
+        var clearLogBtn = handler.addControllEl('clear_debug_log', 'Очистить лог', function() {
+            KellyTools.clearLog();
+            try { chrome.storage.local.remove('kelly_log_buffer'); } catch(e){}
+            alert('Лог очищен');
+            return false;
+        });
         
         handler.updateStartButtonState('start');
         updateProgressBar();     

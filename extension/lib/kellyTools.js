@@ -8,6 +8,40 @@ KellyTools.DEBUG = true; // forced true for 1.2.9.10 diagnostics
 KellyTools.E_NOTICE = 1;
 KellyTools.E_ERROR = 2;
 
+// External log buffer for user-requested filtered log export (1.2.9.13)
+KellyTools.logBuffer = [];
+KellyTools.logBufferMax = 3000;
+KellyTools.logFilter = null; // null = all, or array of substrings to include
+KellyTools.logFileEnabled = true; // always capture to buffer when DEBUG, user can download
+
+KellyTools.setLogFilter = function(filterArray) {
+    KellyTools.logFilter = filterArray && filterArray.length ? filterArray : null;
+}
+KellyTools.getLogText = function(filter) {
+    var lines = KellyTools.logBuffer;
+    if (filter && filter.length) {
+        var f = Array.isArray(filter) ? filter : [filter];
+        lines = lines.filter(function(l){ return f.some(function(s){ return l.indexOf(s) !== -1; }); });
+    } else if (KellyTools.logFilter) {
+        var f = KellyTools.logFilter;
+        lines = lines.filter(function(l){ return f.some(function(s){ return l.indexOf(s) !== -1; }); });
+    }
+    return lines.join("\r\n");
+}
+KellyTools.downloadLog = function(filter, filename) {
+    var text = KellyTools.getLogText(filter);
+    if (!text) text = "[лог пуст] Попробуйте включить DEBUG и повторить действие";
+    var blob = new Blob([text], {type: "text/plain"});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = filename || ("kelly_log_"+KellyTools.getTimeStamp()+".log");
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function(){ URL.revokeObjectURL(url); a.remove(); }, 1000);
+}
+KellyTools.clearLog = function(){ KellyTools.logBuffer = []; }
+
 KellyTools.events = [];
 KellyTools.tId = 1000;
 
@@ -1215,11 +1249,31 @@ KellyTools.log = function(info, module, errorLevel) {
      
     if (!this.DEBUG && errorLevel < KellyTools.E_ERROR) return;
     
+    var time = KellyTools.getTime();
+    var text = '[' + time + '] ' + module + ' : ' + (typeof info == 'object' ? JSON.stringify(info).substring(0,500) : info);
+    // Always push to buffer for external export (even if filtered later)
+    try {
+        if (KellyTools.logFileEnabled) {
+            if (KellyTools.logBuffer.length >= KellyTools.logBufferMax) KellyTools.logBuffer.shift();
+            KellyTools.logBuffer.push(text);
+            // also store in localStorage for service-worker persistence (MV3 service worker restarts)
+            try {
+                if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+                    // async, not blocking
+                    // keep last 200 lines in storage
+                    if (KellyTools.logBuffer.length % 20 === 0) {
+                        chrome.storage.local.set({kelly_log_buffer: KellyTools.logBuffer.slice(-200)});
+                    }
+                }
+            } catch(e){}
+        }
+    } catch(e){}
+    
     if (typeof info == 'object' || typeof info == 'function') {
-        console.log('[' + KellyTools.getTime() + '] ' + module + ' :  var output :');
+        console.log('[' + time + '] ' + module + ' :  var output :');
         console.log(info);
     } else {
-        console.log('[' + KellyTools.getTime() + '] ' + module + ' : '+ info);
+        console.log('[' + time + '] ' + module + ' : '+ info);
     }
     
     if (errorLevel >= KellyTools.E_ERROR && console.trace) {        

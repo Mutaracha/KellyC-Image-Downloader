@@ -776,6 +776,40 @@ KellyPopupPage.buttons = {
          KellyTools.getBrowser().tabs.create({url: '/env/html/update.html?mode=about'}, function(tab){}); 
          window.close();
     }},
+    'download_log' : {text : 'Скачать лог', event : function() {
+         var filter = ['baseFolder', 'nameTemplate', 'getTabs', 'Watchdog', 'addRecord', 'recordTabList', 'downloadUrl', 'Grabber', 'StorageManager', 'tabs'];
+         var browser = KellyTools.getBrowser();
+         // Try to get service-worker log from storage + current buffer
+         try {
+             browser.storage.local.get(['kelly_log_buffer'], function(data){
+                 var buf = KellyTools.logBuffer ? KellyTools.logBuffer.slice() : [];
+                 if (data && data.kelly_log_buffer) {
+                     buf = data.kelly_log_buffer.concat(buf);
+                 }
+                 var text = buf.join("\r\n");
+                 // Filter
+                 if (filter && filter.length) {
+                     var lines = text.split("\r\n");
+                     lines = lines.filter(function(l){ return filter.some(function(s){ return l.indexOf(s)!==-1; }); });
+                     text = lines.join("\r\n");
+                 }
+                 if (!text) text = "[лог пуст] Включите расширение и повторите действие";
+                 var blob = new Blob([text], {type: "text/plain"});
+                 var url = URL.createObjectURL(blob);
+                 var a = document.createElement("a");
+                 a.href = url;
+                 a.download = "kelly_popup_debug_"+KellyTools.getTimeStamp()+".log";
+                 document.body.appendChild(a);
+                 a.click();
+                 setTimeout(function(){ URL.revokeObjectURL(url); a.remove(); }, 1000);
+             });
+         } catch(e) {
+             var text = KellyTools.getLogText(filter);
+             var blob = new Blob([text || "[лог пуст]"], {type: "text/plain"});
+             var url = URL.createObjectURL(blob);
+             var a = document.createElement("a"); a.href=url; a.download="kelly_popup_debug_"+KellyTools.getTimeStamp()+".log"; document.body.appendChild(a); a.click(); setTimeout(function(){URL.revokeObjectURL(url); a.remove();},1000);
+         }
+    }},
 };
 
 KellyPopupPage.updateNotice = function(str) {
