@@ -178,26 +178,26 @@ KellyPopupPage.recordTabList = function(tabs, onReady) {
         return;
     } 
     
-    var tabData = {};
-    var total = 0, imagesNum = 0;
+    KellyTools.log('recordTabList : tabs total : ' + tabs.length + ' | urls: ' + tabs.map(function(t){return t.id+':'+t.url.substring(0,60);}).join(' | '), 'KellyPopupPage');
     
-    KellyTools.log('recordTabList : tabs total : ' + tabs.length + '', 'KellyPopupPage');
+    // Show progress notice with more detail
+    KellyPopupPage.updateNotice("Сбор изображений... (" + tabs.length + " вкладок) — подождите");
     
-    // Show progress notice
-    KellyPopupPage.updateNotice("Сбор изображений... (" + tabs.length + " вкладок)");
+    var total = 0, imagesNum = 0, successTabs = 0, failedTabs = [];
+    KellyPopupPage._packetFinalized = false;
     
     var finalizePacket = function() {
-        // Check if we already finalized (prevent double call from timer + response race)
         if (KellyPopupPage._packetFinalized) return;
         KellyPopupPage._packetFinalized = true;
         
-        KellyTools.log('recordTabList finalizePacket imagesNum=' + imagesNum + ' total=' + total, 'KellyPopupPage');
+        KellyTools.log('recordTabList finalizePacket imagesNum=' + imagesNum + ' total=' + total + ' success=' + successTabs + ' failed=' + failedTabs.join(','), 'KellyPopupPage');
+        if (failedTabs.length > 0) {
+            console.log('[KellyPopupPage][PACKET] Failed tabIds:', failedTabs);
+        }
         
-        // Notify background to stop record and get final count
         KellyPopupPage.sendRuntimeMessage({method: "stopRecord"}, function(recorderResponse) {
             KellyTools.log('stopRecord after packet [Notify background - ' + (recorderResponse ? 'OK ' + recorderResponse.imagesNum : 'FAIL') + ']', 'KellyPopupPage');
             
-            // Fallback to collected imagesNum if background gives no response
             var finalNum = recorderResponse && typeof recorderResponse.imagesNum !== 'undefined' ? recorderResponse.imagesNum : imagesNum;
             
             KellyPopupPage.recordingState = 'disabled';
@@ -206,19 +206,17 @@ KellyPopupPage.recordTabList = function(tabs, onReady) {
             KellyPopupPage.updateRecordButton();
             
             if (finalNum <= 0) {
-                KellyPopupPage.updateNotice("На текущих вкладках нет изображений");
+                KellyPopupPage.updateNotice("На текущих вкладках нет изображений" + (failedTabs.length ? " (не удалось опросить " + failedTabs.length + " вкладок — попробуйте ещё раз)" : ""));
             } else {
-                // successfully collected
-                KellyPopupPage.updateNotice(KellyLoc.s('Found', 'download_recorded_images') + ': ' + finalNum);
+                var msg = KellyLoc.s('Found', 'download_recorded_images') + ': ' + finalNum;
+                if (failedTabs.length) msg += ' (неполный результат, ' + failedTabs.length + ' вкладок не ответили)';
+                KellyPopupPage.updateNotice(msg);
             }
             
             if (onReady) onReady();
-            
-            // Cleanup packet flag for next run
             KellyPopupPage._packetFinalized = false;
         });
         
-        // Also send stopTabRecord to packet tabs to clean up any observers (best effort, no need to wait)
         for (var i = 0; i < tabs.length; i++) {
             (function(tabId){
                 KellyPopupPage.sendTabMessage(tabId, {method: "stopTabRecord"}, function(resp){
@@ -228,39 +226,217 @@ KellyPopupPage.recordTabList = function(tabs, onReady) {
         }
     };
     
+    // Fallback via chrome.scripting.executeScript for tabs where content script is not injected
+    var collectViaScripting = function(tab, callback) {
+        var browser = KellyTools.getBrowser();
+        if (!browser.scripting || !browser.scripting.executeScript) {
+            KellyTools.log('scripting API not available for tab ' + tab.id, 'KellyPopupPage');
+            callback(false);
+            return;
+        }
+        try {
+            browser.scripting.executeScript({
+                target: {tabId: tab.id},
+                func: function() {
+                    // Fallback extractor — runs in page context (isolated world has access to DOM)
+                    try {
+                        var srcs = [];
+                        var seen = {};
+                        var push = function(url, relatedDoc) {
+                            if (!url || typeof url !== 'string') return;
+                            url = url.trim();
+                            if (!url) return;
+                            if (url.indexOf('data:') === 0 && url.length > 5000) return; // skip huge data urls
+                            if (url.indexOf('http') !== 0 && url.indexOf('blob:') !== 0 && url.indexOf('data:') !== 0) {
+                                // try to resolve relative
+                                try { url = new URL(url, location.href).href; } catch(e){}
+                            }
+                            if (url.indexOf('http') !== 0 && url.indexOf('blob:') !== 0 && url.indexOf('data:') !== 0) return;
+                            if (seen[url]) return;
+                            seen[url] = true;
+                            srcs.push({src: url, doc: relatedDoc||false});
+                        };
+                        // 1) <img> and <source>
+                        document.querySelectorAll('img, image, source').forEach(function(el){
+                            if (el.src) push(el.src, null);
+                            if (el.currentSrc && el.currentSrc !== el.src) push(el.currentSrc, null);
+                            // srcset
+                            if (el.srcset) {
+                                el.srcset.split(',').forEach(function(s){
+                                    var part = s.trim().split(' ')[0];
+                                    if (part) push(part, null);
+                                });
+                            }
+                            // data-* attributes that look like URLs
+                            for (var i=0;i<el.attributes.length;i++){
+                                var a = el.attributes[i];
+                                if (['src','srcset','style','class','id'].indexOf(a.name)!==-1) continue;
+                                var v = a.value.trim();
+                                if (v.indexOf('http')===0 && v.indexOf(' ') === -1 && v.length < 2000) push(v, null);
+                            }
+                            // parent <a> href as relatedDoc
+                            var link = el.closest ? el.closest('a') : null;
+                            var doc = link && link.href && link.href.indexOf('http')===0 ? link.href : null;
+                            // if we found srcs, attach doc to last pushed? For fallback we just ignore doc and push separately
+                            // Instead, store with doc
+                            // For simplicity, push doc as relatedSrc if needed
+                        });
+                        // Also collect background images
+                        document.querySelectorAll('*').forEach(function(el){
+                            var bg = window.getComputedStyle(el).backgroundImage;
+                            if (bg && bg !== 'none' && bg.indexOf('url(') !== -1) {
+                                var m = bg.match(/url\(["']?(.*?)["']?\)/);
+                                if (m && m[1]) push(m[1], null);
+                            }
+                            // style attribute url()
+                            var style = el.getAttribute && el.getAttribute('style');
+                            if (style && style.indexOf('url(')!==-1){
+                                var m2 = style.match(/url\(["']?(.*?)["']?\)/);
+                                if (m2 && m2[1]) push(m2[1], null);
+                            }
+                        });
+                        // Also if page is direct image (document.contentType starts with image)
+                        if (document.contentType && document.contentType.indexOf('image')===0) {
+                            push(location.href, null);
+                        } else {
+                            // check if body contains single img that is the image
+                            if (document.images.length === 1 && document.images[0].src) {
+                                // already captured
+                            }
+                        }
+                        // Dedupe and return simple list
+                        var uniq = [];
+                        var uniqMap = {};
+                        srcs.forEach(function(o){
+                            if (!uniqMap[o.src]) { uniqMap[o.src]=true; uniq.push(o.src); }
+                        });
+                        // Return in watchdog-like format: need at least one relatedSrc per item
+                        // For fallback, we create one item per src (simpler for addRecord deduplication)
+                        return uniq;
+                    } catch(e) {
+                        return {error: e.message};
+                    }
+                }
+            }, function(results){
+                var err = browser.runtime.lastError;
+                if (err) {
+                    KellyTools.log('scripting fallback lastError tab ' + tab.id + ': ' + err.message, 'KellyPopupPage');
+                    callback(false);
+                    return;
+                }
+                if (!results || !results[0]) {
+                    KellyTools.log('scripting fallback no results tab ' + tab.id, 'KellyPopupPage');
+                    callback(false);
+                    return;
+                }
+                var res = results[0].result;
+                if (!res || res.error) {
+                    KellyTools.log('scripting fallback error tab ' + tab.id + ': ' + (res?res.error:'no result'), 'KellyPopupPage');
+                    callback(false);
+                    return;
+                }
+                if (!Array.isArray(res) || res.length===0) {
+                    KellyTools.log('scripting fallback tab ' + tab.id + ' found 0 images', 'KellyPopupPage');
+                    callback({isRecorded:true, imagesNum:0});
+                    return;
+                }
+                KellyTools.log('scripting fallback tab ' + tab.id + ' found ' + res.length + ' srcs via scripting', 'KellyPopupPage');
+                // Convert to addRecord format and send to background directly from popup context
+                var images = res.map(function(src){
+                    return {relatedDoc:false, relatedSrc:[src], referrer: new URL(tab.url).origin};
+                });
+                // Need host for background
+                var host = (function(u){try{return new URL(u).origin;}catch(e){return tab.url;}})(tab.url);
+                KellyPopupPage.sendRuntimeMessage({
+                    method: "addRecord",
+                    images: images,
+                    cats: {},
+                    url: tab.url,
+                    host: host,
+                    allowDuplicates: false
+                }, function(bgResp){
+                    var num = bgResp && bgResp.imagesNum ? bgResp.imagesNum : 0;
+                    // bgResp.imagesNum is total after add, not per-tab delta. We need per-tab delta.
+                    // To compute delta, we can compare before/after? Simpler: report res.length as imagesNum
+                    // but for final total we rely on stopRecord's finalNum, so per-tab delta not critical for final, but for intermediate.
+                    // We will report res.length as delta for logging, but finalNum will be from background.
+                    KellyTools.log('scripting addRecord tab ' + tab.id + ' bg total ' + num + ' delta ' + res.length, 'KellyPopupPage');
+                    callback({isRecorded:true, imagesNum: res.length});
+                });
+            });
+        } catch(e) {
+            KellyTools.log('scripting fallback exception tab ' + tab.id + ': ' + e, 'KellyPopupPage');
+            callback(false);
+        }
+    };
+    
+    var attemptTab = function(tab, attempt) {
+        attempt = attempt || 1;
+        var tabId = tab.id;
+        var timer = setTimeout(function(){
+            KellyTools.log('TabRecordPacketMode TIMEOUT tab ' + tabId + ' attempt ' + attempt, 'KellyPopupPage');
+            if (attempt < 2) {
+                KellyTools.log('Retrying tab ' + tabId + ' attempt ' + (attempt+1), 'KellyPopupPage');
+                attemptTab(tab, attempt+1);
+            } else {
+                // Try scripting fallback before giving up
+                KellyTools.log('TIMEOUT: trying scripting fallback for tab ' + tabId, 'KellyPopupPage');
+                collectViaScripting(tab, function(fbResp){
+                    if (fbResp && fbResp.isRecorded) {
+                        onTabReady(fbResp, tabId, 'OK via scripting fallback');
+                    } else {
+                        onTabReady(false, tabId, 'FAIL BY TIMER+fallback');
+                        failedTabs.push(tabId);
+                    }
+                });
+            }
+        }, 5000);
+        
+        KellyPopupPage.sendTabMessage(tabId, {method: "startTabRecordPacketMode"}, function(response){
+            clearTimeout(timer);
+            if (!response || !response.isRecorded) {
+                KellyTools.log('Tab ' + tabId + ' startTabRecordPacketMode FAIL (no response) attempt ' + attempt, 'KellyPopupPage');
+                if (attempt < 2) {
+                    // small delay then retry
+                    setTimeout(function(){ attemptTab(tab, attempt+1); }, 300);
+                    return;
+                }
+                // try scripting fallback
+                collectViaScripting(tab, function(fbResp){
+                    if (fbResp && fbResp.isRecorded) {
+                        onTabReady(fbResp, tabId, 'OK via scripting after fail');
+                    } else {
+                        onTabReady(false, tabId, 'FAIL after retry+fallback');
+                        failedTabs.push(tabId);
+                    }
+                });
+                return;
+            }
+            // success
+            successTabs++;
+            onTabReady(response, tabId, 'OK attempt '+attempt);
+        });
+    };
+    
     var onTabReady = function(response, tabId, textDesc) {
-         
         if (KellyPopupPage._packetFinalized) return;
         total++;
-        
-        clearTimeout(tabData[tabId]);
-        
-        KellyTools.log('TabRecordPacketMode READY [TABID [' + tabId + '] recording module - ' + (response ? 'OK ' + (response.imagesNum||0) : 'FAIL') + (textDesc ? ' ' + textDesc : '') +']', 'KellyPopupPage');
+        KellyTools.log('TabRecordPacketMode READY [TABID [' + tabId + '] ' + (response ? 'OK ' + (response.imagesNum||0) : 'FAIL') + (textDesc ? ' ' + textDesc : '') +'] total ' + total + '/' + tabs.length, 'KellyPopupPage');
         if (!response || !response.isRecorded) {  
-            // tab init fail
+            // will be counted as failed already
         } else {
             imagesNum += response.imagesNum || 0;
         }
-            
         if (total >= tabs.length) {
             finalizePacket();
         }        
-    }
-    
-    var initFailTimer = function(tabId) {
-        
-        tabData[tabId] = setTimeout(function() {
-            KellyTools.log('TabRecordPacketMode TIMEOUT tab ' + tabId, 'KellyPopupPage');
-            onTabReady(false, tabId, 'FAIL BY TIMER');
-        }, 3000);
-    }
+    };
     
     KellyPopupPage.recordingState = 'enabled';
     KellyPopupPage._packetFinalized = false;
     KellyPopupPage.updateRecordButton();
         
     KellyPopupPage.sendRuntimeMessage({method: "startRecord"}, function(response) {
-        
         KellyTools.log('[PACKET MODE] startRecord [Notify background - ' + (response ? 'OK' : 'FAIL') + ']', 'KellyPopupPage');
         if (!response || !response.isRecorded) {            
             KellyPopupPage.recordingState = 'disabled';
@@ -269,12 +445,16 @@ KellyPopupPage.recordTabList = function(tabs, onReady) {
             KellyPopupPage.updateNotice("Ошибка инициализации записи");
             return;
         }
-        
-        for (var i = 0; i < tabs.length; i++) {
-            initFailTimer(tabs[i].id);
-            KellyPopupPage.sendTabMessage(tabs[i].id, {method: "startTabRecordPacketMode"}, onTabReady);
-        }
-        
+        // Process tabs sequentially with small delay to avoid overloading background and to handle throttling
+        var idx = 0;
+        var processNext = function(){
+            if (idx >= tabs.length) return;
+            var tab = tabs[idx++];
+            attemptTab(tab, 1);
+            // stagger next tab by 150ms to avoid thundering herd
+            if (idx < tabs.length) setTimeout(processNext, 150);
+        };
+        processNext();
     });
     
 }

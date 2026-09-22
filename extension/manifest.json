@@ -50,7 +50,7 @@
       "*://*/*"
    ],
    "manifest_version": 3,
-   "version": "1.2.9.6",
+   "version": "1.2.9.7",
    "name": "KellyC Image Downloader",
    "description": "__MSG_ext_description_recorder__",
    "icons": {
@@ -66,7 +66,8 @@
       "webRequest",
       "declarativeNetRequest",
       "tabs",
-      "unlimitedStorage"
+      "unlimitedStorage",
+      "scripting"
    ],
    "background": {
       "service_worker": "background.js"
