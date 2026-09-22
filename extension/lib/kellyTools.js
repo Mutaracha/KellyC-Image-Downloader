@@ -1093,19 +1093,36 @@ KellyTools.validateFolderPath = function(folder) {
     if (!folder) return '';
     folder = KellyTools.replaceAll(folder, '\\\\', '/');
     
-    // Normalize: split by '/', sanitize each segment, remove empty/relative parts
-    var parts = folder.split('/');
+    // Original slash normalization (keep compatible with existing templates)
+    var tmpFolder = '';
+    for (var i=0; i <= folder.length-1; ++i) {
+        if (i == 0 && folder[i] == '/') {
+             continue;
+        }
+        if (i == folder.length-1 && folder[i] == '/') {
+            continue;
+        }
+        if (folder[i] == '/' && tmpFolder[tmpFolder.length-1] == '/') {
+            continue;
+        }
+        if (folder[i] == '/' && tmpFolder.length == 0) continue;
+        tmpFolder += folder[i];
+    }
+    if (tmpFolder && tmpFolder[tmpFolder.length-1] == '/') {
+        tmpFolder = tmpFolder.slice(0, -1); 
+    }
+    if (!tmpFolder) return '';
+    // Minimal sanitization: only Windows forbidden chars and control chars, keep (), [], {}, etc.
+    // Split and sanitize each segment to avoid breaking folder structure
+    var parts = tmpFolder.split('/');
     var out = [];
     for (var i = 0; i < parts.length; i++) {
-        var seg = parts[i].trim();
+        var seg = parts[i];
+        // Replace only truly invalid for downloads API: <>:"|?* and control 0x00-0x1F
+        seg = seg.replace(/[<>:\"\|\?\*\x00-\x1F]/g, "_");
+        seg = seg.trim();
         if (!seg) continue;
         if (seg === '.' || seg === '..') continue;
-        // Chrome downloads: invalid chars on Windows are <>:"/\\|?* plus control chars 0-31
-        // Keep cyrillic, latin, digits, space, dot, dash, underscore; replace others with _
-        seg = seg.replace(/[^\u0400-\u04FFa-zA-Z0-9 ._-]/g, "_");
-        // Also replace colon and other windows forbiddens explicitly if missed
-        seg = seg.replace(/[<>:\"\|\?\*\x00-\x1F]/g, "_");
-        if (!seg) continue;
         if (seg.length > 120) seg = seg.substring(0, 120);
         out.push(seg);
     }

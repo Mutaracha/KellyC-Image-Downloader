@@ -1352,14 +1352,22 @@ function KellyFavStorageManager(cfg) {
                 skipDownloaded : false,
             };
         } else {
-            // Ensure baseFolder is valid – Chrome MV3 is strict about filename charset
-            if (!data.coptions.grabber.baseFolder || typeof data.coptions.grabber.baseFolder !== 'string') {
-                data.coptions.grabber.baseFolder = env.profile + '/' + 'Downloads';
+            // Empty string is valid -> Downloads root, do not force default
+            if (typeof data.coptions.grabber.baseFolder === 'undefined' || data.coptions.grabber.baseFolder === null || typeof data.coptions.grabber.baseFolder !== 'string') {
+                if (typeof data.coptions.grabber.baseFolder === 'string' && data.coptions.grabber.baseFolder.trim() === '') {
+                    KellyTools.log('[StorageManager] validateCfg grabber.baseFolder empty (root) – keeping', 'KellyStorageManager');
+                    data.coptions.grabber.baseFolder = '';
+                } else {
+                    data.coptions.grabber.baseFolder = env.profile + '/' + 'Downloads';
+                }
+            } else if (data.coptions.grabber.baseFolder.trim() === '') {
+                KellyTools.log('[StorageManager] validateCfg grabber.baseFolder empty (root) – keeping', 'KellyStorageManager');
+                data.coptions.grabber.baseFolder = '';
             } else {
                 var validated = KellyTools.validateFolderPath(data.coptions.grabber.baseFolder);
                 if (!validated) {
-                    handler.log('validateCfg: grabber.baseFolder invalid "' + data.coptions.grabber.baseFolder + '", fallback to ' + env.profile + '/Downloads', 'KellyStorageManager');
-                    validated = env.profile + '/' + 'Downloads';
+                    handler.log('validateCfg: grabber.baseFolder sanitized to empty (was "' + data.coptions.grabber.baseFolder + '") – keeping as root', 'KellyStorageManager');
+                    validated = '';
                 } else if (validated !== data.coptions.grabber.baseFolder) {
                     handler.log('validateCfg: grabber.baseFolder sanitized "' + data.coptions.grabber.baseFolder + '" -> "' + validated + '"', 'KellyStorageManager');
                 }

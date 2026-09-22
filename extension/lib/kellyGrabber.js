@@ -339,11 +339,12 @@ function KellyGrabber(cfg) {
             hide : lng.s('Скрыть расширенные настройки', 'grabber_hide_extended'),
         };
        
-        if (!options.baseFolder) {
+        if (typeof options.baseFolder === 'undefined' || options.baseFolder === null) {
             var fb = fav.getGlobal('env').profile + '/Downloads';
-            KellyTools.log('[Grabber] showGrabManager baseFolder empty, init to ' + fb, 'KellyGrabber');
+            KellyTools.log('[Grabber] showGrabManager baseFolder undefined/null, init to ' + fb, 'KellyGrabber');
             handler.setBaseFolder(fb);
         }
+        // empty string is valid -> means Downloads root, do not override
         KellyTools.log('[Grabber] showGrabManager options.baseFolder="' + options.baseFolder + '"', 'KellyGrabber');
         
         var htmlAnimSelect = '';
@@ -1577,19 +1578,23 @@ function KellyGrabber(cfg) {
     
     this.setBaseFolder = function(folder) {
     
+        // Empty string means save to Downloads root (user request)
+        if (typeof folder === 'string' && folder.trim() === '') {
+            options.baseFolder = '';
+            KellyTools.log('[Grabber] setBaseFolder empty -> root (options.baseFolder="")', 'KellyGrabber');
+            return options.baseFolder;
+        }
         var raw = folder;
         var tmpFolder = KellyTools.validateFolderPath(folder);
         if (tmpFolder) {
             options.baseFolder = tmpFolder;
         } else {
-            
+            // If validate returns empty but raw was not empty string, it was all invalid chars -> keep as empty (root)
+            // Caller can decide; we keep empty to mean root, but log
             options.baseFolder = '';
-            
+            KellyTools.log('[Grabber] setBaseFolder raw:"' + raw + '" -> validated empty -> root', 'KellyGrabber');
         }
         KellyTools.log('[Grabber] setBaseFolder raw:"' + raw + '" -> validated:"' + tmpFolder + '" -> options.baseFolder:"' + options.baseFolder + '"', 'KellyGrabber');
-        if (!options.baseFolder) {
-            console.warn('[KellyGrabber] setBaseFolder resulted in empty folder, raw was:', raw);
-        }
         return options.baseFolder;
     }
     
@@ -1910,18 +1915,17 @@ function KellyGrabber(cfg) {
         }
         
         // Validate final filename before sending to background – must be relative, sanitize if needed
+        // Keep empty baseFolder case: download.filename already includes baseFileFolder prefix, validate whole path minimally
         if (download.filename) {
             var validated = KellyTools.validateFolderPath(download.filename);
             if (validated !== download.filename) {
                 KellyTools.log('[Grabber] downloadUrl filename sanitized "' + download.filename + '" -> "' + validated + '"', 'KellyGrabber');
                 console.warn('[KellyGrabber] filename sanitized', download.filename, '->', validated);
-                // keep folder structure but sanitize; validateFolderPath strips leading slash etc, re-append extension later handled
                 download.filename = validated;
             }
-            // Ensure not empty after sanitize
             if (!download.filename) {
-                KellyTools.log('[Grabber] downloadUrl filename became empty after sanitize, fallback to default', 'KellyGrabber', KellyTools.E_ERROR);
-                download.filename = 'recorder/Downloads/file_' + Date.now();
+                KellyTools.log('[Grabber] downloadUrl filename became empty after sanitize, fallback to file_' + Date.now(), 'KellyGrabber', KellyTools.E_ERROR);
+                download.filename = 'file_' + Date.now();
             }
         }
         KellyTools.log('[Grabber] downloadUrl SEND filename="' + download.filename + (downloadOptions.ext ? '.'+downloadOptions.ext : '') + '" conflict=' + download.conflictAction + ' urlType=' + (typeof download.url), 'KellyGrabber');
@@ -2192,26 +2196,19 @@ function KellyGrabber(cfg) {
         }
            
         var baseFileFolder = options.baseFolder;
-        // Fallback to profile/Downloads if empty – ensures not saving to root unexpectedly
-        if (!baseFileFolder) {
-            try {
-                var fallback = fav && fav.getGlobal && fav.getGlobal('env') && fav.getGlobal('env').profile ? fav.getGlobal('env').profile + '/Downloads' : 'recorder/Downloads';
-                KellyTools.log('[Grabber] baseFolder empty at downloadItemStart, fallback to ' + fallback + ' for id ' + download.id, 'KellyGrabber');
-                console.warn('[KellyGrabber] baseFolder was empty, using fallback', fallback, 'options:', JSON.stringify(options));
-                baseFileFolder = fallback;
-                // also persist fallback for future
-                options.baseFolder = fallback;
-            } catch(e) {
-                baseFileFolder = 'recorder/Downloads';
-            }
+        // Empty string means Downloads root (user cleared field) -> keep empty, no fallback
+        if (typeof baseFileFolder === 'undefined' || baseFileFolder === null) {
+            baseFileFolder = '';
         }
-        
-        // Validate baseFileFolder again (in case it was manually set and contains invalid chars)
-        baseFileFolder = KellyTools.validateFolderPath(baseFileFolder);
-        if (!baseFileFolder) {
-            KellyTools.log('[Grabber] baseFileFolder validate empty after fallback, using recorder/Downloads', 'KellyGrabber', KellyTools.E_ERROR);
-            baseFileFolder = 'recorder/Downloads';
-            options.baseFolder = baseFileFolder;
+        // Only validate if not empty; empty stays empty (root)
+        if (baseFileFolder) {
+            var validatedBase = KellyTools.validateFolderPath(baseFileFolder);
+            if (validatedBase !== baseFileFolder) {
+                KellyTools.log('[Grabber] baseFileFolder sanitized "' + baseFileFolder + '" -> "' + validatedBase + '"', 'KellyGrabber');
+                baseFileFolder = validatedBase;
+                // keep options in sync if it was sanitized
+                if (baseFileFolder) options.baseFolder = baseFileFolder;
+            }
         }
         
         if (baseFileFolder) {
