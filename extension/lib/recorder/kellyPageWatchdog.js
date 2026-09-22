@@ -350,7 +350,7 @@ function KellyPageWatchdog(cfg)
     this.addSrcFromAttributes = function(el, item, excludeAttributes) {
         
        if (!el.hasAttributes()) return;      
-       
+      
        excludeAttributes = excludeAttributes ? excludeAttributes : ['name', 'class', 'style', 'id', 'type', 'alt', 'title', 'data-md5'];
 
        for (var i = el.attributes.length - 1; i >= 0; i--) {
@@ -521,6 +521,39 @@ function KellyPageWatchdog(cfg)
             notice.style.display = 'none';
         }
     }
+    
+    // Helper for robust runtime messaging in content script (handles MV3 promise vs callback)
+    function sendRuntimeMessageRobust(data, callback) {
+        var browser = KellyTools.getBrowser();
+        try {
+            var called = false;
+            var once = function(resp) {
+                if (called) return;
+                called = true;
+                if (callback) callback(resp);
+            };
+            var maybePromise = browser.runtime.sendMessage(data, function(response) {
+                var err = browser.runtime.lastError;
+                if (err) {
+                    handler.log('sendMessage lastError: ' + err.message + ' method:' + data.method);
+                    once(false);
+                    return;
+                }
+                once(response ? response : false);
+            });
+            if (maybePromise && typeof maybePromise.then === 'function') {
+                maybePromise.then(function(resp){
+                    once(resp ? resp : false);
+                }).catch(function(e){
+                    handler.log('sendMessage promise rejected: ' + e + ' method:' + data.method);
+                    once(false);
+                });
+            }
+        } catch(e) {
+            handler.log('sendMessage exception: ' + e + ' method:' + data.method);
+            if (callback) callback(false);
+        }
+    }
         
     function getApiMessage(request, sender, callback) {
 
@@ -563,7 +596,7 @@ function KellyPageWatchdog(cfg)
             
             response.isRecorded = true;
             
-            if (callback) callback(response); 			
+            if (callback) callback(response); 				
             
         } else if (request.method == "startTabRecordPacketMode") {       
             
@@ -573,7 +606,8 @@ function KellyPageWatchdog(cfg)
             
             handler.parseImages(); 
             
-            KellyTools.getBrowser().runtime.sendMessage({
+            // Use robust helper to handle MV3 service worker wake-up and promise mode
+            sendRuntimeMessageRobust({
                 method: "addRecord", 
                 images : handler.imagesPool,
                 cats : handler.additionCats, 
@@ -583,10 +617,12 @@ function KellyPageWatchdog(cfg)
             }, function(bgResponse) {
             
                 response.isRecorded = true;
-                response.imagesNum = bgResponse ? bgResponse.imagesNum : 0;
+                response.imagesNum = bgResponse && bgResponse.imagesNum ? bgResponse.imagesNum : handler.imagesPool.length;
+                
+                handler.log('[startTabRecordPacketMode] addRecord response imagesNum: ' + response.imagesNum + ' pool was ' + handler.imagesPool.length);
                 
                 if (callback) {
-                    callback(response); 
+                    try { callback(response); } catch(e) { handler.log('callback exception: ' + e); }
                 }
             });   
             
@@ -596,31 +632,52 @@ function KellyPageWatchdog(cfg)
             
         } else if (request.method == "stopTabRecord") {
             
-            if (handler.observer) handler.observer.disconnect();
-            if (handler.recorder) handler.recorder.parentElement.removeChild(handler.recorder);
+            if (handler.observer) {
+                try { handler.observer.disconnect(); } catch(e){}
+            }
+            if (handler.recorder && handler.recorder.parentElement) {
+                try { handler.recorder.parentElement.removeChild(handler.recorder); } catch(e){}
+            }
             
             handler.observer = false;
             handler.recorder = false;
             
+            // Also clear any pending img observers
+            if (handler.imgList) {
+                for (var i = 0; i < handler.imgList.length; i++) {
+                    try { handler.imgList[i][1].disconnect(); } catch(e){}
+                }
+                handler.imgList = [];
+            }
+            
             response.isStopped = true;
             handler.filterCallback('onStopRecord');
             
-            if (callback) callback(response); 
+            if (callback) {
+                try { callback(response); } catch(e) { handler.log('stopTabRecord callback exception: ' + e); }
+            }
+            return false;
         }
+        // For sync responses, return false; for async we already returned true above.
+        // To be safe for MV3 promise mode, return true if we used callback async? Already handled.
     }
     
     function showRecorder(imagesNum) {
         
         if (handler.recorder) {
             
-            document.getElementById(handler.recorder.id + '-num').innerText = imagesNum;
+            var el = document.getElementById(handler.recorder.id + '-num');
+            if (el) el.innerText = imagesNum;
             
         } else {
             
             if (handler.observer === false) return;
             
-            KellyTools.getBrowser().runtime.sendMessage({method: "getResources", items : ['recorder']}, function(request) {
-                if (!request || !request.data.loadedData) return false; 
+            sendRuntimeMessageRobust({method: "getResources", items : ['recorder']}, function(request) {
+                if (!request || !request.data || !request.data.loadedData) {
+                    handler.log('getResources failed for recorder css', 'KellyPageWatchdog');
+                    return; 
+                }
                 
                 handler.recorder = document.createElement('div');
                 handler.recorder.id = KellyTools.generateUniqId('kelly-recorder');
@@ -647,7 +704,7 @@ function KellyPageWatchdog(cfg)
         setTimeout(function(){            
             updateAF = true;
             
-            KellyTools.getBrowser().runtime.sendMessage({
+            sendRuntimeMessageRobust({
                 method: "addRecord", 
                 images : handler.imagesPool,
                 cats : handler.additionCats, 
@@ -655,8 +712,8 @@ function KellyPageWatchdog(cfg)
                 allowDuplicates : handler.allowDuplicates,
                 host : handler.host,
             }, function(response) {
-
-                showRecorder(response.imagesNum);
+                var num = response && response.imagesNum ? response.imagesNum : 0;
+                showRecorder(num);
             });   
             
             handler.imagesPool = [];
@@ -679,6 +736,7 @@ function KellyPageWatchdog(cfg)
         }
 
         for (var i = 0; i < list.length; i++) {
+            if (!handler.imgList) handler.imgList = [];
             handler.imgList.push([list[i], new MutationObserver(onChange)]);
             handler.imgList[handler.imgList.length-1][1].observe(list[i], {attributes: true});
         }
@@ -706,7 +764,7 @@ function KellyPageWatchdog(cfg)
                                 mutations[i].addedNodes[b].nodeType == Node.ELEMENT_NODE) {
                                     
                                     delayAddImages(mutations[i].addedNodes[b]);
-                                    addImgAttrObservers(mutations[i].addedNodes[b].tagName == 'IMG' ? mutations[i].addedNodes[b] : mutations[i].addedNodes[b].getElementsByTagName('IMG'));
+                                    addImgAttrObservers(mutations[i].addedNodes[b].tagName == 'IMG' ? [mutations[i].addedNodes[b]] : mutations[i].addedNodes[b].getElementsByTagName('IMG'));
                             }                            
                         }
                         
@@ -771,11 +829,15 @@ function KellyPageWatchdog(cfg)
         
         for (var i = 0; i < KellyPageWatchdog.filters.length; i++) {
             if (!blocking) {
-                if (KellyPageWatchdog.filters[i][name]) KellyPageWatchdog.filters[i][name](handler, data);
+                if (KellyPageWatchdog.filters[i][name]) {
+                    try { KellyPageWatchdog.filters[i][name](handler, data); } catch(e){ handler.log('filterCallback '+name+' error: '+e); }
+                }
             } else {
                 if (KellyPageWatchdog.filters[i][name]) {
-                    var result = KellyPageWatchdog.filters[i][name](handler, data);
-                    if (typeof result != 'undefined') return result;
+                    try {
+                        var result = KellyPageWatchdog.filters[i][name](handler, data);
+                        if (typeof result != 'undefined') return result;
+                    } catch(e){ handler.log('filterCallback blocking '+name+' error: '+e); }
                 }
             }
         }
@@ -795,7 +857,7 @@ function KellyPageWatchdog(cfg)
                 
         var sm = new KellyFavStorageManager();
             sm.prefix += 'recorder_';      
-            sm.prefixCfg += 'recorder_';
+            sm.prefixCfg += 'recorder_';  
             sm.loadDB('config', function(fav) { 
                 
                 console.log(fav);
@@ -812,15 +874,16 @@ function KellyPageWatchdog(cfg)
         if (window.location !== window.parent.location) return;
             
         KellyTools.getBrowser().runtime.onMessage.addListener(getApiMessage);    
-        KellyTools.getBrowser().runtime.sendMessage({method: "isRecorded"}, function(response) {
+        sendRuntimeMessageRobust({method: "isRecorded"}, function(response) {
             
-            if (response.isRecorded) {
+            if (response && response.isRecorded) {
                 
                 handler.filterCallback('onStartRecord', 'isRecorded');
-                imagesNum = response.imagesNum;
-                
+                // Note: imagesNum from background may be outdated if service worker was restarted, but we sync
                 delayAddImages();  
                 initObserver();
+                // Optionally show recorder with known count
+                if (response.imagesNum) showRecorder(response.imagesNum);
             }
         });
     }

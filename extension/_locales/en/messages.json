@@ -1,1163 +1,1169 @@
-{  
-    "add_selected_cats":{  
-        "message":"Add selected categories"
+{
+    "add_selected_cats": {
+        "message": "Add selected categories"
     },
-    "add_to_fav":{  
-        "message":"to favourite"
-    },    
-    "add_to_fav_tip":{  
-        "message":"Add to favourite"
-    },   
-    "add_to_fav_side":{  
-        "message":"Move \"Add to favourite\" button for publication to social networks block"
+    "add_to_fav": {
+        "message": "to favourite"
     },
-    "add_to_fav_comment":{  
-        "message":"to favourite"
-    },      
-    "add_to_fav_auto":{  
-        "message":"Add to favourite without click on \"Save\""
-    },  
-    "add_to_item":{  
-        "message":"Add to item"
+    "add_to_fav_tip": {
+        "message": "Add to favourite"
     },
-    "animate_gifs":{  
-        "message":"Animate GIFs"
+    "add_to_fav_side": {
+        "message": "Move \"Add to favourite\" button for publication to social networks block"
     },
-    "apply":{  
-        "message":"Apply"
+    "add_to_fav_comment": {
+        "message": "to favourite"
     },
-    "associations_tags":{  
-        "message":"Associations with tags"
-    },  
-    "additions":{  
-        "message":"Additions"
+    "add_to_fav_auto": {
+        "message": "Add to favourite without click on \"Save\""
     },
-    "additions_Donate":{  
-        "message":"About project"
+    "add_to_item": {
+        "message": "Add to item"
     },
-    "additions_modules":{  
-        "message":"Enabled site modules"
+    "animate_gifs": {
+        "message": "Animate GIFs"
     },
-    "additions_help":{  
-        "message":"Help"
+    "apply": {
+        "message": "Apply"
     },
-    "additions_about":{
-        "message":"Links and related documents"
+    "associations_tags": {
+        "message": "Associations with tags"
     },
-    "bottom_toolbar_header":{
-        "message":"Bottom toolbar"
+    "additions": {
+        "message": "Additions"
     },
-    "bottom_toolbar":{
-        "message":"Display bottom toolbar"
+    "additions_Donate": {
+        "message": "About project"
     },
-    "bottom_toolbar_tiny":{
-        "message":"Tiny mode"
+    "additions_modules": {
+        "message": "Enabled site modules"
     },
-    "close":{  
-        "message":"Close"
+    "additions_help": {
+        "message": "Help"
     },
-    "cancel":{  
-        "message":"Cancel"
+    "additions_about": {
+        "message": "Links and related documents"
     },
-    "create":{  
-        "message":"Create"
+    "bottom_toolbar_header": {
+        "message": "Bottom toolbar"
     },
-    "cat_add":{  
-        "message":"Add category"
+    "bottom_toolbar": {
+        "message": "Display bottom toolbar"
     },
-    "cat_add_success":{  
-        "message":"Category added"
+    "bottom_toolbar_tiny": {
+        "message": "Tiny mode"
     },
-    "cat_exclude":{  
-        "message":"Exclude __CATEGORYNAME__"
+    "close": {
+        "message": "Close"
     },
-    "cat_create":{  
-        "message":"Create category"
+    "cancel": {
+        "message": "Cancel"
     },
-    "cat_order":{  
-        "message":"Order"
+    "create": {
+        "message": "Create"
     },
-    "cat_error_name":{  
-        "message":"Please enter category name"
+    "cat_add": {
+        "message": "Add category"
     },
-    "cat_error_name_exist":{  
-        "message":"Category with that name already exist"
+    "cat_add_success": {
+        "message": "Category added"
     },
-    "cat_name":{  
-        "message":"Category name"
-    },  
-    "cat_tpl_name":{  
-        "message":"Use in name template"
+    "cat_exclude": {
+        "message": "Exclude __CATEGORYNAME__"
     },
-    "cat_new_cat_name":{  
-        "message":"New category name"
+    "cat_create": {
+        "message": "Create category"
     },
-    "cat_select":{  
-        "message":"Select category"
+    "cat_order": {
+        "message": "Order"
     },
-    "cats":{  
-        "message":"Categories"
+    "cat_error_name": {
+        "message": "Please enter category name"
     },
-    "cats_filter":{  
-        "message":"Mode for include \\ exclude categories from filtered data"
-    },
-    "collapse":{  
-        "message":"Collapse"
-    },
-    "cgrid_default_rowst":{  
-        "message":"Default row style"
-    },
-    "cgrid_fixed":{  
-        "message":"Fixed amount of elements per row"
-    },
-    "cgrid_max_diff":{  
-        "message":"Max row height difference"
-    },
-    "cgrid_max_row_height":{  
-        "message":"Max row height"
-    },
-    "cgrid_min_number":{  
-        "message":"Min items number"
-    },
-    "cgrid_new_to_begin":{  
-        "message":"New to beginning"
-    },
-    "cgrid_per_page":{  
-        "message":"Items per page"
-    },
-    "cgrid_tiles_header":{  
-        "message":"Image grid options"
-    },
-    "cgrid_type":{  
-        "message":"Grid show mode"
-    },
-    "cgrid_type_dynamic":{  
-        "message":"Dynamic number of elements per row"
-    },
-    "cgrid_autoscroll":{  
-        "message":"Autoscroll to top"
-    },   
-    "cgrid_autoscroll_input":{  
-        "message":"Items row"
-    },  
-    "cgrid_autoscroll_notice":{  
-        "message":"If page scrolled under \"Items row\" then auto scroll to top on next page"
-    },
-    "cgrid_type_fixed":{  
-        "message":"Fixed number of elements per row"
-    },
-    "cgrid_imageview":{  
-        "message":"Image view mode"
-    },
-    "cgrid_imageview_hd":{  
-        "message":"Open original image (HD)"
-    },
-    "cgrid_imageview_preview":{  
-        "message":"Open preview image"
-    },      
-    "cgrid_lazy":{  
-        "message":"Load images only when they in visible area of screen"
-    }, 
-    "change":{  
-        "message":"Change"
-    },
-    "comments":{  
-        "message":"Comments"
-    },  
-    "comment":{  
-        "message":"Comment"
-    },
-    "cache_wh":{  
-        "message":"Catched proportions"
-    },
-    "dark_theme":{  
-        "message":"Dark theme"
-    }, 
-    "debug":{  
-        "message":"Debug mode"
-    },    
-    "delete":{  
-        "message":"Delete"
-    },
-    "delete_all_items":{  
-        "message":"Delete all items and publication"
-    },
-    "delete_confirm":{  
-        "message":"Confirm remove item"
-    },
-    "delete_rcat_items":{  
-        "message":"Delete all publications in category"
-    },
-    "download":{  
-        "message":"Download"
-    },  
-    "download_current_tab":{  
-        "message":"Images from Tab"
-    },   
-    "download_record":{  
-        "message":"Record"
-    },
-    "download_recorded":{  
-        "message":"Download record"
-    },
-    "download_record_stop":{  
-        "message":"Stop record"
-    }, 
-    "download_recorded_images":{  
-        "message":"Found"
-    },  
-    "download_recorded_empty":{  
-        "message":"No records"
-    },  
-    "download_empty_p":{  
-        "message":"empty profile"
-    }, 
-    "download_hd":{  
-        "message":"Download hd"
-    },   
-    "download_preview":{  
-        "message":"Download preview"
-    },
-    "download_log":{  
-        "message":"Log"
-    },
-    "download_manager":{  
-        "message":"Download manager"
-    },
-    "download_pages_left":{  
-        "message":"Pages left : __PAGESN__"
-    },
-    "download_skip_empty":{  
-        "message":"Skip publication without media data"
-    },
-    "download_start":{  
-        "message":"Run import"
-    },
-    "download_form_open":{  
-        "message":"Create data profile"
-    },
-    "download_tag_filter_1":{  
-        "message":"Select tags, post that includes that tags will be saved. For example \"art, girl\". If you want to exclude some publications with specified tags, then type tags with symbol \"-\" before tag name. For example \"-carrot, -dog, -minecraft\""
-    },
-    "download_tag_filter_show":{  
-        "message":"Apply tag filter"
-    },    
-    "download_tag_filter_empty":{  
-        "message":"If tag filter list empty, all publications will be included"
-    },
-    "download_tag_filter":{  
-        "message":"Tag filter"
-    },
-    "download_createc_1":{  
-        "message":"If publication contain one of the described tags, category will be automatically added"
-    },
-    "download_createc_by_tag":{  
-        "message":"Automaticly create category by tag name"
-    },
-    "download_started_cancel":{  
-        "message":"Downloading...(Cancel)"
-    },        
-    "downloader_not_supported" : {
+    "cat_error_name_exist": {
+        "message": "Category with that name already exist"
+    },
+    "cat_name": {
+        "message": "Category name"
+    },
+    "cat_tpl_name": {
+        "message": "Use in name template"
+    },
+    "cat_new_cat_name": {
+        "message": "New category name"
+    },
+    "cat_select": {
+        "message": "Select category"
+    },
+    "cats": {
+        "message": "Categories"
+    },
+    "cats_filter": {
+        "message": "Mode for include \\ exclude categories from filtered data"
+    },
+    "collapse": {
+        "message": "Collapse"
+    },
+    "cgrid_default_rowst": {
+        "message": "Default row style"
+    },
+    "cgrid_fixed": {
+        "message": "Fixed amount of elements per row"
+    },
+    "cgrid_max_diff": {
+        "message": "Max row height difference"
+    },
+    "cgrid_max_row_height": {
+        "message": "Max row height"
+    },
+    "cgrid_min_number": {
+        "message": "Min items number"
+    },
+    "cgrid_new_to_begin": {
+        "message": "New to beginning"
+    },
+    "cgrid_per_page": {
+        "message": "Items per page"
+    },
+    "cgrid_tiles_header": {
+        "message": "Image grid options"
+    },
+    "cgrid_type": {
+        "message": "Grid show mode"
+    },
+    "cgrid_type_dynamic": {
+        "message": "Dynamic number of elements per row"
+    },
+    "cgrid_autoscroll": {
+        "message": "Autoscroll to top"
+    },
+    "cgrid_autoscroll_input": {
+        "message": "Items row"
+    },
+    "cgrid_autoscroll_notice": {
+        "message": "If page scrolled under \"Items row\" then auto scroll to top on next page"
+    },
+    "cgrid_type_fixed": {
+        "message": "Fixed number of elements per row"
+    },
+    "cgrid_imageview": {
+        "message": "Image view mode"
+    },
+    "cgrid_imageview_hd": {
+        "message": "Open original image (HD)"
+    },
+    "cgrid_imageview_preview": {
+        "message": "Open preview image"
+    },
+    "cgrid_lazy": {
+        "message": "Load images only when they in visible area of screen"
+    },
+    "change": {
+        "message": "Change"
+    },
+    "comments": {
+        "message": "Comments"
+    },
+    "comment": {
+        "message": "Comment"
+    },
+    "cache_wh": {
+        "message": "Catched proportions"
+    },
+    "dark_theme": {
+        "message": "Dark theme"
+    },
+    "debug": {
+        "message": "Debug mode"
+    },
+    "delete": {
+        "message": "Delete"
+    },
+    "delete_all_items": {
+        "message": "Delete all items and publication"
+    },
+    "delete_confirm": {
+        "message": "Confirm remove item"
+    },
+    "delete_rcat_items": {
+        "message": "Delete all publications in category"
+    },
+    "download": {
+        "message": "Download"
+    },
+    "download_current_tab": {
+        "message": "Images from Tab"
+    },
+    "download_record": {
+        "message": "Record"
+    },
+    "download_recorded": {
+        "message": "Download record"
+    },
+    "download_record_stop": {
+        "message": "Stop record"
+    },
+    "download_recorded_images": {
+        "message": "Found"
+    },
+    "download_recorded_empty": {
+        "message": "No records"
+    },
+    "download_empty_p": {
+        "message": "empty profile"
+    },
+    "download_hd": {
+        "message": "Download hd"
+    },
+    "download_preview": {
+        "message": "Download preview"
+    },
+    "download_log": {
+        "message": "Log"
+    },
+    "download_manager": {
+        "message": "Download manager"
+    },
+    "download_pages_left": {
+        "message": "Pages left : __PAGESN__"
+    },
+    "download_skip_empty": {
+        "message": "Skip publication without media data"
+    },
+    "download_start": {
+        "message": "Run import"
+    },
+    "download_form_open": {
+        "message": "Create data profile"
+    },
+    "download_tag_filter_1": {
+        "message": "Select tags, post that includes that tags will be saved. For example \"art, girl\". If you want to exclude some publications with specified tags, then type tags with symbol \"-\" before tag name. For example \"-carrot, -dog, -minecraft\""
+    },
+    "download_tag_filter_show": {
+        "message": "Apply tag filter"
+    },
+    "download_tag_filter_empty": {
+        "message": "If tag filter list empty, all publications will be included"
+    },
+    "download_tag_filter": {
+        "message": "Tag filter"
+    },
+    "download_createc_1": {
+        "message": "If publication contain one of the described tags, category will be automatically added"
+    },
+    "download_createc_by_tag": {
+        "message": "Automaticly create category by tag name"
+    },
+    "download_started_cancel": {
+        "message": "Downloading...(Cancel)"
+    },
+    "downloader_not_supported": {
         "message": "Download images throw extension is not supported in your browser. <br>You can download url list, or profile data instead."
     },
-    "downloader_not_supported_options" : {
+    "downloader_not_supported_options": {
         "message": "Download images on options page is unavailable. <br>Please visit original site that related with images list. Or you can download url list, or profile data instead."
     },
-    "download_save":{  
-        "message":"Save as profile file"
-    },           
-    "download_pages_autosave" : {
-        "message":"Save to separate file after set number of pages"
+    "download_save": {
+        "message": "Save as profile file"
     },
-    "download_limitpages":{  
-        "message":"Extension tested with only max. 1200 pages. Please enable <b>Save to separate file</b> feature<br> if you have some problems during parsing data"
-    },    
-    "download_partly":{  
-        "message":"Only part of data was loaded (see log for more info). You still can download loaded data as profile"
+    "download_pages_autosave": {
+        "message": "Save to separate file after set number of pages"
     },
-    "download_autosaved_partly":{  
-        "message":"Part of user bookmarks pages data saved to separate files"
-    },   
-    "download_autosaved_ok":{  
-        "message":"Pages saved automatically"
+    "download_limitpages": {
+        "message": "Extension tested with only max. 1200 pages. Please enable <b>Save to separate file</b> feature<br> if you have some problems during parsing data"
     },
-    "download_empty":{  
-        "message":"List of found publications is empty (see log for more info)"
-    },   
-    "edit":{
-        "message":"Edit"
+    "download_partly": {
+        "message": "Only part of data was loaded (see log for more info). You still can download loaded data as profile"
     },
-    "edit_mode":{  
-        "message":"Edit mode"
+    "download_autosaved_partly": {
+        "message": "Part of user bookmarks pages data saved to separate files"
     },
-    "ext_description":{  
-        "message":"Save favorite publications and comments to local browser storage. "
+    "download_autosaved_ok": {
+        "message": "Pages saved automatically"
     },
-    "ext_name":{  
-        "message":"KellyC Favorites"
-    },    
-    "ext_name_recorder":{  
-        "message":"KellyC Image Downloader"
+    "download_empty": {
+        "message": "List of found publications is empty (see log for more info)"
     },
-    "ext_description_recorder":{  
-        "message":"Extension for batch download images from Pinterest, Pixiv and other sites"
+    "edit": {
+        "message": "Edit"
     },
-    "expand":{  
-        "message":"Expand"
+    "edit_mode": {
+        "message": "Edit mode"
     },
-    "folder":{  
-        "message":"Folder"
-    },    
-    "fast_save_help":{  
-        "message":"Available variables<br><br>"
-    },    
-    "fast_save_help_1":{  
-        "message":"<b>#CURRENT_LOCATION#</b> - current site (ex. wh, at, wakfu etc.)<br>"
+    "ext_description": {
+        "message": "Save favorite publications and comments to local browser storage. "
     },
-    "fast_save_enabled":{  
-        "message":" [ICON] Display fast save button"
-    },  
-    "fast_save_configurable_enabled":{  
-        "message":" [ICON2] Display configurable fast save button"
-    }, 
-    "fix_proportions":{  
-        "message":"Update proportions"
-    },  
-    "fix_proportions_ok":{  
-        "message":"Proportions updated"
-    },     
-    "fast_download":{  
-        "message":"Fast save"
-    },    
-    "fast_save_uniq":{  
-        "message":"Uniquify name if file already exist"
-    },   
-    "fast_save_overwrite":{  
-        "message":"Overwrite file if file with same name already exist"
-    }, 
-    "fast_save_to":{  
-        "message":"Save to"
-    },    
-    "fast_save_to_placeholder":{  
-        "message":"folder/Fast"
+    "ext_name": {
+        "message": "KellyC Favorites"
     },
-    "fast_save_check":{  
-        "message":"Check file already downloaded"
-    }, 
-    "fast_save_check_notice":{  
-        "message":"If file already downloaded, then green marker will be added to download button"
+    "ext_name_recorder": {
+        "message": "KellyC Image Downloader"
     },
-    "go_to_comment":{  
-        "message":"Show comment"
+    "ext_description_recorder": {
+        "message": "Extension for batch download images from Pinterest, Pixiv and other sites"
     },
-    "go_to_publication":{  
-        "message":"Show publication"
+    "expand": {
+        "message": "Expand"
     },
-    "grabber_common_folder":{  
-        "message":"Base folder"
+    "folder": {
+        "message": "Folder"
     },
-    "grabber_continue":{  
-        "message":"Continue"
+    "fast_save_help": {
+        "message": "Available variables<br><br>"
     },
-    "grabber_selected_items":{  
-        "message":"Items"
-    },    
-    "grabber_start_from":{  
-        "message":"Continue from"
-    }, 
-    "grabber_start_from_input":{  
-        "message":"Continue from N element"
+    "fast_save_help_1": {
+        "message": "<b>#CURRENT_LOCATION#</b> - current site (ex. wh, at, wakfu etc.)<br>"
     },
-    "grabber_selected_items_not_found":{  
-        "message":"Cant select any items for download by \"Items\" field"
+    "fast_save_enabled": {
+        "message": " [ICON] Display fast save button"
     },
-    "grabber_source":{  
-        "message":"High quality"
+    "fast_save_configurable_enabled": {
+        "message": " [ICON2] Display configurable fast save button"
     },
-    "grabber_preview":{  
-        "message":"Preview"
+    "fix_proportions": {
+        "message": "Update proportions"
     },
-    "grabber_hide_extended":{  
-        "message":"Hide extended options"
-    },	
-    "grabber_show_extended":{  
-        "message":"Show extended options"
+    "fix_proportions_ok": {
+        "message": "Proportions updated"
     },
-    "grabber_name_template":{  
-        "message":"Name template"
+    "fast_download": {
+        "message": "Fast save"
     },
-    "grabber_threads_num":{  
-        "message":"Threads num"
-    },	
-    "grabber_interval":{  
-        "message":"Interval (sec.)"
-    },	
-    "grabber_start":{  
-        "message":"Start downloading"
-    },	
-    "grabber_stop":{  
-        "message":"Stop"
-    },	
-    "grabber_canceling":{  
-        "message":"Canceling..."
+    "fast_save_uniq": {
+        "message": "Uniquify name if file already exist"
     },
-    "grabber_timeout":{  
-        "message":"Long query timeout (sec.)"
-    },	
-    "grabber_exclude_lowres":{  
-        "message":"Exclude low resolution images"
+    "fast_save_overwrite": {
+        "message": "Overwrite file if file with same name already exist"
     },
-    "grabber_save_as_json":{  
-        "message":"Save as profile"
-    },	
-    "grabber_save_as_txt":{  
-        "message":"Save as url list"
+    "fast_save_to": {
+        "message": "Save to"
     },
-    "grabber_save_as":{  
-        "message":"Save as"
-    },	
-    "grabber_save_log":{  
-        "message":"Download log"
-    },	
-    "grabber_state_ready":{  
-        "message":"Download finished"
+    "fast_save_to_placeholder": {
+        "message": "folder/Fast"
     },
-    "grabber_state_loading":{  
-        "message":"Downloading..."
+    "fast_save_check": {
+        "message": "Check file already downloaded"
     },
-    "grabber_state_wait":{  
-        "message":"Waiting"
+    "fast_save_check_notice": {
+        "message": "If file already downloaded, then green marker will be added to download button"
     },
-    "grabber_state_inlist":{  
-        "message":"In list"
-    },	
-    "grabber_state_error":{  
-        "message":"Downloading error"
+    "go_to_comment": {
+        "message": "Show comment"
     },
-    "grabber_range":{  
-        "message":"Range"
+    "go_to_publication": {
+        "message": "Show publication"
     },
-    "grabber_range_from":{  
-        "message":"From"
+    "grabber_common_folder": {
+        "message": "Base folder"
     },
-    "grabber_range_to":{  
-        "message":"To"
-    }, 
-    "grabber_title_update":{  
-        "message":"Update window title"
-    },   
-    "grabber_keep_alive_timer":{  
-        "message":"Keep alive downloader if tab unfocused"
-    },      
-    "grabber_name_template_help":{  
-        "message":"Please select file name template, with include relative patch from base folder in browser <b>Downloads</b> folder<br><br>Allowed variables :<br>"
+    "grabber_continue": {
+        "message": "Continue"
     },
-    "grabber_name_template_help_1":{  
-        "message":"<b>#category_1#</b>, <b>#category_2#</b>, <b>#category_N#</b> - names of 1, 2 and N categorys of downloaded item (by priority) with \"Use in name template\" enabled option<br>"
+    "grabber_selected_items": {
+        "message": "Items"
     },
-    "grabber_name_template_help_2":{  
-        "message":"<b>#filename#</b> - original file name<br><b>#id#</b> - unique id in current selected local storage<br><b>#number#</b> - item number in current order<br>"
+    "grabber_start_from": {
+        "message": "Continue from"
     },
-    "grabber_name_template_help_3":{  
-        "message":"Usage <br>\"<i>#filename#</i>\" - download file with original name (ex. <b>Downloads</b>/dog.jpg)<br>"
+    "grabber_start_from_input": {
+        "message": "Continue from N element"
     },
-    "grabber_name_template_help_4":{  
-        "message":"\"<i>#category_1#/#filename#</i>\" - download file with original name and put it to subdirectory with name of first category (ex. <b>Downloads</b>/Dogs/dog.jpg)<br><br>"
-    },  
-    "grabber_options_title":{  
-        "message":"Downloads"
-    },    
-    "grabber_options_notice":{  
-        "message":"Different options for support browsers. Change only if something not work"
+    "grabber_selected_items_not_found": {
+        "message": "Cant select any items for download by \"Items\" field"
     },
-    "grabber_transport":{  
-        "message":"Way of how to transport data to background process"
+    "grabber_source": {
+        "message": "High quality"
     },
-    "grabber_transport_blob":{  
-        "message":"Blob URL"
-    },   
-    "grabber_transport_blobbase64":{  
-        "message":"Binary Data"
+    "grabber_preview": {
+        "message": "Preview"
     },
-    "grabber_flip_numbers":{  
-        "message":"Invert numeration"
+    "grabber_hide_extended": {
+        "message": "Hide extended options"
     },
-    "grabber_request":{  
-        "message":"Way of download data"
+    "grabber_show_extended": {
+        "message": "Show extended options"
     },
-    "grabber_request_xml":{  
-        "message":"XMLHttpRequest"
+    "grabber_name_template": {
+        "message": "Name template"
     },
-    "grabber_request_iframe":{  
-        "message":"Iframe"
-    },    
-    "grabber_request_fetch":{  
-        "message":"Fetch"
+    "grabber_threads_num": {
+        "message": "Threads num"
     },
-    "grabber_request_help":{  
+    "grabber_interval": {
+        "message": "Interval (sec.)"
+    },
+    "grabber_start": {
+        "message": "Start downloading"
+    },
+    "grabber_stop": {
+        "message": "Stop"
+    },
+    "grabber_canceling": {
+        "message": "Canceling..."
+    },
+    "grabber_timeout": {
+        "message": "Long query timeout (sec.)"
+    },
+    "grabber_exclude_lowres": {
+        "message": "Exclude low resolution images"
+    },
+    "grabber_save_as_json": {
+        "message": "Save as profile"
+    },
+    "grabber_save_as_txt": {
+        "message": "Save as url list"
+    },
+    "grabber_save_as": {
+        "message": "Save as"
+    },
+    "grabber_save_log": {
+        "message": "Download log"
+    },
+    "grabber_state_ready": {
+        "message": "Download finished"
+    },
+    "grabber_state_loading": {
+        "message": "Downloading..."
+    },
+    "grabber_state_wait": {
+        "message": "Waiting"
+    },
+    "grabber_state_inlist": {
+        "message": "In list"
+    },
+    "grabber_state_error": {
+        "message": "Downloading error"
+    },
+    "grabber_range": {
+        "message": "Range"
+    },
+    "grabber_range_from": {
+        "message": "From"
+    },
+    "grabber_range_to": {
+        "message": "To"
+    },
+    "grabber_title_update": {
+        "message": "Update window title"
+    },
+    "grabber_keep_alive_timer": {
+        "message": "Keep alive downloader if tab unfocused"
+    },
+    "grabber_name_template_help": {
+        "message": "Please select file name template, with include relative patch from base folder in browser <b>Downloads</b> folder<br><br>Allowed variables :<br>"
+    },
+    "grabber_name_template_help_1": {
+        "message": "<b>#category_1#</b>, <b>#category_2#</b>, <b>#category_N#</b> - names of 1, 2 and N categorys of downloaded item (by priority) with \"Use in name template\" enabled option<br>"
+    },
+    "grabber_name_template_help_2": {
+        "message": "<b>#filename#</b> - original file name<br><b>#id#</b> - unique id in current selected local storage<br><b>#number#</b> - item number in current order<br>"
+    },
+    "grabber_name_template_help_3": {
+        "message": "Usage <br>\"<i>#filename#</i>\" - download file with original name (ex. <b>Downloads</b>/dog.jpg)<br>"
+    },
+    "grabber_name_template_help_4": {
+        "message": "\"<i>#category_1#/#filename#</i>\" - download file with original name and put it to subdirectory with name of first category (ex. <b>Downloads</b>/Dogs/dog.jpg)<br><br>"
+    },
+    "grabber_options_title": {
+        "message": "Downloads"
+    },
+    "grabber_options_notice": {
+        "message": "Different options for support browsers. Change only if something not work"
+    },
+    "grabber_transport": {
+        "message": "Way of how to transport data to background process"
+    },
+    "grabber_transport_blob": {
+        "message": "Blob URL"
+    },
+    "grabber_transport_blobbase64": {
+        "message": "Binary Data"
+    },
+    "grabber_flip_numbers": {
+        "message": "Invert numeration"
+    },
+    "grabber_request": {
+        "message": "Way of download data"
+    },
+    "grabber_request_xml": {
+        "message": "XMLHttpRequest"
+    },
+    "grabber_request_iframe": {
+        "message": "Iframe"
+    },
+    "grabber_request_fetch": {
+        "message": "Fetch"
+    },
+    "grabber_request_help": {
         "message": "Browser cant download file directly for security reasons if image domain and site domain differs<br>"
     },
-    "grabber_request_help_1":{  
+    "grabber_request_help_1": {
         "message": "For example http://www.example.com and http://example.com counts as different domain and will be blocked by CORS<br>"
     },
-    "grabber_request_help_2":{  
+    "grabber_request_help_2": {
         "message": "We can use - \"Iframe\", that will answer by specified format<br>"
-    },  
-    "grabber_request_help_3":{  
+    },
+    "grabber_request_help_3": {
         "message": "Also if you still want to use direct download by XMLHttpRequest | Fetch method, just search extension that disable security options ex. \"Allow-Control-Allow-Origin: * extension\"<br>"
     },
-    "grabber_request_help_4":{  
+    "grabber_request_help_4": {
         "message": "<b>Change this option only if \"XMLHttpRequest\" | \"Fetch\" dont work</b><br>"
     },
-    "grabber_transport_help":{  
-        "message":"1. <b>Blob URL</b> - Send url that refer to data to background process (Blob -> Download API)<br>"
-    }, 
-    "grabber_transport_help_1":{  
-        "message":"2. <b>Binary Data</b> - Send binary data encoded in base64 format to background process (Blob -> Binary Base64 -> Blob -> Download API)<br>"
+    "grabber_transport_help": {
+        "message": "1. <b>Blob URL</b> - Send url that refer to data to background process (Blob -> Download API)<br>"
     },
-    "grabber_transport_help_2":{  
-        "message":"<br><br>Change this option if you can't download any thing (log files, profiles)<br>"
-    }, 
-    "grabber_errors_counter":{  
-        "message":"Failed : __ERRORSNUM__"
-    },  
-    "grabber_skip_downloaded":{  
-        "message":"Skip already downloaded in dir (by history)"
-    },  
-    "grabber_anim_format":{  
-        "message":"Save big gifs as"
-    },     
-    "grabber_fail_errors_list_notice":{  
-        "message":"Error log. More extended info can be found in log file"
-    },  
-    "grabber_fail_items_list_notice":{  
-        "message":"List of failed items. Copy list to \"Elements\" input for retry"
+    "grabber_transport_help_1": {
+        "message": "2. <b>Binary Data</b> - Send binary data encoded in base64 format to background process (Blob -> Binary Base64 -> Blob -> Download API)<br>"
     },
-    "goto_page":{  
-        "message":"Go to page"
+    "grabber_transport_help_2": {
+        "message": "<br><br>Change this option if you can't download any thing (log files, profiles)<br>"
     },
-    "go":{  
-        "message":"Go"
-    },  
-    "help":{  
-        "message":"Help"
-    }, 
-    "hide_soc":{  
-        "message":"Hide social networks markers from publication block"
-    }, 
-    "hide_add_to_fav":{  
-        "message":"Hide \"Add to fav\""
-    },   
-    "hide_top_menu":{  
-        "message":"Hide extension upper menu"
-    }, 
-    "mobile_optimization":{  
-        "message":"Mobile mode"
+    "grabber_errors_counter": {
+        "message": "Failed : __ERRORSNUM__"
     },
-    "ignore_comments":{  
-        "message":"Ignore comments"
+    "grabber_skip_downloaded": {
+        "message": "Skip already downloaded in dir (by history)"
     },
-    "ignore_publications":{  
-        "message":"Ignore publications"
+    "grabber_anim_format": {
+        "message": "Save big gifs as"
     },
-    "image":{  
-        "message":"Image №__IMAGEN__"
+    "grabber_fail_errors_list_notice": {
+        "message": "Error log. More extended info can be found in log file"
     },
-    "image_main":{  
-        "message":"Image"
+    "grabber_fail_items_list_notice": {
+        "message": "List of failed items. Copy list to \"Elements\" input for retry"
     },
-    "image_total":{  
-        "message":"Images total : __IMAGEN__"
-    },   
-    "image_fail":{  
-        "message":"Fail to load image"
+    "goto_page": {
+        "message": "Go to page"
     },
-    "init_css_error":{  
-        "message":"Initialization error (unable to load CSS files)"
+    "go": {
+        "message": "Go"
     },
-    "item_added":{  
-        "message":"Publication added"
+    "help": {
+        "message": "Help"
     },
-    "item_bad_url":{  
-        "message":"Publication link empty"
+    "hide_soc": {
+        "message": "Hide social networks markers from publication block"
     },
-    "item_notice":{  
-        "message":"Notice"
+    "hide_add_to_fav": {
+        "message": "Hide \"Add to fav\""
     },
-    "item_notice_title":{  
-        "message":"Will replace text or image of saved publication"
+    "hide_top_menu": {
+        "message": "Hide extension upper menu"
     },
-    "item_number":{  
-        "message":"Item №__ITEMN__"
+    "mobile_optimization": {
+        "message": "Mobile mode"
     },
-    "item_upd":{  
-        "message":"Publication updated"
+    "ignore_comments": {
+        "message": "Ignore comments"
     },
-    "items":{  
-        "message":"Publications"
+    "ignore_publications": {
+        "message": "Ignore publications"
     },
-    "item_preview_hide":{  
-        "message":"Preview hide"
+    "image": {
+        "message": "Image №__IMAGEN__"
     },
-    "item_preview_show":{  
-        "message":"Preview show"
+    "image_main": {
+        "message": "Image"
     },
-    "item_add_err1":{  
-        "message":"Cant detect comment url"
-    },  
-    "fav_list_empty":{  
-        "message":"List of images is empty"
-    },      
+    "image_total": {
+        "message": "Images total : __IMAGEN__"
+    },
+    "image_fail": {
+        "message": "Fail to load image"
+    },
+    "init_css_error": {
+        "message": "Initialization error (unable to load CSS files)"
+    },
+    "item_added": {
+        "message": "Publication added"
+    },
+    "item_bad_url": {
+        "message": "Publication link empty"
+    },
+    "item_notice": {
+        "message": "Notice"
+    },
+    "item_notice_title": {
+        "message": "Will replace text or image of saved publication"
+    },
+    "item_number": {
+        "message": "Item №__ITEMN__"
+    },
+    "item_upd": {
+        "message": "Publication updated"
+    },
+    "items": {
+        "message": "Publications"
+    },
+    "item_preview_hide": {
+        "message": "Preview hide"
+    },
+    "item_preview_show": {
+        "message": "Preview show"
+    },
+    "item_add_err1": {
+        "message": "Cant detect comment url"
+    },
+    "fav_list_empty": {
+        "message": "List of images is empty"
+    },
     "link_support": {
-        "message":"About project"
+        "message": "About project"
     },
     "link_report_issue": {
-        "message":"Report problem"
+        "message": "Report problem"
     },
-    "loading":{  
-        "message":"Loading"
+    "loading": {
+        "message": "Loading"
     },
-    "language":{  
-        "message":"Language"
+    "language": {
+        "message": "Language"
     },
-    "logic_and":{  
-        "message":"Logic AND"
+    "logic_and": {
+        "message": "Logic AND"
     },
-    "logic_or":{  
-        "message":"Logic OR"
-    },   
-    "logic_and_help":{  
-        "message":"Select items with all selected categories (excluded categories filtered separately)"
+    "logic_or": {
+        "message": "Logic OR"
     },
-    "logic_or_help":{  
-        "message":"Select items that have one of selected categories (excluded categories filtered separately)"
+    "logic_and_help": {
+        "message": "Select items with all selected categories (excluded categories filtered separately)"
     },
-    "new_name":{  
-        "message":"New name"
+    "logic_or_help": {
+        "message": "Select items that have one of selected categories (excluded categories filtered separately)"
     },
-    "next":{  
-        "message":"Next"
+    "new_name": {
+        "message": "New name"
     },
-    "nsfw_tip":{  
-        "message":"Auto deselect categories that marked as NSFW"
-    },    
-    "nradiowave_person":{  
-        "message":"nradiowave"
+    "next": {
+        "message": "Next"
     },
-    "no_image":{  
-        "message":"Without image"
+    "nsfw_tip": {
+        "message": "Auto deselect categories that marked as NSFW"
     },
-    "options":{  
-        "message":"Options"
+    "nradiowave_person": {
+        "message": "nradiowave"
     },
-    "options_extra":{  
-        "message":"Addition options"
+    "no_image": {
+        "message": "Without image"
     },
-    "options_main":{  
-        "message":"Main options"
+    "options": {
+        "message": "Options"
     },
-    "options_saved":{  
-        "message":"Options changed"
+    "options_extra": {
+        "message": "Addition options"
     },
-    "options_fav_add":{  
-        "message":"Add to Favorites"
+    "options_main": {
+        "message": "Main options"
     },
-    "options_side":{  
-        "message":"Move extension options button to sidebar"
-    },  
-    "options_storage":{  
-        "message":"Base directory for store profiles and configs"
+    "options_saved": {
+        "message": "Options changed"
     },
-    "other":{  
-        "message":"Other"
-    },   
+    "options_fav_add": {
+        "message": "Add to Favorites"
+    },
+    "options_side": {
+        "message": "Move extension options button to sidebar"
+    },
+    "options_storage": {
+        "message": "Base directory for store profiles and configs"
+    },
+    "other": {
+        "message": "Other"
+    },
     "options_page_title": {
-        "message" : "Select module options page"
-    },    
+        "message": "Select module options page"
+    },
     "options_page_module_enabled": {
-        "message" : "Module enabled"
+        "message": "Module enabled"
     },
     "options_page_recorder_cfg": {
-        "message" : "Options [Recorder module]"
+        "message": "Options [Recorder module]"
     },
     "options_page_recorder_desc": {
-        "message" : "Recored for download images from any site (call popup by click on extension icon по)"
+        "message": "Recored for download images from any site (call popup by click on extension icon по)"
     },
     "options_page_custom_cfg": {
-        "message" : "Options [Module for __PROFILENAME__]"
+        "message": "Options [Module for __PROFILENAME__]"
     },
     "options_page_custom_sites": {
-        "message" : "Sites :"
+        "message": "Sites :"
     },
     "options_page_about": {
-        "message" : "About"
+        "message": "About"
     },
     "options_page_pp": {
-        "message" : "Privacy Policy"
-    },    
+        "message": "Privacy Policy"
+    },
     "options_page_selected": {
-        "message" : "(Current page)"
+        "message": "(Current page)"
     },
-    "page":{  
-        "message":"Page"
+    "page": {
+        "message": "Page"
     },
-    "pages":{  
-        "message":"Pages ranges (1-10, 60-200 etc.)"
+    "pages": {
+        "message": "Pages ranges (1-10, 60-200 etc.)"
     },
-    "pages_n":{  
-        "message":"Total pages"
+    "pages_n": {
+        "message": "Total pages"
     },
-    "prev":{  
-        "message":"Previouse"
+    "prev": {
+        "message": "Previouse"
     },
-    "publication":{  
-        "message":"Publication"
-    },  
-    "unlock_common" : {
-        "message" : "Unlock tweaks"
+    "publication": {
+        "message": "Publication"
     },
-    "unlock_censored_anon":{  
-        "message":"Set anon user if not logged in"
+    "unlock_common": {
+        "message": "Unlock tweaks"
     },
-    "unlock_censored_anon_notice":{  
-        "message":"Helps to show content that require be logged in (only on <a href=\"//m.reactor.cc\" target=\"_blank\">m.reactor.cc</a>)"
-    },    
-    "unlock_censored_unsafe":{  
-        "message":"Show hidden \"unsafe\" publications"
+    "unlock_censored_anon": {
+        "message": "Set anon user if not logged in"
     },
-    "unlock_censored_unsafe_notice":{  
-        "message":"Related to only hidden publications without subscription on \"секретные разделы\", \"песочница\" and other similar tags on <a href=\"//m.reactor.cc\" target=\"_blank\">m.reactor.cc</a>"
+    "unlock_censored_anon_notice": {
+        "message": "Helps to show content that require be logged in (only on <a href=\"//m.reactor.cc\" target=\"_blank\">m.reactor.cc</a>)"
     },
-    "unlock_censored":{  
-        "message":"Unlock blocked data"
-    }, 
-    "unlock_censored_auto":{  
-        "message":"Automaticly"
-    },    
-    "unlock_mreact":{  
-        "message":"Enable for m.reactor.cc (after save browser restart required)"
+    "unlock_censored_unsafe": {
+        "message": "Show hidden \"unsafe\" publications"
     },
-    "unlock_censored_mode":{  
-        "message":"Unlock post mode"
+    "unlock_censored_unsafe_notice": {
+        "message": "Related to only hidden publications without subscription on \"секретные разделы\", \"песочница\" and other similar tags on <a href=\"//m.reactor.cc\" target=\"_blank\">m.reactor.cc</a>"
     },
-    "unlock_censored_manual":{  
-        "message":"Load by click on post small preview"
-    }, 
-    "unlock_censored_auth":{  
-        "message":"Enable posting, vote"
-    },     
-    "unlock_censored_showtv_routing":{  
-        "message":"Detect \"censorship\" blocked tags while browsing and unlock them automaticly"
+    "unlock_censored": {
+        "message": "Unlock blocked data"
     },
-    "unlock_censored_showtv_any":{  
-        "message":"Show tag viewer on any tag by right click"
+    "unlock_censored_auto": {
+        "message": "Automaticly"
     },
-    "unlock_censored_showtv":{  
-        "message":"Show tag viewer"
-    }, 
-    "unlock_censored_cache":{  
-        "message":"Enable cache"
-    },          
-    "reset":{  
-        "message":"Reset"
-    },  
-    "reload":{  
-        "message":"Reload"
-    }, 
-    "related_doc":{  
-        "message":"Related doc"
-    },   
-    "related_doc_limit_one":{  
-        "message":"Take only one best match image"
-    },   
-    "related_doc_limit_all":{  
-        "message":"Take all images that bigger then preview"
-    }, 
-    "restore":{  
-        "message":"Restore"
+    "unlock_mreact": {
+        "message": "Enable for m.reactor.cc (after save browser restart required)"
     },
-    "remove_from_fav":{  
-        "message":"remove from favorite"
+    "unlock_censored_mode": {
+        "message": "Unlock post mode"
     },
-    "remove_from_fav_comment":{  
-        "message":"remove from favorite"
-    },  
-    "remove_from_fav_tip":{  
-        "message":"Remove from favorite"
+    "unlock_censored_manual": {
+        "message": "Load by click on post small preview"
     },
-    "removed_cat":{  
-        "message":"Removed category"
+    "unlock_censored_auth": {
+        "message": "Enable posting, vote"
     },
-    "save":{  
-        "message":"Save"
-    },   
-    "saved":{  
-        "message":"Saved"
+    "unlock_censored_showtv_routing": {
+        "message": "Detect \"censorship\" blocked tags while browsing and unlock them automaticly"
+    },
+    "unlock_censored_showtv_any": {
+        "message": "Show tag viewer on any tag by right click"
+    },
+    "unlock_censored_showtv": {
+        "message": "Show tag viewer"
+    },
+    "unlock_censored_cache": {
+        "message": "Enable cache"
+    },
+    "reset": {
+        "message": "Reset"
+    },
+    "reload": {
+        "message": "Reload"
+    },
+    "related_doc": {
+        "message": "Related doc"
+    },
+    "related_doc_limit_one": {
+        "message": "Take only one best match image"
+    },
+    "related_doc_limit_all": {
+        "message": "Take all images that bigger then preview"
+    },
+    "restore": {
+        "message": "Restore"
+    },
+    "remove_from_fav": {
+        "message": "remove from favorite"
+    },
+    "remove_from_fav_comment": {
+        "message": "remove from favorite"
+    },
+    "remove_from_fav_tip": {
+        "message": "Remove from favorite"
+    },
+    "removed_cat": {
+        "message": "Removed category"
+    },
+    "save": {
+        "message": "Save"
+    },
+    "saved": {
+        "message": "Saved"
     },
     "sidebar_section_filters": {
-        "message":"Filters"
-    },  
+        "message": "Filters"
+    },
     "sidebar_section_downloads": {
-        "message":"Downloads"
+        "message": "Downloads"
     },
-    "saving":{  
-        "message":"Saving..."
-    }, 
-    "selection_empty":{  
-        "message":"Selection empty"
-    },   
-    "select":{  
-        "message":"Select"
+    "saving": {
+        "message": "Saving..."
     },
-    "storage":{  
-        "message":"Profile"
-    },    
-    "storage_selected":{  
-        "message":"Profile selected"
+    "selection_empty": {
+        "message": "Selection empty"
     },
-    "storage_add_new":{  
-        "message":"Add new"
+    "select": {
+        "message": "Select"
     },
-    "storage_io_options":{  
-        "message":"Import \\ Export config"
+    "storage": {
+        "message": "Profile"
     },
-    "storage_io_options_export":{  
-        "message":"Restore from file"
+    "storage_selected": {
+        "message": "Profile selected"
     },
-    "storage_io_options_import":{  
-        "message":"Download current"
+    "storage_add_new": {
+        "message": "Add new"
     },
-    "storage_load_from_file":{  
-        "message":"Load from file"
-    }, 
-    "storage_load_from_user":{  
-        "message":"Load from content page"
-    },    
-    "storage_load_from_user_info":{  
-        "message":"Content __USER_NAME__ (items : __BOOKMARKS_NUM__)"
-    }, 
-    "storage_load_from_dump":{  
-        "message":"Load from recorded"
-    },  
-    "storage_load_from_dump_info":{  
-        "message":"Current recorded data (items : __BOOKMARKS_NUM__)"
-    },       
-    "storage_create_e3":{  
-        "message":"Data from selected source is unavailable"
-    },    
-    "storage_parser_save_to_profile":{  
-        "message":"Save images to profile"
-    },    
-    "storage_conflict_action":{  
-        "message":"If profile exists"
-    }, 
-    "storage_name":{  
-        "message":"Profile id (only ch. A-Z, 1-9, _)"
-    },  
-    "storage_create_add_if_exist":{  
-        "message":"Add new items if profile already exits (<b>beta</b>)"
-    },   
-    "storage_create_overwrite_if_exist":{  
-        "message":"Overwrite if exist"
+    "storage_io_options": {
+        "message": "Import \\ Export config"
     },
-    "storage_create_cancel_if_exist":{  
-        "message":"Cancel if already exist with same id"
+    "storage_io_options_export": {
+        "message": "Restore from file"
     },
-    "storage_manager_total":{  
-        "message":"Disk space used"
-    },   
-    "storage_manager_localstorage_notice":{  
-        "message":"For selected storage type (<b>localStorage</b>) max amount of space is limited and in common case can't be more then <b>4mb</b>. Please delete unused profiles if you near to this limit, or select another storage type"
+    "storage_io_options_import": {
+        "message": "Download current"
     },
-    "storage_manager_api_notice":{  
-        "message":"For selected storage type (<b>Browser API</b>) max amount of space is <b>__MAX_ENV_SIZE__mb</b> (maximum per profile file <b>__MAX_TOTAL_PER_DB__mb</b>)"
-    },    
-    "storage_manager_hit_limit_db":{  
-        "message":"Profile file can't be more than <b>__MAX_TOTAL_PER_DB__</b>mb"
-    },    
-    "storage_manager_hit_limit_env":{  
-        "message":"Reached max amount of data for current environment (more then <b>__MAX_ENV_SIZE__</b>mb)"
+    "storage_load_from_file": {
+        "message": "Load from file"
     },
-    "storage_type":{  
-        "message":"Storage type"
-    },   
-    "storage_type_notice":{  
-        "message":"<b>Change storage type only if needed</b>. After change, your current profile list will be hidden, until switch back to previous storage type"
-    },  
-    "storage_manage":{  
-        "message":"Profile manager"
-    }, 
-    "storage_delete":{  
-        "message":"Delete profile"
-    },   
-    "storage_empty_name":{  
-        "message":"Please enter profile name"
-    },     
-    "storage_beasy":{  
-        "message":"Wait until full load"
-    },    
-    "storage_create_already_exist":{  
-        "message":"Profile already exist"
-    },     
-    "storage_create_ok_mcancel":{  
-        "message":"Profile added"
-    },         
-    "storage_create_ok_madd":{  
-        "message":"Profile updated"
+    "storage_load_from_user": {
+        "message": "Load from content page"
     },
-    "storage_create_ok_moverwrite":{  
-        "message":"Profile overwritten"
-    },    
-    "storage_create_e1":{  
-        "message":"Error while save profile to localStorage (turn on debug mode an watch console)"
-    },   
-    "storage_create_e2":{  
-        "message":"Bad profile file format (JSON parse fail)"
-    }, 
-    "storage_create_e4":{  
-        "message":"Error : Profile (__PROFILE_MODULE__) is not compatible with current view module (__CURRENT_MODULE__)"
+    "storage_load_from_user_info": {
+        "message": "Content __USER_NAME__ (items : __BOOKMARKS_NUM__)"
     },
-    "storage_import_e1":{  
-        "message":"Please select file"
-    }, 
-    "storage_save_e1":{  
-        "message":"Cant save data (check current used localStorage space in profile section) "
+    "storage_load_from_dump": {
+        "message": "Load from recorded"
     },
-    "storage_import_limit":{  
-        "message":"File is too big (maximum file size __MAX_CONFIG_SIZE__ mb). Uploaded file __FILESIZE__ mb."
-    }, 
-    "storage_import_e2":{  
-        "message":"Error while write data"
-    },     
-    "storage_import_ok":{  
-        "message":"Current configuration updated"
+    "storage_load_from_dump_info": {
+        "message": "Current recorded data (items : __BOOKMARKS_NUM__)"
     },
-    "storage_deprecated":{  
-        "message":"List of current profile images was updated from another tab. Reload image list ?"
-    }, 
-    "sync_by_add":{  
-        "message":"If user is logged in, duplicates publication to main favorites storage"
-    }, 
-    "show_images_options_notice":{  
-        "message":"Images could be shown incorrect from options page.<br><br>Visit main site - <a href=\"__ENV_URL__\">__ENV_URL_TITLE__</a>"
-    },       
-    "tip":{  
-        "message":"notice"
-    },  
-    "web_request_api":{  
-        "message":"Webrequest API"
-    },   
-    "kb":{  
-        "message":"kb"
-    },   
-    "toolbar_deselect_all":{  
-        "message":"Deselect all"
-    }, 
-    "toolbar_help":{  
-        "message":"Support project"
+    "storage_create_e3": {
+        "message": "Data from selected source is unavailable"
     },
-    "toolbar_theme":{  
-        "message":"Change theme"
-    },   
-    "toolbar_collapse":{  
-        "message":"Collapse toolbar"
-    },    
-    "toolbar_edit_mode":{  
-        "message":"Edit mode"
+    "storage_parser_save_to_profile": {
+        "message": "Save images to profile"
     },
-    "toolbar_cat_not_selected":{  
-        "message":"Categories not selected"
+    "storage_conflict_action": {
+        "message": "If profile exists"
     },
-    "toolbar_selected_images":{  
-        "message":"Selected images"
-    },    
-    "toolbar_deselected_images":{  
-        "message":"Excluded images"
+    "storage_name": {
+        "message": "Profile id (only ch. A-Z, 1-9, _)"
     },
-    "toolbar_from_single_cat":{  
-        "message":"<b>from category</b>"
-    },  
-    "toolbar_from_and_cats":{  
-        "message":"contained <b>all listed categories</b>"
-    }, 
-    "toolbar_from_or_cats":{  
-        "message":"contained <b>one of listed categories</b>"
+    "storage_create_add_if_exist": {
+        "message": "Add new items if profile already exits (<b>beta</b>)"
     },
-    "thread_sec_notice":{  
-        "message":"Requests speed settings when use \"Load related links\" function. <b>Change settings carefully.</b><br>* For randomize requests delays can be setted several values separated by comma"
+    "storage_create_overwrite_if_exist": {
+        "message": "Overwrite if exist"
     },
-    "thread_pauseEvery":{  
-        "message":"Pause after N requests *"
-    }, 
-    "thread_pauseTimer":{  
-        "message":"Pause duration (sec.) *"
-    }, 
-    "thread_timeout":{  
-        "message":"Timeout for long requests (sec.)"
-    }, 
-    "thread_timeoutOnEnd":{  
-        "message":"Requests interval in thread (sec.) *"
-    }, 
-    "thread_maxThreads":{  
-        "message":"Number of threads"
-    }, 
-    "thread_imgLoadermaxThreads":{  
-        "message":"Number of threads"
-    }, 
-    "thread_imgLoaderTimeout":{  
-        "message":"Timeout for long requests (sec.)"
-    }, 
-    "recorder_popup_left":{  
-        "message":"left"
-    }, 
-    "recorder_popup_right":{  
-        "message":"right"
-    },    
-    "recorder_popup_all":{  
-        "message":"all tabs"
-    }, 
-    "recorder_request_settings":{  
-        "message":"Requests addition doc. settings"
-    }, 
-    "recorder_image_request_settings":{  
-        "message":"Request image bounds settings"
-    },    
-    "recorder_extra_filters":{  
-        "message":"Extra filters"
+    "storage_create_cancel_if_exist": {
+        "message": "Cancel if already exist with same id"
     },
-    "recorder_filter":{  
-        "message":"Filter"
+    "storage_manager_total": {
+        "message": "Disk space used"
     },
-    "recorder_desc":{  
-        "message":"Desc"
-    },   
-    "recorder_asc":{  
-        "message":"Asc"
+    "storage_manager_localstorage_notice": {
+        "message": "For selected storage type (<b>localStorage</b>) max amount of space is limited and in common case can't be more then <b>4mb</b>. Please delete unused profiles if you near to this limit, or select another storage type"
     },
-    "recorder_order_direct":{  
-        "message":"Direct"
-    },   
-    "recorder_order_reverse":{  
-        "message":"Reversed"
-    },     
-    "recorder_sort_order":{  
-        "message":"Order (ID)"
-    }, 
-    "recorder_sort_proportions":{  
-        "message":"Proportions"
-    }, 
-    "recorder_load_prop_skip":{  
-        "message":"Skip loading"
+    "storage_manager_api_notice": {
+        "message": "For selected storage type (<b>Browser API</b>) max amount of space is <b>__MAX_ENV_SIZE__mb</b> (maximum per profile file <b>__MAX_TOTAL_PER_DB__mb</b>)"
     },
-    "recorder_load_related_doc":{  
-        "message":"Load related links"
+    "storage_manager_hit_limit_db": {
+        "message": "Profile file can't be more than <b>__MAX_TOTAL_PER_DB__</b>mb"
     },
-    "recorder_regular_expr":{  
-        "message":"Reqular expression"
+    "storage_manager_hit_limit_env": {
+        "message": "Reached max amount of data for current environment (more then <b>__MAX_ENV_SIZE__</b>mb)"
     },
-    "recorder_exclude_urls":{  
-        "message":"Exclude url"
+    "storage_type": {
+        "message": "Storage type"
     },
-    "recorder_match_url":{  
-        "message":"Match url"
+    "storage_type_notice": {
+        "message": "<b>Change storage type only if needed</b>. After change, your current profile list will be hidden, until switch back to previous storage type"
     },
-    "recorder_width":{  
-        "message":"Width"
+    "storage_manage": {
+        "message": "Profile manager"
     },
-    "recorder_height":{  
-        "message":"Height"
+    "storage_delete": {
+        "message": "Delete profile"
     },
-    "recorder_min_dimensions":{  
-        "message":"Min. dimensions"
+    "storage_empty_name": {
+        "message": "Please enter profile name"
     },
-    "recorder_filter_help":{  
-        "message":"<b>Filter</b> - filter images by setted params<br>"
+    "storage_beasy": {
+        "message": "Wait until full load"
     },
-    "recorder_filter_help_1":{  
-        "message":"Format of regular expressions : (http|https)://i.example.com/[a-zA-Z0-9]+/img/[a-zA-Z0-9/_]+.jpg<br><br>"
+    "storage_create_already_exist": {
+        "message": "Profile already exist"
     },
-    "recorder_filter_help_2":{  
-        "message":"<b>Load proportions</b> - sort by megapixels and put images that load with error or have bad proportions (< 3x3) in to group \"Load error\"<br><br>"
+    "storage_create_ok_mcancel": {
+        "message": "Profile added"
     },
-    "recorder_filter_help_3":{  
-        "message":"<b>Load related links</b> - try to find original images for filtered images (could work only on several sites, may work on random site. If work was tested on specifed site, button will be marked __CHECKMARK__)"
-    },   
-    "recorder_filter_help_4":{  
-        "message":"<b>Deep search</b> - search bigger images in related doc, compared them with base image of related document (used by default if extension do not have any build in filters for selected site)"
+    "storage_create_ok_madd": {
+        "message": "Profile updated"
     },
-    "recorder_cant_find_images":{  
-        "message":"Cant find images in related links"
-    },  
-    "recorder_cant_find_originals_images":{  
-        "message":"Cant find images that could be originals"
+    "storage_create_ok_moverwrite": {
+        "message": "Profile overwritten"
     },
-    "recorder_no_related_docs":{  
-        "message":"No related docs in selected images"
+    "storage_create_e1": {
+        "message": "Error while save profile to localStorage (turn on debug mode an watch console)"
     },
-    "recorder_canceled":{  
-        "message":"Task canceled"
-    }, 
-    "recorder_load_doc_loadDoc":{  
-        "message":"Load documents<br>Total images : __IMAGESNUM__<br> Confirmed original : __IMAGESNUM_TRUSTED__"
-    },   
-    "recorder_load_doc_loadImg":{  
-        "message":"Search HD images in collection..."
-    },   
-    "recorder_load_doc_stop":{  
-        "message":"Stop"
+    "storage_create_e2": {
+        "message": "Bad profile file format (JSON parse fail)"
     },
-    "recorder_added_images_num":{  
-        "message":"Added __IMAGESNUM__ images"
+    "storage_create_e4": {
+        "message": "Error : Profile (__PROFILE_MODULE__) is not compatible with current view module (__CURRENT_MODULE__)"
     },
-    "recorder_load_beasy":{  
-        "message":"Stop loading process before"
+    "storage_import_e1": {
+        "message": "Please select file"
     },
-    "recorder_load_beasy_wr":{  
-        "message":"Updating web request settings. Please wait..."
+    "storage_save_e1": {
+        "message": "Cant save data (check current used localStorage space in profile section) "
     },
-    "recorder_max":{  
-        "message":"Max."
+    "storage_import_limit": {
+        "message": "File is too big (maximum file size __MAX_CONFIG_SIZE__ mb). Uploaded file __FILESIZE__ mb."
     },
-    "recorder_min":{  
-        "message":"Min."
+    "storage_import_e2": {
+        "message": "Error while write data"
     },
-    "recorder_filtered":{  
-        "message":"Images filtered"
+    "storage_import_ok": {
+        "message": "Current configuration updated"
     },
-    "recorder_terminated":{  
-        "message":"Function is not supported"
+    "storage_deprecated": {
+        "message": "List of current profile images was updated from another tab. Reload image list ?"
     },
-    "recorder_sort":{  
-        "message":"Sort"
+    "sync_by_add": {
+        "message": "If user is logged in, duplicates publication to main favorites storage"
     },
-    "recorder_related_doc_trusted_url":{  
-        "message":"Mutch url (picture in related doc.)"
+    "show_images_options_notice": {
+        "message": "Images could be shown incorrect from options page.<br><br>Visit main site - <a href=\"__ENV_URL__\">__ENV_URL_TITLE__</a>"
     },
-    "recorder_related_doc_deep_search":{  
-        "message":"Deep search"
+    "tip": {
+        "message": "notice"
     },
-    "recorder_last_recorded":{  
-        "message":"Last recorded data"
+    "web_request_api": {
+        "message": "Webrequest API"
     },
-    "recorder_load_proportions":{  
-        "message":"Load proportions..."
-    }, 
-    "recorder_related_links_notice":{  
-        "message":"You can load addtion images for <b>__HOST__</b>"
-    },  
-    "recorder_related_links_notice_1":{  
-        "message":"Click <b>Load related links</b> (extra filters) if only preview images for publications was found and not all images related to publications was loaded, or images has low quality"
-    },   
-    "recorder_dont_show_again":{  
-        "message":"Dont show again"
-    },   
-    "recorder_read_about":{  
-        "message":"About feature"
+    "kb": {
+        "message": "kb"
     },
-    "recorder_displayed_info":{  
-        "message":"Items : __ITEMS__ | Documents : __RELATED_DOCS__"
+    "toolbar_deselect_all": {
+        "message": "Deselect all"
     },
-    "tweek_twitter_18w":{  
-        "message":"[Twitter] Disable blur & content warnings"
+    "toolbar_help": {
+        "message": "Support project"
+    },
+    "toolbar_theme": {
+        "message": "Change theme"
+    },
+    "toolbar_collapse": {
+        "message": "Collapse toolbar"
+    },
+    "toolbar_edit_mode": {
+        "message": "Edit mode"
+    },
+    "toolbar_cat_not_selected": {
+        "message": "Categories not selected"
+    },
+    "toolbar_selected_images": {
+        "message": "Selected images"
+    },
+    "toolbar_deselected_images": {
+        "message": "Excluded images"
+    },
+    "toolbar_from_single_cat": {
+        "message": "<b>from category</b>"
+    },
+    "toolbar_from_and_cats": {
+        "message": "contained <b>all listed categories</b>"
+    },
+    "toolbar_from_or_cats": {
+        "message": "contained <b>one of listed categories</b>"
+    },
+    "thread_sec_notice": {
+        "message": "Requests speed settings when use \"Load related links\" function. <b>Change settings carefully.</b><br>* For randomize requests delays can be setted several values separated by comma"
+    },
+    "thread_pauseEvery": {
+        "message": "Pause after N requests *"
+    },
+    "thread_pauseTimer": {
+        "message": "Pause duration (sec.) *"
+    },
+    "thread_timeout": {
+        "message": "Timeout for long requests (sec.)"
+    },
+    "thread_timeoutOnEnd": {
+        "message": "Requests interval in thread (sec.) *"
+    },
+    "thread_maxThreads": {
+        "message": "Number of threads"
+    },
+    "thread_imgLoadermaxThreads": {
+        "message": "Number of threads"
+    },
+    "thread_imgLoaderTimeout": {
+        "message": "Timeout for long requests (sec.)"
+    },
+    "recorder_popup_left": {
+        "message": "left"
+    },
+    "recorder_popup_right": {
+        "message": "right"
+    },
+    "recorder_popup_all": {
+        "message": "all tabs"
+    },
+    "recorder_request_settings": {
+        "message": "Requests addition doc. settings"
+    },
+    "recorder_image_request_settings": {
+        "message": "Request image bounds settings"
+    },
+    "recorder_extra_filters": {
+        "message": "Extra filters"
+    },
+    "recorder_filter": {
+        "message": "Filter"
+    },
+    "recorder_desc": {
+        "message": "Desc"
+    },
+    "recorder_asc": {
+        "message": "Asc"
+    },
+    "recorder_order_direct": {
+        "message": "Direct"
+    },
+    "recorder_order_reverse": {
+        "message": "Reversed"
+    },
+    "recorder_sort_order": {
+        "message": "Order (ID)"
+    },
+    "recorder_sort_proportions": {
+        "message": "Proportions"
+    },
+    "recorder_load_prop_skip": {
+        "message": "Skip loading"
+    },
+    "recorder_load_related_doc": {
+        "message": "Load related links"
+    },
+    "recorder_regular_expr": {
+        "message": "Reqular expression"
+    },
+    "recorder_exclude_urls": {
+        "message": "Exclude url"
+    },
+    "recorder_match_url": {
+        "message": "Match url"
+    },
+    "recorder_width": {
+        "message": "Width"
+    },
+    "recorder_height": {
+        "message": "Height"
+    },
+    "recorder_min_dimensions": {
+        "message": "Min. dimensions"
+    },
+    "recorder_filter_help": {
+        "message": "<b>Filter</b> - filter images by setted params<br>"
+    },
+    "recorder_filter_help_1": {
+        "message": "Format of regular expressions : (http|https)://i.example.com/[a-zA-Z0-9]+/img/[a-zA-Z0-9/_]+.jpg<br><br>"
+    },
+    "recorder_filter_help_2": {
+        "message": "<b>Load proportions</b> - sort by megapixels and put images that load with error or have bad proportions (< 3x3) in to group \"Load error\"<br><br>"
+    },
+    "recorder_filter_help_3": {
+        "message": "<b>Load related links</b> - try to find original images for filtered images (could work only on several sites, may work on random site. If work was tested on specifed site, button will be marked __CHECKMARK__)"
+    },
+    "recorder_filter_help_4": {
+        "message": "<b>Deep search</b> - search bigger images in related doc, compared them with base image of related document (used by default if extension do not have any build in filters for selected site)"
+    },
+    "recorder_cant_find_images": {
+        "message": "Cant find images in related links"
+    },
+    "recorder_cant_find_originals_images": {
+        "message": "Cant find images that could be originals"
+    },
+    "recorder_no_related_docs": {
+        "message": "No related docs in selected images"
+    },
+    "recorder_canceled": {
+        "message": "Task canceled"
+    },
+    "recorder_load_doc_loadDoc": {
+        "message": "Load documents<br>Total images : __IMAGESNUM__<br> Confirmed original : __IMAGESNUM_TRUSTED__"
+    },
+    "recorder_load_doc_loadImg": {
+        "message": "Search HD images in collection..."
+    },
+    "recorder_load_doc_stop": {
+        "message": "Stop"
+    },
+    "recorder_added_images_num": {
+        "message": "Added __IMAGESNUM__ images"
+    },
+    "recorder_load_beasy": {
+        "message": "Stop loading process before"
+    },
+    "recorder_load_beasy_wr": {
+        "message": "Updating web request settings. Please wait..."
+    },
+    "recorder_max": {
+        "message": "Max."
+    },
+    "recorder_min": {
+        "message": "Min."
+    },
+    "recorder_filtered": {
+        "message": "Images filtered"
+    },
+    "recorder_terminated": {
+        "message": "Function is not supported"
+    },
+    "recorder_sort": {
+        "message": "Sort"
+    },
+    "recorder_related_doc_trusted_url": {
+        "message": "Mutch url (picture in related doc.)"
+    },
+    "recorder_related_doc_deep_search": {
+        "message": "Deep search"
+    },
+    "recorder_last_recorded": {
+        "message": "Last recorded data"
+    },
+    "recorder_load_proportions": {
+        "message": "Load proportions..."
+    },
+    "recorder_related_links_notice": {
+        "message": "You can load addtion images for <b>__HOST__</b>"
+    },
+    "recorder_related_links_notice_1": {
+        "message": "Click <b>Load related links</b> (extra filters) if only preview images for publications was found and not all images related to publications was loaded, or images has low quality"
+    },
+    "recorder_dont_show_again": {
+        "message": "Dont show again"
+    },
+    "recorder_read_about": {
+        "message": "About feature"
+    },
+    "recorder_displayed_info": {
+        "message": "Items : __ITEMS__ | Documents : __RELATED_DOCS__"
+    },
+    "tweek_twitter_18w": {
+        "message": "[Twitter] Disable blur & content warnings"
+    },
+    "download_record_stopping": {
+        "message": "Stopping..."
+    },
+    "download_record_starting": {
+        "message": "Starting..."
     }
 }

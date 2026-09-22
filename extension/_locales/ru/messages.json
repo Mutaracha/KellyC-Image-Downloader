@@ -1,1172 +1,1178 @@
-{  
-    "add_selected_cats":{  
-        "message":"Добавить отмеченные категории"
+{
+    "add_selected_cats": {
+        "message": "Добавить отмеченные категории"
     },
-    "add_to_fav":{  
-        "message":"в избранное"
+    "add_to_fav": {
+        "message": "в избранное"
     },
-    "add_to_fav_tip":{  
-        "message":"Добавить в избранное"
+    "add_to_fav_tip": {
+        "message": "Добавить в избранное"
     },
-    "add_to_fav_side":{  
-        "message":"Перенести кнопку \"добавить в избранное\" для публикаций в блок соц. сетей"
+    "add_to_fav_side": {
+        "message": "Перенести кнопку \"добавить в избранное\" для публикаций в блок соц. сетей"
     },
-    "add_to_fav_comment":{  
-        "message":"в избранное"
-    },   
-    "add_to_fav_auto":{  
-        "message":"Добавлять в избранное сразу без клика на кнопку \"Сохранить\""
+    "add_to_fav_comment": {
+        "message": "в избранное"
     },
-    "add_to_item":{  
-        "message":"Добавить к изображению"
+    "add_to_fav_auto": {
+        "message": "Добавлять в избранное сразу без клика на кнопку \"Сохранить\""
     },
-    "animate_gifs":{  
-        "message":"Анимация GIF"
+    "add_to_item": {
+        "message": "Добавить к изображению"
     },
-    "apply":{  
-        "message":"Применить изменения"
+    "animate_gifs": {
+        "message": "Анимация GIF"
     },
-    "additions":{  
-        "message":"Дополнительно"
+    "apply": {
+        "message": "Применить изменения"
     },
-    "additions_donate":{  
-        "message":"О проекте"
+    "additions": {
+        "message": "Дополнительно"
     },
-    "additions_modules":{  
-        "message":"Модули сайтов"
+    "additions_donate": {
+        "message": "О проекте"
     },
-    "additions_help":{  
-        "message":"Помощь"
+    "additions_modules": {
+        "message": "Модули сайтов"
     },
-    "additions_about":{
-        "message":"Ресурсы и документы"
+    "additions_help": {
+        "message": "Помощь"
     },
-    "associations_tags":{  
-        "message":"Ассоциации с тегами (через запятую)"
-    },  
-    "bottom_toolbar_header":{
-        "message":"Панель инструментов"
+    "additions_about": {
+        "message": "Ресурсы и документы"
     },
-    "bottom_toolbar":{
-        "message":"Показывать доп. панель инструментов"
+    "associations_tags": {
+        "message": "Ассоциации с тегами (через запятую)"
     },
-    "bottom_toolbar_tiny":{
-        "message":"Компактный режим"
+    "bottom_toolbar_header": {
+        "message": "Панель инструментов"
     },
-    "close":{  
-        "message":"Закрыть"
+    "bottom_toolbar": {
+        "message": "Показывать доп. панель инструментов"
     },
-    "cancel":{  
-        "message":"Отменить"
-    },    
-    "create":{  
-        "message":"Создать"
+    "bottom_toolbar_tiny": {
+        "message": "Компактный режим"
     },
-    "cat_add":{  
-        "message":"Добавить категорию"
+    "close": {
+        "message": "Закрыть"
     },
-    "cat_add_success":{  
-        "message":"Категория добавлена"
+    "cancel": {
+        "message": "Отменить"
     },
-    "cat_create":{  
-        "message":"Создать категорию"
-    },    
-    "cat_exclude":{  
-        "message":"Исключить __CATEGORYNAME__"
+    "create": {
+        "message": "Создать"
     },
-    "cat_order":{  
-        "message":"Приоритет"
-    },  
-    "cat_tpl_name":{  
-        "message":"Использовать в шаблонах имен"
+    "cat_add": {
+        "message": "Добавить категорию"
     },
-    "cat_error_name":{  
-        "message":"Введите название категории"
+    "cat_add_success": {
+        "message": "Категория добавлена"
     },
-    "cat_error_name_exist":{  
-        "message":"Категория с указаным именем уже существует"
+    "cat_create": {
+        "message": "Создать категорию"
     },
-    "cat_name":{  
-        "message":"Название новой категории"
+    "cat_exclude": {
+        "message": "Исключить __CATEGORYNAME__"
     },
-    "cat_new_cat_name":{  
-        "message":"Новая категория"
+    "cat_order": {
+        "message": "Приоритет"
     },
-    "cat_select":{  
-        "message":"Выбрать категорию"
+    "cat_tpl_name": {
+        "message": "Использовать в шаблонах имен"
     },
-    "cats":{  
-        "message":"Категории"
+    "cat_error_name": {
+        "message": "Введите название категории"
     },
-    "cats_filter":{  
-        "message":"Режим добавления в выборку \\ исключения из выборки категорий"
-    },
-    "cgrid_default_rowst":{  
-        "message":"Стиль по умолчанию для элемента строки"
-    },
-    "cgrid_fixed":{  
-        "message":"Фиксированное кол-во элементов на строку"
-    },
-    "cgrid_max_diff":{  
-        "message":"Допустимая погрешность высоты строки"
-    },
-    "cgrid_max_row_height":{  
-        "message":"Максимальная высота одной строки"
-    },
-    "cgrid_min_number":{  
-        "message":"Минимальное кол-во элементов в строке"
-    },
-    "cgrid_new_to_begin":{  
-        "message":"Новые в начало"
-    },
-    "cgrid_per_page":{  
-        "message":"Элементов на страницу"
-    },
-    "cgrid_tiles_header":{  
-        "message":"Настройки сетки элементов"
-    },   
-    "cgrid_type":{  
-        "message":"Режим отображения публикаций"
-    },
-    "cgrid_type_dynamic":{  
-        "message":"Динамическое количество в строке"
-    },   
-    "cgrid_autoscroll":{  
-        "message":"Пролистывать вверх при переходе на новую страницу"
-    },   
-    "cgrid_autoscroll_input":{  
-        "message":"Номер строки элементов"
-    },  
-    "cgrid_autoscroll_notice":{  
-        "message":"Если страница пролистана до указанной строки элементов, автоматически проматывать новую страницу в начало"
-    },
-    "cgrid_type_fixed":{  
-        "message":"Фиксированное количество в строке"
-    },
-    "cgrid_imageview":{  
-        "message":"Режим просмотра"
-    },
-    "cgrid_imageview_hd":{  
-        "message":"Открывать оригинал (HD)"
-    },
-    "cgrid_imageview_preview":{  
-        "message":"Открывать превью"
-    },  
-    "cgrid_lazy":{  
-        "message":"Загружать картинки только когда они будут в видимой области"
-    },  
-    "change":{  
-        "message":"Применить"
-    },
-    "comments":{  
-        "message":"Комменты"
-    },
-    "comment":{  
-        "message":"Комментарий"
-    },    
-    "collapse":{  
-        "message":"Свернуть"
-    },
-    "cache_wh":{  
-        "message":"Кэш пропорций"
-    },
-    "debug":{  
-        "message":"Режим отладки"
-    },  
-    "dark_theme":{  
-        "message":"Темная тема"
-    }, 
-    "delete":{  
-        "message":"Удалить"
-    },
-    "delete_all_items":{  
-        "message":"Удалить всю подборку"
-    },
-    "delete_confirm":{  
-        "message":"Подтвердите удаление"
-    },
-    "delete_rcat_items":{  
-        "message":"Удалить все связанные изображения"
-    },
-    "download":{  
-        "message":"Скачать"
-    }, 
-    "download_current_tab":{  
-        "message":"Картинки со вкладки"
-    },   
-    "download_record":{  
-        "message":"Вкл. запись"
-    },
-    "download_recorded":{  
-        "message":"Скачать запись"
-    },
-    "download_record_stop":{  
-        "message":"Остановить"
-    }, 
-    "download_recorded_images":{  
-        "message":"Найдено"
-    },  
-    "download_recorded_empty":{  
-        "message":"Нет записей"
-    },         
-    "download_empty_p":{  
-        "message":"пустой шаблон"
-    },      
-    "download_hd":{  
-        "message":"Скачать оригинал (HD)"
-    },   
-    "download_preview":{  
-        "message":"Скачать превью"
-    },
-    "download_log":{  
-        "message":"Показать лог"
-    },
-    "download_manager":{  
-        "message":"Загрузки"
-    },
-    "download_pages_left":{  
-        "message":"Формирую список картинок для загрузки...<br>Осталось скачать страниц <b>__PAGESN__</b>"
-    },
-    "download_skip_empty":{  
-        "message":"Пропускать публикации, не имеющие медиа данных"
-    },
-    "download_start":{  
-        "message":"Запустить скачивание страниц"
-    },
-    "download_form_open":{  
-        "message":"Выгрузить в профиль данных"
-    },    
-    "download_pages_autosave" : {
-        "message":"Автоматически сохранять в отдельный файл через указанное число страниц"
-    },
-    "download_tag_filter_1":{  
-        "message":"<br>Укажите теги, посты которых необходимо сохранять. Например \"art девушка, art\". Если необходимо исключить определенные теги, то они должны начинаться с символа \"-\" в названии."
-    },
-    "download_tag_filter_show":{  
-        "message":"Применять фильтрацию по тегам"
-    },
-    "download_tag_filter_empty":{  
-        "message":"<br>Если теги не определены, выполняется сохранение всех публикаций которые видны для вашего аккаунта (если авторизован) и текущего режима просмотра (NSFW \\ SFW)<br>"
-    },
-    "download_tag_filter":{  
-        "message":"Фильтровать публикации по списку тегов"
-    },
-    "download_createc_1":{  
-        "message":"Если публикация содержит один из перечисленных в поле тегов, то к публикации будет добавлена соответствующая категория"
-    },
-    "download_createc_by_tag":{  
-        "message":"Автоматически создавать категории для тегов (список названий тегов через запятую)"
-    },
-    "download_started_cancel":{  
-        "message":"Загрузка... (Отменить)"
-    },  
-    "downloader_not_supported" : {
+    "cat_error_name_exist": {
+        "message": "Категория с указаным именем уже существует"
+    },
+    "cat_name": {
+        "message": "Название новой категории"
+    },
+    "cat_new_cat_name": {
+        "message": "Новая категория"
+    },
+    "cat_select": {
+        "message": "Выбрать категорию"
+    },
+    "cats": {
+        "message": "Категории"
+    },
+    "cats_filter": {
+        "message": "Режим добавления в выборку \\ исключения из выборки категорий"
+    },
+    "cgrid_default_rowst": {
+        "message": "Стиль по умолчанию для элемента строки"
+    },
+    "cgrid_fixed": {
+        "message": "Фиксированное кол-во элементов на строку"
+    },
+    "cgrid_max_diff": {
+        "message": "Допустимая погрешность высоты строки"
+    },
+    "cgrid_max_row_height": {
+        "message": "Максимальная высота одной строки"
+    },
+    "cgrid_min_number": {
+        "message": "Минимальное кол-во элементов в строке"
+    },
+    "cgrid_new_to_begin": {
+        "message": "Новые в начало"
+    },
+    "cgrid_per_page": {
+        "message": "Элементов на страницу"
+    },
+    "cgrid_tiles_header": {
+        "message": "Настройки сетки элементов"
+    },
+    "cgrid_type": {
+        "message": "Режим отображения публикаций"
+    },
+    "cgrid_type_dynamic": {
+        "message": "Динамическое количество в строке"
+    },
+    "cgrid_autoscroll": {
+        "message": "Пролистывать вверх при переходе на новую страницу"
+    },
+    "cgrid_autoscroll_input": {
+        "message": "Номер строки элементов"
+    },
+    "cgrid_autoscroll_notice": {
+        "message": "Если страница пролистана до указанной строки элементов, автоматически проматывать новую страницу в начало"
+    },
+    "cgrid_type_fixed": {
+        "message": "Фиксированное количество в строке"
+    },
+    "cgrid_imageview": {
+        "message": "Режим просмотра"
+    },
+    "cgrid_imageview_hd": {
+        "message": "Открывать оригинал (HD)"
+    },
+    "cgrid_imageview_preview": {
+        "message": "Открывать превью"
+    },
+    "cgrid_lazy": {
+        "message": "Загружать картинки только когда они будут в видимой области"
+    },
+    "change": {
+        "message": "Применить"
+    },
+    "comments": {
+        "message": "Комменты"
+    },
+    "comment": {
+        "message": "Комментарий"
+    },
+    "collapse": {
+        "message": "Свернуть"
+    },
+    "cache_wh": {
+        "message": "Кэш пропорций"
+    },
+    "debug": {
+        "message": "Режим отладки"
+    },
+    "dark_theme": {
+        "message": "Темная тема"
+    },
+    "delete": {
+        "message": "Удалить"
+    },
+    "delete_all_items": {
+        "message": "Удалить всю подборку"
+    },
+    "delete_confirm": {
+        "message": "Подтвердите удаление"
+    },
+    "delete_rcat_items": {
+        "message": "Удалить все связанные изображения"
+    },
+    "download": {
+        "message": "Скачать"
+    },
+    "download_current_tab": {
+        "message": "Картинки со вкладки"
+    },
+    "download_record": {
+        "message": "Вкл. запись"
+    },
+    "download_recorded": {
+        "message": "Скачать запись"
+    },
+    "download_record_stop": {
+        "message": "Остановить"
+    },
+    "download_recorded_images": {
+        "message": "Найдено"
+    },
+    "download_recorded_empty": {
+        "message": "Нет записей"
+    },
+    "download_empty_p": {
+        "message": "пустой шаблон"
+    },
+    "download_hd": {
+        "message": "Скачать оригинал (HD)"
+    },
+    "download_preview": {
+        "message": "Скачать превью"
+    },
+    "download_log": {
+        "message": "Показать лог"
+    },
+    "download_manager": {
+        "message": "Загрузки"
+    },
+    "download_pages_left": {
+        "message": "Формирую список картинок для загрузки...<br>Осталось скачать страниц <b>__PAGESN__</b>"
+    },
+    "download_skip_empty": {
+        "message": "Пропускать публикации, не имеющие медиа данных"
+    },
+    "download_start": {
+        "message": "Запустить скачивание страниц"
+    },
+    "download_form_open": {
+        "message": "Выгрузить в профиль данных"
+    },
+    "download_pages_autosave": {
+        "message": "Автоматически сохранять в отдельный файл через указанное число страниц"
+    },
+    "download_tag_filter_1": {
+        "message": "<br>Укажите теги, посты которых необходимо сохранять. Например \"art девушка, art\". Если необходимо исключить определенные теги, то они должны начинаться с символа \"-\" в названии."
+    },
+    "download_tag_filter_show": {
+        "message": "Применять фильтрацию по тегам"
+    },
+    "download_tag_filter_empty": {
+        "message": "<br>Если теги не определены, выполняется сохранение всех публикаций которые видны для вашего аккаунта (если авторизован) и текущего режима просмотра (NSFW \\ SFW)<br>"
+    },
+    "download_tag_filter": {
+        "message": "Фильтровать публикации по списку тегов"
+    },
+    "download_createc_1": {
+        "message": "Если публикация содержит один из перечисленных в поле тегов, то к публикации будет добавлена соответствующая категория"
+    },
+    "download_createc_by_tag": {
+        "message": "Автоматически создавать категории для тегов (список названий тегов через запятую)"
+    },
+    "download_started_cancel": {
+        "message": "Загрузка... (Отменить)"
+    },
+    "downloader_not_supported": {
         "message": "Доступно скачивание списка ссылок и файла профиля.<br><b>Скачивание изображений через расширение не поддерживается браузером.</b>"
     },
-    "downloader_not_supported_options" : {
+    "downloader_not_supported_options": {
         "message": "Доступно скачивание списка ссылок и файла профиля. <br><br><b>Скачивание изображений через расширение не доступно со страницы настроек.</b><br>Перейдите на основной сайт - <a href=\"__ENV_URL__\">__ENV_URL_TITLE__</a>"
     },
-    "download_save":{  
-        "message":"Скачать как файл профиля"
-    }, 
-    "download_limitpages":{  
-        "message":"Расширение хранит все данные в оперативной памяти. <br>При работе с большим кол-вом страниц (более 1000 стр.) рекомендуется активировать опцию <br><b>Автоматически сохранять в отдельный файл</b> <br>(Остановите загрузку и кликните по кнопке \"Настройки\" для активации опции)"
+    "download_save": {
+        "message": "Скачать как файл профиля"
     },
-    "download_partly":{  
-        "message":"Данные загружены частично. Можно скачать обработанные страницы (см. лог)"
-    },     
-    "download_autosaved_partly":{  
-        "message":"Часть страниц была сохранена в отдельные файлы автоматически (последнее автосохранение - страница __LAST_PAGE__)"
-    },    
-    "download_autosaved_ok":{  
-        "message":"Все страницы уже скачаны автоматически"
+    "download_limitpages": {
+        "message": "Расширение хранит все данные в оперативной памяти. <br>При работе с большим кол-вом страниц (более 1000 стр.) рекомендуется активировать опцию <br><b>Автоматически сохранять в отдельный файл</b> <br>(Остановите загрузку и кликните по кнопке \"Настройки\" для активации опции)"
     },
-    "download_empty":{  
-        "message":"Список найденных публикаций пуст (см. лог)"
-    },  
-    "edit":{  
-        "message":"Изменить"
+    "download_partly": {
+        "message": "Данные загружены частично. Можно скачать обработанные страницы (см. лог)"
     },
-    "edit_mode":{  
-        "message":"Режим редактирования"
+    "download_autosaved_partly": {
+        "message": "Часть страниц была сохранена в отдельные файлы автоматически (последнее автосохранение - страница __LAST_PAGE__)"
     },
-    "ext_description":{  
-        "message":"Каталогизатор, грабер картинок из публикаций и комментов для JoyReactor"
-    },        
-    "ext_name":{  
-        "message":"KellyC Favorites"
-    },  
-    "ext_name_recorder":{  
-        "message":"KellyC Image Downloader"
-    }, 
-    "ext_description_recorder":{  
-        "message":"Расширения для скачивания картинок с Pinterest, Pixiv и других сайтов"
+    "download_autosaved_ok": {
+        "message": "Все страницы уже скачаны автоматически"
     },
-    "expand":{  
-        "message":"Развернуть"
+    "download_empty": {
+        "message": "Список найденных публикаций пуст (см. лог)"
     },
-    "folder":{  
-        "message":"Директория"
-    },    
-    "fast_save_help":{  
-        "message":"Доступны переменные<br><br>"
-    },    
-    "fast_save_help_1":{  
-        "message":"<b>#CURRENT_LOCATION#</b> - текущий поддомен (например wh, at, wakfu и т.д.)<br>"
+    "edit": {
+        "message": "Изменить"
     },
-    "fast_save_enabled":{  
-        "message":" [ICON] Показывать кнопку быстрого сохранения для публикаций"
-    },  
-    "fast_save_configurable_enabled":{  
-        "message":" [ICON2] Показывать кнопку настраевомого быстрого сохранения для публикаций"
-    },    
-    "fix_proportions":{  
-        "message":"Обновить пропорции"
-    },  
-    "fix_proportions_ok":{  
-        "message":"Пропорции обновлены"
-    }, 
-    "fast_download":{  
-        "message":"Быстрое сохранение"
-    },    
-    "fast_save_uniq":{  
-        "message":"Сохранять с другим названием"
-    },   
-    "fast_save_overwrite":{  
-        "message":"Перезаписывать при совпадении имен"
-    }, 
-    "fast_save_to":{  
-        "message":"Сохранять в папку"
-    },   
-    "fast_save_to_placeholder":{  
-        "message":"folder/Fast"
+    "edit_mode": {
+        "message": "Режим редактирования"
     },
-    "fast_save_check":{  
-        "message":"Проверять, был ли уже скачан файл"
-    }, 
-    "fast_save_check_notice":{  
-        "message":"Если файл уже скачан ранее, к кнопке сохранения будет добавлен зеленый маркер"
+    "ext_description": {
+        "message": "Каталогизатор, грабер картинок из публикаций и комментов для JoyReactor"
     },
-    "go_to_comment":{  
-        "message":"Показать комментарий"
+    "ext_name": {
+        "message": "KellyC Favorites"
     },
-    "go_to_publication":{  
-        "message":"Показать пост"
+    "ext_name_recorder": {
+        "message": "KellyC Image Downloader"
     },
-    "grabber_common_folder":{  
-        "message":"Основная директория"
-    },    
-    "grabber_continue":{  
-        "message":"Продолжить"
+    "ext_description_recorder": {
+        "message": "Расширения для скачивания картинок с Pinterest, Pixiv и других сайтов"
     },
-    "grabber_selected_items":{  
-        "message":"Элементы"
-    }, 
-    "grabber_start_from":{  
-        "message":"Продолжить с"
-    }, 
-    "grabber_start_from_input":{  
-        "message":"Продолжить с N элемента"
+    "expand": {
+        "message": "Развернуть"
     },
-    "grabber_selected_items_not_found":{  
-        "message":"Список элементов определенный полем \"Элементы\" пуст"
+    "folder": {
+        "message": "Директория"
     },
-    "grabber_source":{  
-        "message":"Оригинал"
+    "fast_save_help": {
+        "message": "Доступны переменные<br><br>"
     },
-    "grabber_preview":{  
-        "message":"Превью"
+    "fast_save_help_1": {
+        "message": "<b>#CURRENT_LOCATION#</b> - текущий поддомен (например wh, at, wakfu и т.д.)<br>"
     },
-    "grabber_range":{  
-        "message":"Диапазон"
+    "fast_save_enabled": {
+        "message": " [ICON] Показывать кнопку быстрого сохранения для публикаций"
     },
-    "grabber_range_from":{  
-        "message":"С"
+    "fast_save_configurable_enabled": {
+        "message": " [ICON2] Показывать кнопку настраевомого быстрого сохранения для публикаций"
     },
-    "grabber_range_to":{  
-        "message":"По"
-    },  
-    "grabber_title_update":{  
-        "message":"Выводить процесс в заголовок окна"
-    },   
-    "grabber_keep_alive_timer":{  
-        "message":"Не засыпать в фоне"
-    },  
-    "grabber_hide_extended":{  
-        "message":"Скрыть расширенные настройки"
-    },	
-    "grabber_show_extended":{  
-        "message":"Показать расширенные настройки"
+    "fix_proportions": {
+        "message": "Обновить пропорции"
     },
-    "grabber_name_template":{  
-        "message":"Шаблон названия"
+    "fix_proportions_ok": {
+        "message": "Пропорции обновлены"
     },
-    "grabber_threads_num":{  
-        "message":"Количество потоков"
-    },	
-    "grabber_interval":{  
-        "message":"Интервал загрузки (сек)"
-    },	
-    "grabber_start":{  
-        "message":"Начать выгрузку"
-    },	
-    "grabber_stop":{  
-        "message":"Остановить загрузку"
-    },	
-    "grabber_canceling":{  
-        "message":"Остановка..."
+    "fast_download": {
+        "message": "Быстрое сохранение"
     },
-    "grabber_timeout":{  
-        "message":"Таймаут при долгом выполнении запроса (сек)"
-    },	
-    "grabber_exclude_lowres":{  
-        "message":"Исключать изображения с низким разрешением"
+    "fast_save_uniq": {
+        "message": "Сохранять с другим названием"
     },
-    "grabber_save_as_json":{  
-        "message":"Скачать как профиль"
-    },	
-    "grabber_save_as_txt":{  
-        "message":"Скачать как список ссылок"
+    "fast_save_overwrite": {
+        "message": "Перезаписывать при совпадении имен"
     },
-    "grabber_save_as":{  
-        "message":"Сохранить как"
-    },	
-    "grabber_save_log":{  
-        "message":"Скачать лог"
-    },	
-    "grabber_state_ready":{  
-        "message":"Загрузка завершена"
+    "fast_save_to": {
+        "message": "Сохранять в папку"
     },
-    "grabber_state_loading":{  
-        "message":"Загрузка..."
+    "fast_save_to_placeholder": {
+        "message": "folder/Fast"
     },
-    "grabber_state_wait":{  
-        "message":"Ожидает в очереди"
+    "fast_save_check": {
+        "message": "Проверять, был ли уже скачан файл"
     },
-    "grabber_state_inlist":{  
-        "message":"В списке"
-    },	
-    "grabber_state_error":{  
-        "message":"Ошибка загрузки"
+    "fast_save_check_notice": {
+        "message": "Если файл уже скачан ранее, к кнопке сохранения будет добавлен зеленый маркер"
     },
-    "grabber_name_template_help":{  
-        "message":"Укажите шаблон названия файла включая путь относительно основной директории в <b>Загрузках</b> браузера<br><br>Можно использовать переменные :<br>"
+    "go_to_comment": {
+        "message": "Показать комментарий"
     },
-    "grabber_name_template_help_1":{  
-        "message":"<b>#category_1#</b>, <b>#category_2#</b>, <b>#category_N#</b> - название 1, 2, N категории элемента (по приоритету) в которых вкл. опция \"Использовать в шаблонах имен\"<br>"
+    "go_to_publication": {
+        "message": "Показать пост"
     },
-    "grabber_name_template_help_2":{  
-        "message":"<b>#filename#</b> - оригинальное название файла<br><b>#id#</b> - уникальный идентификатор в текущем хранилище<br><b>#number#</b> - номер элемента в соответствии с текущим порядком<br>"
+    "grabber_common_folder": {
+        "message": "Основная директория"
     },
-    "grabber_name_template_help_3":{  
-        "message":"Примеры<br>\"<i>#filename#</i>\" - скачать файл в директорию загрузки с исходным названием  (например <b>Загрузки</b>/[Основная директория]/dog.jpg)<br>"
+    "grabber_continue": {
+        "message": "Продолжить"
     },
-    "grabber_name_template_help_4":{  
-        "message":"\"<i>#category_1#/#filename#</i>\" - скачать файл с исходным названием поместив его в дерикторию с названием его основной категории (например <b>Загрузки</b>/[Основная директория]/Dogs/dog.jpg)<br><br>"
-    }, 
-    "grabber_options_title":{  
-        "message":"Загрузки"
+    "grabber_selected_items": {
+        "message": "Элементы"
     },
-    "grabber_options_notice":{  
-        "message":"Поддержка совместимости для разных браузеров. <b>Менять только если что-то не работает</b>."
+    "grabber_start_from": {
+        "message": "Продолжить с"
     },
-    "grabber_transport":{  
-        "message":"Способ передачи данных в фоновый процесс"
+    "grabber_start_from_input": {
+        "message": "Продолжить с N элемента"
     },
-    "grabber_transport_blob":{  
-        "message":"Blob URL"
-    },   
-    "grabber_transport_blobbase64":{  
-        "message":"Binary Data"
+    "grabber_selected_items_not_found": {
+        "message": "Список элементов определенный полем \"Элементы\" пуст"
     },
-    "grabber_request":{  
-        "message":"Способ скачивания изображений"
+    "grabber_source": {
+        "message": "Оригинал"
     },
-    "grabber_request_xml":{  
-        "message":"Прямой запрос (XMLHttpRequest)"
+    "grabber_preview": {
+        "message": "Превью"
     },
-    "grabber_request_iframe":{  
-        "message":"Iframe hook"
-    },    
-    "grabber_request_fetch":{  
-        "message":"Прямой запрос (Fetch)"
+    "grabber_range": {
+        "message": "Диапазон"
     },
-    "grabber_flip_numbers":{  
-        "message":"Инвертировать нумерацию"
+    "grabber_range_from": {
+        "message": "С"
     },
-    "grabber_request_help":{  
+    "grabber_range_to": {
+        "message": "По"
+    },
+    "grabber_title_update": {
+        "message": "Выводить процесс в заголовок окна"
+    },
+    "grabber_keep_alive_timer": {
+        "message": "Не засыпать в фоне"
+    },
+    "grabber_hide_extended": {
+        "message": "Скрыть расширенные настройки"
+    },
+    "grabber_show_extended": {
+        "message": "Показать расширенные настройки"
+    },
+    "grabber_name_template": {
+        "message": "Шаблон названия"
+    },
+    "grabber_threads_num": {
+        "message": "Количество потоков"
+    },
+    "grabber_interval": {
+        "message": "Интервал загрузки (сек)"
+    },
+    "grabber_start": {
+        "message": "Начать выгрузку"
+    },
+    "grabber_stop": {
+        "message": "Остановить загрузку"
+    },
+    "grabber_canceling": {
+        "message": "Остановка..."
+    },
+    "grabber_timeout": {
+        "message": "Таймаут при долгом выполнении запроса (сек)"
+    },
+    "grabber_exclude_lowres": {
+        "message": "Исключать изображения с низким разрешением"
+    },
+    "grabber_save_as_json": {
+        "message": "Скачать как профиль"
+    },
+    "grabber_save_as_txt": {
+        "message": "Скачать как список ссылок"
+    },
+    "grabber_save_as": {
+        "message": "Сохранить как"
+    },
+    "grabber_save_log": {
+        "message": "Скачать лог"
+    },
+    "grabber_state_ready": {
+        "message": "Загрузка завершена"
+    },
+    "grabber_state_loading": {
+        "message": "Загрузка..."
+    },
+    "grabber_state_wait": {
+        "message": "Ожидает в очереди"
+    },
+    "grabber_state_inlist": {
+        "message": "В списке"
+    },
+    "grabber_state_error": {
+        "message": "Ошибка загрузки"
+    },
+    "grabber_name_template_help": {
+        "message": "Укажите шаблон названия файла включая путь относительно основной директории в <b>Загрузках</b> браузера<br><br>Можно использовать переменные :<br>"
+    },
+    "grabber_name_template_help_1": {
+        "message": "<b>#category_1#</b>, <b>#category_2#</b>, <b>#category_N#</b> - название 1, 2, N категории элемента (по приоритету) в которых вкл. опция \"Использовать в шаблонах имен\"<br>"
+    },
+    "grabber_name_template_help_2": {
+        "message": "<b>#filename#</b> - оригинальное название файла<br><b>#id#</b> - уникальный идентификатор в текущем хранилище<br><b>#number#</b> - номер элемента в соответствии с текущим порядком<br>"
+    },
+    "grabber_name_template_help_3": {
+        "message": "Примеры<br>\"<i>#filename#</i>\" - скачать файл в директорию загрузки с исходным названием  (например <b>Загрузки</b>/[Основная директория]/dog.jpg)<br>"
+    },
+    "grabber_name_template_help_4": {
+        "message": "\"<i>#category_1#/#filename#</i>\" - скачать файл с исходным названием поместив его в дерикторию с названием его основной категории (например <b>Загрузки</b>/[Основная директория]/Dogs/dog.jpg)<br><br>"
+    },
+    "grabber_options_title": {
+        "message": "Загрузки"
+    },
+    "grabber_options_notice": {
+        "message": "Поддержка совместимости для разных браузеров. <b>Менять только если что-то не работает</b>."
+    },
+    "grabber_transport": {
+        "message": "Способ передачи данных в фоновый процесс"
+    },
+    "grabber_transport_blob": {
+        "message": "Blob URL"
+    },
+    "grabber_transport_blobbase64": {
+        "message": "Binary Data"
+    },
+    "grabber_request": {
+        "message": "Способ скачивания изображений"
+    },
+    "grabber_request_xml": {
+        "message": "Прямой запрос (XMLHttpRequest)"
+    },
+    "grabber_request_iframe": {
+        "message": "Iframe hook"
+    },
+    "grabber_request_fetch": {
+        "message": "Прямой запрос (Fetch)"
+    },
+    "grabber_flip_numbers": {
+        "message": "Инвертировать нумерацию"
+    },
+    "grabber_request_help": {
         "message": "<b>Прямой запрос</b> - Прямой запрос через API XMLHttpRequest или Fetch (XMLHttpRequest | Fetch -> Blob) <br>"
     },
-    "grabber_request_help_1":{  
+    "grabber_request_help_1": {
         "message": "<b>Iframe hook</b> - Запрашивать изображение в дочернем окне и перехватывать расширением бинарные данные (Iframe -> Self XMLHttpRequest -> Blob)<br>"
-    },   
-    "grabber_request_help_2":{  
+    },
+    "grabber_request_help_2": {
         "message": "<br><br>Браузер не позволяет скачивать данные напрямую если поддомен изображения и сайта отличаются, в остальных случаях прямой запрос должен работать корректно<br>"
     },
-    "grabber_request_help_3":{  
+    "grabber_request_help_3": {
         "message": "Например http://www.example.com и http://example.com считаются разными доменами и попадают под ограничения безопасности - CORS<br>"
     },
-    "grabber_request_help_4":{  
+    "grabber_request_help_4": {
         "message": "<br>Для того чтобы обойти это ограничение используется промежуточное звено - \"Iframe\", он передаст нужные данные по регламентированному способу обмена не зависимо от политики безопасности<br>"
-    },  
-    "grabber_request_help_5":{  
+    },
+    "grabber_request_help_5": {
         "message": "<br>Так же чтобы отключить ограничения и использовать прямой запрос, можно скачать доп. расширение (искать \"Allow-Control-Allow-Origin: * extension\")<br>"
     },
-    "grabber_request_help_6":{  
+    "grabber_request_help_6": {
         "message": "<br><br><b>Iframe hook</b> следует рассматривать только если \"Прямой запрос\" не работает<br>"
     },
-    "grabber_request_help_7":{  
+    "grabber_request_help_7": {
         "message": "<br><br><b>Iframe hook</b> может ошибочно блокироваться блокировщиками рекламы<br>"
-    },    
-    "grabber_transport_help":{  
-        "message":"1. <b>Blob URL</b> - Передавать ссылку на массив данных (Blob -> Download API)<br>"
-    }, 
-    "grabber_transport_help_1":{  
-        "message":"2. <b>Binary data</b> - Передавать массив данных в закодированном виде (Blob -> Binary Base64 -> Blob Url -> Download API)<br>"
-    },      
-    "grabber_transport_help_2":{  
-        "message":"<br><br>Способ взаимодействия с фоновым процессом расширения необходимо корректировать только если не работает <b>любое скачивание</b> файлов (изображения, логи, профили)<br>"
-    },   
-    "grabber_skip_downloaded":{  
-        "message":"Пропускать уже загруженные в директорию (по истории загрузок)"
-    },  
-    "grabber_anim_format":{  
-        "message":"Формат для больших гифок"
     },
-    "grabber_fail_errors_list_notice":{  
-        "message":"Ошибки выполнения. Более подробную информацию можно узнать скачав лог-файл"
-    },  
-    "grabber_fail_items_list_notice":{  
-        "message":"Список элементов, которые не удалось загрузить <br> (для повторной попытки скачать скопируйте в \"Элементы\")"
+    "grabber_transport_help": {
+        "message": "1. <b>Blob URL</b> - Передавать ссылку на массив данных (Blob -> Download API)<br>"
     },
-    "grabber_errors_counter":{  
-        "message":"Ошибки загрузки : __ERRORSNUM__"
-    },  
-    "goto_page":{  
-        "message":"Перейти на страницу"
-    },    
-    "go":{  
-        "message":"Перейти"
-    },  
-    "help":{  
-        "message":"Помощь"
-    }, 
-    "hide_soc":{  
-        "message":"Скрывать кнопки соц. сетей из публикаций"
+    "grabber_transport_help_1": {
+        "message": "2. <b>Binary data</b> - Передавать массив данных в закодированном виде (Blob -> Binary Base64 -> Blob Url -> Download API)<br>"
     },
-    "hide_add_to_fav":{  
-        "message":"Скрывать кнопку \"в избранное\""
-    },   
-    "hide_top_menu":{  
-        "message":"Скрывать все верхнее меню расширения (доступ только со страницы настроек)"
-    }, 
-    "mobile_optimization":{  
-        "message":"Мобильный режим"
+    "grabber_transport_help_2": {
+        "message": "<br><br>Способ взаимодействия с фоновым процессом расширения необходимо корректировать только если не работает <b>любое скачивание</b> файлов (изображения, логи, профили)<br>"
     },
-    "ignore_comments":{  
-        "message":"Игнорировать комментарии"
+    "grabber_skip_downloaded": {
+        "message": "Пропускать уже загруженные в директорию (по истории загрузок)"
     },
-    "ignore_publications":{  
-        "message":"Игнорировать посты"
+    "grabber_anim_format": {
+        "message": "Формат для больших гифок"
     },
-    "image":{  
-        "message":"Изображение __IMAGEN__"
+    "grabber_fail_errors_list_notice": {
+        "message": "Ошибки выполнения. Более подробную информацию можно узнать скачав лог-файл"
     },
-    "image_main":{  
-        "message":"Картинка"
+    "grabber_fail_items_list_notice": {
+        "message": "Список элементов, которые не удалось загрузить <br> (для повторной попытки скачать скопируйте в \"Элементы\")"
     },
-    "image_total":{  
-        "message":"Изображений : __IMAGEN__"
-    },  
-    "image_fail":{  
-        "message":"Не удалось загрузить изображение"
+    "grabber_errors_counter": {
+        "message": "Ошибки загрузки : __ERRORSNUM__"
     },
-    "init_css_error":{  
-        "message":"Ошибка инициализации таблиц оформления"
+    "goto_page": {
+        "message": "Перейти на страницу"
     },
-    "item_added":{  
-        "message":"Публикация добавлена в избранное"
+    "go": {
+        "message": "Перейти"
     },
-    "item_bad_url":{  
-        "message":"Публикация не имеет ссылки"
+    "help": {
+        "message": "Помощь"
     },
-    "item_notice":{  
-        "message":"Своя заметка"
+    "hide_soc": {
+        "message": "Скрывать кнопки соц. сетей из публикаций"
     },
-    "item_notice_title":{  
-        "message":"Будет сохранена вместо превью публикации или ее текста"
+    "hide_add_to_fav": {
+        "message": "Скрывать кнопку \"в избранное\""
     },
-    "item_number":{  
-        "message":"Запись №__ITEMN__"
+    "hide_top_menu": {
+        "message": "Скрывать все верхнее меню расширения (доступ только со страницы настроек)"
     },
-    "item_upd":{  
-        "message":"Публикация обновлена"
+    "mobile_optimization": {
+        "message": "Мобильный режим"
     },
-    "item_add_err1":{  
-        "message":"Ошибка определения ссылки на комментарий"
-    },    
-    "items":{  
-        "message":"Публикации"
+    "ignore_comments": {
+        "message": "Игнорировать комментарии"
     },
-    "item_preview_hide":{  
-        "message":"Скрыть превью"
+    "ignore_publications": {
+        "message": "Игнорировать посты"
     },
-    "item_preview_show":{  
-        "message":"Показать превью"
+    "image": {
+        "message": "Изображение __IMAGEN__"
     },
-    "fav_list_empty":{  
-        "message":"Список картинок пуст"
+    "image_main": {
+        "message": "Картинка"
+    },
+    "image_total": {
+        "message": "Изображений : __IMAGEN__"
+    },
+    "image_fail": {
+        "message": "Не удалось загрузить изображение"
+    },
+    "init_css_error": {
+        "message": "Ошибка инициализации таблиц оформления"
+    },
+    "item_added": {
+        "message": "Публикация добавлена в избранное"
+    },
+    "item_bad_url": {
+        "message": "Публикация не имеет ссылки"
+    },
+    "item_notice": {
+        "message": "Своя заметка"
+    },
+    "item_notice_title": {
+        "message": "Будет сохранена вместо превью публикации или ее текста"
+    },
+    "item_number": {
+        "message": "Запись №__ITEMN__"
+    },
+    "item_upd": {
+        "message": "Публикация обновлена"
+    },
+    "item_add_err1": {
+        "message": "Ошибка определения ссылки на комментарий"
+    },
+    "items": {
+        "message": "Публикации"
+    },
+    "item_preview_hide": {
+        "message": "Скрыть превью"
+    },
+    "item_preview_show": {
+        "message": "Показать превью"
+    },
+    "fav_list_empty": {
+        "message": "Список картинок пуст"
     },
     "link_support": {
-        "message":"О проекте"
+        "message": "О проекте"
     },
     "link_report_issue": {
-        "message":"Сообщить о проблеме"
+        "message": "Сообщить о проблеме"
     },
-    "loading":{  
-        "message":"Загрузка"
+    "loading": {
+        "message": "Загрузка"
     },
-    "language":{  
-        "message":"Язык"
+    "language": {
+        "message": "Язык"
     },
-    "logic_and":{  
-        "message":"Логика И"
+    "logic_and": {
+        "message": "Логика И"
     },
-    "logic_or":{  
-        "message":"Логика ИЛИ"
-    },    
-    "logic_and_help":{  
-        "message":"Вывести записи которые имеют все выбранные категории (исключаемые категории фильтруются отдельно)"
+    "logic_or": {
+        "message": "Логика ИЛИ"
     },
-    "logic_or_help":{  
-        "message":"Вывести записи где есть хотя бы одна из выбранных категорий (исключаемые категории фильтруются отдельно)"
+    "logic_and_help": {
+        "message": "Вывести записи которые имеют все выбранные категории (исключаемые категории фильтруются отдельно)"
     },
-    "new_name":{  
-        "message":"Новое название"
+    "logic_or_help": {
+        "message": "Вывести записи где есть хотя бы одна из выбранных категорий (исключаемые категории фильтруются отдельно)"
     },
-    "next":{  
-        "message":"Следующее"
-    },  
-    "nsfw_tip":{  
-        "message":"Если деактивировано - автоматически исключать категории с маркером NSFW"
-    },  
-    "nradiowave_person":{  
-        "message":"nradiowave"
+    "new_name": {
+        "message": "Новое название"
     },
-    "no_image":{  
-        "message":"Без изображения"
+    "next": {
+        "message": "Следующее"
     },
-    "options":{  
-        "message":"Настройки"
+    "nsfw_tip": {
+        "message": "Если деактивировано - автоматически исключать категории с маркером NSFW"
     },
-    "options_extra":{  
-        "message":"Расширенные настройки"
+    "nradiowave_person": {
+        "message": "nradiowave"
     },
-    "options_main":{  
-        "message":"Основные настройки"
+    "no_image": {
+        "message": "Без изображения"
     },
-    "options_fav_add":{  
-        "message":"Добавление в избранное"
-    },     
-    "options_saved":{  
-        "message":"Настройки сохранены"
+    "options": {
+        "message": "Настройки"
     },
-    "options_storage":{  
-        "message":"Основная папка для сохранения профилей и настроек"
+    "options_extra": {
+        "message": "Расширенные настройки"
     },
-    "options_side":{  
-        "message":"Перенести кнопку настроек из шапки сайта в боковое меню фильтров"
-    },   
-    "other":{  
-        "message":"Остальное"
-    },  
+    "options_main": {
+        "message": "Основные настройки"
+    },
+    "options_fav_add": {
+        "message": "Добавление в избранное"
+    },
+    "options_saved": {
+        "message": "Настройки сохранены"
+    },
+    "options_storage": {
+        "message": "Основная папка для сохранения профилей и настроек"
+    },
+    "options_side": {
+        "message": "Перенести кнопку настроек из шапки сайта в боковое меню фильтров"
+    },
+    "other": {
+        "message": "Остальное"
+    },
     "options_page_title": {
-        "message" : "Выберите страницу настроек модуля"
+        "message": "Выберите страницу настроек модуля"
     },
     "options_page_module_enabled": {
-        "message" : "Модуль включен"
+        "message": "Модуль включен"
     },
     "options_page_recorder_cfg": {
-        "message" : "Настройки [Всплывающее окно записи]"
+        "message": "Настройки [Всплывающее окно записи]"
     },
     "options_page_recorder_desc": {
-        "message" : "Универсальный инструмент для скачивания картинок с любого сайта (вызывается по клику на иконку расширения)"
+        "message": "Универсальный инструмент для скачивания картинок с любого сайта (вызывается по клику на иконку расширения)"
     },
     "options_page_custom_cfg": {
-        "message" : "Настройки [Встраиваемый модуль для __PROFILENAME__]"
+        "message": "Настройки [Встраиваемый модуль для __PROFILENAME__]"
     },
     "options_page_custom_sites": {
-        "message" : "Встроен в сайты :"
+        "message": "Встроен в сайты :"
     },
     "options_page_about": {
-        "message" : "О проекте"
+        "message": "О проекте"
     },
     "options_page_pp": {
-        "message" : "Политика конфиденциальности"
-    }, 
+        "message": "Политика конфиденциальности"
+    },
     "options_page_selected": {
-        "message" : "(Текущая страница)"
+        "message": "(Текущая страница)"
     },
-    "page":{  
-        "message":"Страница"
-    }, 
-    "pages":{  
-        "message":"Список страниц (1-10, 40-60 и т.д.)"
+    "page": {
+        "message": "Страница"
     },
-    "pages_n":{  
-        "message":"Всего страниц"
+    "pages": {
+        "message": "Список страниц (1-10, 40-60 и т.д.)"
     },
-    "prev":{  
-        "message":"Предыдущее"
+    "pages_n": {
+        "message": "Всего страниц"
     },
-    "publication":{  
-        "message":"Публикация"
+    "prev": {
+        "message": "Предыдущее"
     },
-    "unlock_common" : {
-        "message" : "Снятие блокировок"
+    "publication": {
+        "message": "Публикация"
     },
-    "unlock_censored_anon":{  
-        "message":"Видеть посты требующие входа в аккаунт даже если не авторизован"
+    "unlock_common": {
+        "message": "Снятие блокировок"
     },
-    "unlock_censored_anon_notice":{  
-        "message":"Относится к <a href=\"//m.reactor.cc\" target=\"_blank\">m.reactor.cc</a>"
-    }, 
-    "unlock_censored_unsafe":{  
-        "message":"Отображать скрытые \"небезопасные\" посты"
+    "unlock_censored_anon": {
+        "message": "Видеть посты требующие входа в аккаунт даже если не авторизован"
     },
-    "unlock_censored_unsafe_notice":{  
-        "message":"Относится только к публикациям скрытым без подписки (теги \"секретные разделы\", \"песочница\" и т.п.) на <a href=\"//m.reactor.cc\" target=\"_blank\">m.reactor.cc</a>"
+    "unlock_censored_anon_notice": {
+        "message": "Относится к <a href=\"//m.reactor.cc\" target=\"_blank\">m.reactor.cc</a>"
     },
-    "unlock_censored":{  
-        "message":"Отображать \\ Восстанавливать при выгрузке заблокированные посты "
-    },    
-    "unlock_censored_auto":{  
-        "message":"Автоматически без клика на превью"
-    },   
-    "unlock_mreact":{  
-        "message":"Включить расширение для m.reactor.cc (требуется перезапуск браузера после сохранения настроек)"
+    "unlock_censored_unsafe": {
+        "message": "Отображать скрытые \"небезопасные\" посты"
     },
-    "unlock_censored_mode":{  
-        "message":"Режим разблокировки постов"
+    "unlock_censored_unsafe_notice": {
+        "message": "Относится только к публикациям скрытым без подписки (теги \"секретные разделы\", \"песочница\" и т.п.) на <a href=\"//m.reactor.cc\" target=\"_blank\">m.reactor.cc</a>"
     },
-    "unlock_censored_manual":{  
-        "message":"По клику на превью"
-    }, 
-    "unlock_censored_auth":{  
-        "message":"Вкл. отправку комментов, плюсомет (если авторизован)"
-    },    
-    "unlock_censored_showtv_routing":{  
-        "message":"Автоматически определять заблокированные страницы тегов и открывать их через Tag Viewer <br> (требуется перезапуск браузера после сохранения настроек)"
-    },   
-    "unlock_censored_showtv_any":{  
-        "message":"Показывать кнопку Tag Viewer для всех тегов на сайте (по правой кнопке мыши)"
+    "unlock_censored": {
+        "message": "Отображать \\ Восстанавливать при выгрузке заблокированные посты "
     },
-    "unlock_censored_showtv":{  
-        "message":"Показывать кнопку Tag Viewer"
-    }, 
-    "unlock_censored_cache":{  
-        "message":"Кэш (в автоматическом режиме)"
-    }, 
-    "related_doc":{  
-        "message":"Документ"
-    }, 
-    "related_doc_limit_one":{  
-        "message":"Только одно изображение на документ"
-    },   
-    "related_doc_limit_all":{  
-        "message":"Все картинки которые больше превью"
-    }, 
-    "remove_from_fav":{  
-        "message":"удалить"
+    "unlock_censored_auto": {
+        "message": "Автоматически без клика на превью"
     },
-    "remove_from_fav_comment":{  
-        "message":"удалить"
-    },       
-    "remove_from_fav_tip":{  
-        "message":"Удалить из избранного"
+    "unlock_mreact": {
+        "message": "Включить расширение для m.reactor.cc (требуется перезапуск браузера после сохранения настроек)"
     },
-    "removed_cat":{  
-        "message":"Удаленная категория"
-    },    
-    "reset":{  
-        "message":"Сбросить"
-    }, 
-    "reload":{  
-        "message":"Перезагрузить"
-    }, 
-    "restore":{  
-        "message":"Восстановление"
+    "unlock_censored_mode": {
+        "message": "Режим разблокировки постов"
     },
-    "save":{  
-        "message":"Сохранить"
-    },   
-    "saved":{  
-        "message":"Сохраненное"
-    },     
+    "unlock_censored_manual": {
+        "message": "По клику на превью"
+    },
+    "unlock_censored_auth": {
+        "message": "Вкл. отправку комментов, плюсомет (если авторизован)"
+    },
+    "unlock_censored_showtv_routing": {
+        "message": "Автоматически определять заблокированные страницы тегов и открывать их через Tag Viewer <br> (требуется перезапуск браузера после сохранения настроек)"
+    },
+    "unlock_censored_showtv_any": {
+        "message": "Показывать кнопку Tag Viewer для всех тегов на сайте (по правой кнопке мыши)"
+    },
+    "unlock_censored_showtv": {
+        "message": "Показывать кнопку Tag Viewer"
+    },
+    "unlock_censored_cache": {
+        "message": "Кэш (в автоматическом режиме)"
+    },
+    "related_doc": {
+        "message": "Документ"
+    },
+    "related_doc_limit_one": {
+        "message": "Только одно изображение на документ"
+    },
+    "related_doc_limit_all": {
+        "message": "Все картинки которые больше превью"
+    },
+    "remove_from_fav": {
+        "message": "удалить"
+    },
+    "remove_from_fav_comment": {
+        "message": "удалить"
+    },
+    "remove_from_fav_tip": {
+        "message": "Удалить из избранного"
+    },
+    "removed_cat": {
+        "message": "Удаленная категория"
+    },
+    "reset": {
+        "message": "Сбросить"
+    },
+    "reload": {
+        "message": "Перезагрузить"
+    },
+    "restore": {
+        "message": "Восстановление"
+    },
+    "save": {
+        "message": "Сохранить"
+    },
+    "saved": {
+        "message": "Сохраненное"
+    },
     "sidebar_section_filters": {
-        "message":"Фильтры"
-    },  
+        "message": "Фильтры"
+    },
     "sidebar_section_downloads": {
-        "message":"Загрузки"
+        "message": "Загрузки"
     },
-    "saving":{  
-        "message":"Сохранение..."
-    }, 
-    "selection_empty":{  
-        "message":"Выборка пуста"
+    "saving": {
+        "message": "Сохранение..."
     },
-    "select":{  
-        "message":"Выбрать"
+    "selection_empty": {
+        "message": "Выборка пуста"
     },
-    "storage":{  
-        "message":"Профили"
+    "select": {
+        "message": "Выбрать"
     },
-    "storage_selected":{  
-        "message":"Профиль выбран"
-    },   
-    "storage_add_new":{  
-        "message":"Добавить новый профиль"
-    },    
-    "storage_io_options":{  
-        "message":"Импорт \\ Экспорт настроек расширения"
+    "storage": {
+        "message": "Профили"
     },
-    "storage_io_options_export":{  
-        "message":"Восстановить"
+    "storage_selected": {
+        "message": "Профиль выбран"
     },
-    "storage_io_options_import":{  
-        "message":"Скачать текущие настройки"
+    "storage_add_new": {
+        "message": "Добавить новый профиль"
     },
-    "storage_load_from_file":{  
-        "message":"Загрузить из файла"
-    },      
-    "storage_load_from_user":{  
-        "message":"Загрузить со страницы"
-    },    
-    "storage_load_from_user_info":{  
-        "message":"Данные [__USER_NAME__] (постов : __BOOKMARKS_NUM__)"
-    },  
-    "storage_load_from_dump":{  
-        "message":"Загрузить текущие данные"
-    },   
-    "storage_load_from_dump_info":{  
-        "message":"Текущие собранные данные (записей : __BOOKMARKS_NUM__)"
-    },      
-    "storage_create_e3":{  
-        "message":"Данные из выбранного источника не доступны"
-    },    
-    "storage_parser_save_to_profile":{  
-        "message":"Добавить картинки в профиль"
-    },    
-    "storage_conflict_action":{  
-        "message":"Если профиль существует"
-    }, 
-    "storage_name":{  
-        "message":"Идентификатор профиля<br>(только символы A-Z, 1-9, _)"
+    "storage_io_options": {
+        "message": "Импорт \\ Экспорт настроек расширения"
     },
-    "storage_create_cancel_if_exist":{  
-        "message":"Отмена, если уже существует"
-    }, 
-    "storage_create_overwrite_if_exist":{  
-        "message":"Перезаписать если существует"
+    "storage_io_options_export": {
+        "message": "Восстановить"
     },
-    "storage_create_add_if_exist":{  
-        "message":" Дополнить если существует (<b>beta</b>)"
+    "storage_io_options_import": {
+        "message": "Скачать текущие настройки"
     },
-    "storage_manager_total":{  
-        "message":"Занято"
-    },    
-    "storage_manager_localstorage_notice":{  
-        "message":"Для выбранного типа хранения данных (<b>localstorage</b>) общий размер используемых данных ограничен и в общем случае не должен быть больше <b>4мб</b>. По достежению лимита данные будут доступны только для чтения."
+    "storage_load_from_file": {
+        "message": "Загрузить из файла"
     },
-    "storage_manager_api_notice":{  
-        "message":"макс. <b>__MAX_ENV_SIZE__мб</b> | не более <b>__MAX_TOTAL_PER_DB__мб</b> на профиль"
-    },   
-    "storage_manager_hit_limit_db":{  
-        "message":"Превышен допустимый размер одного файла данных (не более <b>__MAX_TOTAL_PER_DB__</b> мб). Входящий файл : <b>__FILESIZE__</b>мб"
-    },    
-    "storage_manager_hit_limit_env":{  
-        "message":"Превышен допустимый размер файлов профилей окружения (не более <b>__MAX_ENV_SIZE__</b> мб для всех поддоменов и доменов). Текущий размер окружения <b>__ENVSIZE__</b>мб"
+    "storage_load_from_user": {
+        "message": "Загрузить со страницы"
     },
-    "storage_type_notice":{  
-        "message":"При изменении типа хранения данных данные будут считываться из другого места, соответственно текущий список профилей будет скрыт."
-    },   
-    "storage_type":{  
-        "message":"Тип хранения данных"
-    },  
-    "storage_manage":{  
-        "message":"Управление профилями"
-    },   
-    "storage_delete":{  
-        "message":"Удалить профиль"
-    },    
-    "storage_empty_name":{  
-        "message":"Введите название профиля"
-    },     
-    "storage_beasy":{  
-        "message":"Дождитесь загрузки списка профилей"
-    },    
-    "storage_create_already_exist":{  
-        "message":"Профиль с указанным идентификатором уже существует"
-    },     
-    "storage_create_ok_mcancel":{  
-        "message":"Профиль добавлен"
-    },   
-    "storage_create_ok_madd":{  
-        "message":"Профиль дополнен"
-    },    
-    "storage_create_ok_moverwrite":{  
-        "message":"Профиль перезаписан"
-    },    
-    "storage_create_e1":{  
-        "message":"Ошибка сохранения профиля (проверьте не превышен ли общий размер данных). Для более детального отчета активируйте режим отладки (Остальное - Режим отладки) и проверьте вывод в консоль"
-    },   
-    "storage_create_e2":{  
-        "message":"Ошибка парсинга структурированных данных файла профиля"
-    }, 
-    "storage_create_e4":{  
-        "message":"Ошибка : Профиль (__PROFILE_MODULE__) не совместим с текущим модулем просмотра (__CURRENT_MODULE__)"
+    "storage_load_from_user_info": {
+        "message": "Данные [__USER_NAME__] (постов : __BOOKMARKS_NUM__)"
     },
-    "storage_save_e1":{  
-        "message":"Ошибка сохранения (проверьте общий размер данных в настройках профилей)"
+    "storage_load_from_dump": {
+        "message": "Загрузить текущие данные"
     },
-    "storage_import_e1":{  
-        "message":"Укажите файл из которого будут импортированы настройки"
-    }, 
-    "storage_import_limit":{  
-        "message":"Превышен максимально допустимый лимит для файла настроек (__MAX_CONFIG_SIZE__мб). Размер загружаемого файла __FILESIZE__мб."
-    }, 
-    "storage_import_e2":{  
-        "message":"Ошибка записи данных"
-    }, 
-    "storage_import_ok":{  
-        "message":"Данные обновлены"
+    "storage_load_from_dump_info": {
+        "message": "Текущие собранные данные (записей : __BOOKMARKS_NUM__)"
     },
-    "storage_deprecated":{  
-        "message":"Данные профиля были обновлены с другой вкладки. Перезагрузить список элементов для текущей страницы ?"
-    }, 
-    "sync_by_add":{  
-        "message":"Дублировать в \"Закладки\" пользователя, если авторизован"
-    },      
-    "show_images_options_notice":{  
-        "message":"Изображения могут отображатся некорректно со страницы настроек.<br><br>Перейдите на основной сайт - <a href=\"__ENV_URL__\">__ENV_URL_TITLE__</a>"
-    },     
-    "tip":{  
-        "message":"подсказка"
+    "storage_create_e3": {
+        "message": "Данные из выбранного источника не доступны"
     },
-    "web_request_api":{  
-        "message":"Webrequest API"
-    },  
-    "kb":{  
-        "message":"кб"
-    },     
-    "toolbar_deselect_all":{  
-        "message":"Исключить все"
-    }, 
-    "toolbar_help":{  
-        "message":"Помочь проекту"
+    "storage_parser_save_to_profile": {
+        "message": "Добавить картинки в профиль"
     },
-    "toolbar_theme":{  
-        "message":"Переключить тему"
-    },   
-    "toolbar_collapse":{  
-        "message":"Свернуть панель инструментов"
-    },    
-    "toolbar_edit_mode":{  
-        "message":"Режим редактирования"
+    "storage_conflict_action": {
+        "message": "Если профиль существует"
     },
-    "toolbar_cat_not_selected":{  
-        "message":"Категории не выбраны"
+    "storage_name": {
+        "message": "Идентификатор профиля<br>(только символы A-Z, 1-9, _)"
     },
-    "toolbar_selected_images":{  
-        "message":"Выбраны картинки"
-    },    
-    "toolbar_deselected_images":{  
-        "message":"Исключены картинки"
+    "storage_create_cancel_if_exist": {
+        "message": "Отмена, если уже существует"
     },
-    "toolbar_from_single_cat":{  
-        "message":"<b>из категории</b>"
-    },  
-    "toolbar_from_and_cats":{  
-        "message":"содержащие <b>все категории</b>"
-    }, 
-    "toolbar_from_or_cats":{  
-        "message":"содержащие <b>одну из категорий</b>"
+    "storage_create_overwrite_if_exist": {
+        "message": "Перезаписать если существует"
     },
-    "thread_sec_notice":{  
-        "message":"Настройки скорости запросов при загрузке доп. документов. <b>Не менять без необходимости.</b><br>* Можно указать несколько значений через запятую, чтобы добавить неоднородность по времени при выполнении (значения выбираются случайно)"
+    "storage_create_add_if_exist": {
+        "message": " Дополнить если существует (<b>beta</b>)"
     },
-    "thread_pauseEvery":{  
-        "message":"Пауза после указанного кол-ва запросов *"
-    }, 
-    "thread_pauseTimer":{  
-        "message":"Длина паузы (сек.) *"
-    }, 
-    "thread_timeout":{  
-        "message":"Таймаут при длительном ожидании ответа (сек.)"
-    }, 
-    "thread_timeoutOnEnd":{  
-        "message":"Интервал запросов в потоке (сек.) *"
-    }, 
-    "thread_maxThreads":{  
-        "message":"Кол-во потоков"
-    }, 
-    "thread_imgLoadermaxThreads":{  
-        "message":"Кол-во потоков"
+    "storage_manager_total": {
+        "message": "Занято"
     },
-    "thread_imgLoaderTimeout":{  
-        "message":"Таймаут при длительном ожидании ответа (сек.)"
+    "storage_manager_localstorage_notice": {
+        "message": "Для выбранного типа хранения данных (<b>localstorage</b>) общий размер используемых данных ограничен и в общем случае не должен быть больше <b>4мб</b>. По достежению лимита данные будут доступны только для чтения."
     },
-    "recorder_popup_left":{  
-        "message":"слева"
-    }, 
-    "recorder_popup_right":{  
-        "message":"справа"
-    },    
-    "recorder_popup_all":{  
-        "message":"все вкладки"
-    }, 
-    "recorder_request_settings":{  
-        "message":"Параметры запросов доп. документов"
-    },    
-    "recorder_image_request_settings":{  
-        "message":"Параметры скорости загрузки пропорций картинок"
-    },    
-    "recorder_extra_filters":{  
-        "message":"Доп. фильтры"
+    "storage_manager_api_notice": {
+        "message": "макс. <b>__MAX_ENV_SIZE__мб</b> | не более <b>__MAX_TOTAL_PER_DB__мб</b> на профиль"
     },
-    "recorder_filter":{  
-        "message":"Выбрать"
+    "storage_manager_hit_limit_db": {
+        "message": "Превышен допустимый размер одного файла данных (не более <b>__MAX_TOTAL_PER_DB__</b> мб). Входящий файл : <b>__FILESIZE__</b>мб"
     },
-    "recorder_desc":{  
-        "message":"По убыванию"
-    },   
-    "recorder_asc":{  
-        "message":"По возрастанию"
-    },  
-    "recorder_order_direct":{  
-        "message":"Прямой"
-    },   
-    "recorder_order_reverse":{  
-        "message":"Обратный"
-    },    
-    "recorder_sort_order":{  
-        "message":"Порядок (ID)"
-    }, 
-    "recorder_sort_proportions":{  
-        "message":"Пропорции"
+    "storage_manager_hit_limit_env": {
+        "message": "Превышен допустимый размер файлов профилей окружения (не более <b>__MAX_ENV_SIZE__</b> мб для всех поддоменов и доменов). Текущий размер окружения <b>__ENVSIZE__</b>мб"
     },
-    "recorder_load_prop_skip":{  
-        "message":"Пропустить загрузку"
+    "storage_type_notice": {
+        "message": "При изменении типа хранения данных данные будут считываться из другого места, соответственно текущий список профилей будет скрыт."
     },
-    "recorder_load_related_doc":{  
-        "message":"Загрузить доп. документы"
+    "storage_type": {
+        "message": "Тип хранения данных"
     },
-    "recorder_regular_expr":{  
-        "message":"Регулярное выражение"
+    "storage_manage": {
+        "message": "Управление профилями"
     },
-    "recorder_exclude_urls":{  
-        "message":"Исключать url"
+    "storage_delete": {
+        "message": "Удалить профиль"
     },
-    "recorder_match_url":{  
-        "message":"Совпадение url"
+    "storage_empty_name": {
+        "message": "Введите название профиля"
     },
-    "recorder_width":{  
-        "message":"Ширина"
+    "storage_beasy": {
+        "message": "Дождитесь загрузки списка профилей"
     },
-    "recorder_height":{  
-        "message":"Высота"
+    "storage_create_already_exist": {
+        "message": "Профиль с указанным идентификатором уже существует"
     },
-    "recorder_min_dimensions":{  
-        "message":"Мин. пропорции"
+    "storage_create_ok_mcancel": {
+        "message": "Профиль добавлен"
     },
-    "recorder_filter_help":{  
-        "message":"<b>Выбрать</b> - выполнить фильтрацию по заданным параметрам<br>"
+    "storage_create_ok_madd": {
+        "message": "Профиль дополнен"
     },
-    "recorder_filter_help_1":{  
-        "message":"Формат рег. выражений : (http|https)://i.example.com/[a-zA-Z0-9]+/img/[a-zA-Z0-9/_]+.jpg<br><br>"
+    "storage_create_ok_moverwrite": {
+        "message": "Профиль перезаписан"
     },
-    "recorder_filter_help_2":{  
-        "message":"<b>Загрузить пропорции</b> - отсортировать изображения по разрешению и отсеять картинки с ошибками \\ технические картинки (< 3x3)<br><br>"
+    "storage_create_e1": {
+        "message": "Ошибка сохранения профиля (проверьте не превышен ли общий размер данных). Для более детального отчета активируйте режим отладки (Остальное - Режим отладки) и проверьте вывод в консоль"
     },
-    "recorder_filter_help_3":{  
-        "message":"<b>Загрузить доп. документы</b> - попробовать найти оригиналы выбранных картинок-превью (рекомендуется использовать только на определенных сайтах с группой [Preview], где кнопка имеет значек __CHECKMARK__)<br><br>"
+    "storage_create_e2": {
+        "message": "Ошибка парсинга структурированных данных файла профиля"
     },
-    "recorder_filter_help_4":{  
-        "message":"<b>Глубокий поиск</b> - после загрузки доп. документа для картинок-превью, ищет в нем картинки с большими пропорциями и оставляет их как оригиналы. (опция используется по умолчанию если расширение не имеет зарание заготовленных фильтров - кнопка загрузить доп. документы без значка)"
+    "storage_create_e4": {
+        "message": "Ошибка : Профиль (__PROFILE_MODULE__) не совместим с текущим модулем просмотра (__CURRENT_MODULE__)"
     },
-    "recorder_cant_find_images":{  
-        "message":"Не найдено изображений в доп. документах"
-    },    
-    "recorder_cant_find_originals_images":{  
-        "message":"Нет изображений похожих на оригиналы"
-    },   
-    "recorder_no_related_docs":{  
-        "message":"Нет дополнительных документов"
+    "storage_save_e1": {
+        "message": "Ошибка сохранения (проверьте общий размер данных в настройках профилей)"
     },
-    "recorder_canceled":{  
-        "message":"Задача отменена"
-    }, 
-    "recorder_load_doc_loadDoc":{  
-        "message":"Загрузка документов<br>Всего изображений : __IMAGESNUM__ <br> Подтвержденные оригиналы : <b>__IMAGESNUM_TRUSTED__</b>"
-    },   
-    "recorder_load_doc_loadImg":{  
-        "message":"Поиск HD версий изображений в документах..."
+    "storage_import_e1": {
+        "message": "Укажите файл из которого будут импортированы настройки"
     },
-    "recorder_load_doc_stop":{  
-        "message":"Остановить"
+    "storage_import_limit": {
+        "message": "Превышен максимально допустимый лимит для файла настроек (__MAX_CONFIG_SIZE__мб). Размер загружаемого файла __FILESIZE__мб."
     },
-    "recorder_added_images_num":{  
-        "message":"Добавлено __IMAGESNUM__ изображений"
+    "storage_import_e2": {
+        "message": "Ошибка записи данных"
     },
-    "recorder_load_beasy":{  
-        "message":"Выполняется процесс загрузки данных. Отмените действие перед дальнейшей работой"
+    "storage_import_ok": {
+        "message": "Данные обновлены"
     },
-    "recorder_load_beasy_wr":{  
-        "message":"Выполняется процесс обновления навигации. Подождите..."
+    "storage_deprecated": {
+        "message": "Данные профиля были обновлены с другой вкладки. Перезагрузить список элементов для текущей страницы ?"
     },
-    "recorder_max":{  
-        "message":"Макс."
+    "sync_by_add": {
+        "message": "Дублировать в \"Закладки\" пользователя, если авторизован"
     },
-    "recorder_min":{  
-        "message":"Мин."
+    "show_images_options_notice": {
+        "message": "Изображения могут отображатся некорректно со страницы настроек.<br><br>Перейдите на основной сайт - <a href=\"__ENV_URL__\">__ENV_URL_TITLE__</a>"
     },
-    "recorder_filtered":{  
-        "message":"Данные отфильтрованы"
-    },  
-    "recorder_terminated":{  
-        "message":"Загрузка доп. документов не поддерживается"
+    "tip": {
+        "message": "подсказка"
     },
-    "recorder_sort":{  
-        "message":"Сортировка"
+    "web_request_api": {
+        "message": "Webrequest API"
     },
-    "recorder_related_doc_trusted_url":{  
-        "message":"Совпадение url (картинка в доп. документе)"
+    "kb": {
+        "message": "кб"
     },
-    "recorder_related_doc_deep_search":{  
-        "message":"Глубокий поиск"
+    "toolbar_deselect_all": {
+        "message": "Исключить все"
     },
-    "recorder_last_recorded":{  
-        "message":"Последние записанные данные"
+    "toolbar_help": {
+        "message": "Помочь проекту"
     },
-    "recorder_load_proportions":{  
-        "message":"Загружаются пропорции..."
-    },     
-    "recorder_related_links_notice":{  
-        "message":"Для <b>__HOST__</b> можно загрузить доп. картинки"
-    },  
-    "recorder_related_links_notice_1":{  
-        "message":"Нажмите на <b>Загрузить доп. документы</b> (доп. фильтры) если на странице найдены только превьюшки публикаций, а всех картинок из публикаций не видно или качество картинок не достаточно высокое"
-    },   
-    "recorder_dont_show_again":{  
-        "message":"Больше не показывать"
-    },   
-    "recorder_read_about":{  
-        "message":"Подробнее о функции"
+    "toolbar_theme": {
+        "message": "Переключить тему"
     },
-    "recorder_displayed_info":{  
-        "message":"Картинки : __ITEMS__ | Доп. документы : __RELATED_DOCS__"
+    "toolbar_collapse": {
+        "message": "Свернуть панель инструментов"
     },
-    "tweek_twitter_18w":{  
-        "message":"[Twitter] Disable blur & content warnings"
+    "toolbar_edit_mode": {
+        "message": "Режим редактирования"
+    },
+    "toolbar_cat_not_selected": {
+        "message": "Категории не выбраны"
+    },
+    "toolbar_selected_images": {
+        "message": "Выбраны картинки"
+    },
+    "toolbar_deselected_images": {
+        "message": "Исключены картинки"
+    },
+    "toolbar_from_single_cat": {
+        "message": "<b>из категории</b>"
+    },
+    "toolbar_from_and_cats": {
+        "message": "содержащие <b>все категории</b>"
+    },
+    "toolbar_from_or_cats": {
+        "message": "содержащие <b>одну из категорий</b>"
+    },
+    "thread_sec_notice": {
+        "message": "Настройки скорости запросов при загрузке доп. документов. <b>Не менять без необходимости.</b><br>* Можно указать несколько значений через запятую, чтобы добавить неоднородность по времени при выполнении (значения выбираются случайно)"
+    },
+    "thread_pauseEvery": {
+        "message": "Пауза после указанного кол-ва запросов *"
+    },
+    "thread_pauseTimer": {
+        "message": "Длина паузы (сек.) *"
+    },
+    "thread_timeout": {
+        "message": "Таймаут при длительном ожидании ответа (сек.)"
+    },
+    "thread_timeoutOnEnd": {
+        "message": "Интервал запросов в потоке (сек.) *"
+    },
+    "thread_maxThreads": {
+        "message": "Кол-во потоков"
+    },
+    "thread_imgLoadermaxThreads": {
+        "message": "Кол-во потоков"
+    },
+    "thread_imgLoaderTimeout": {
+        "message": "Таймаут при длительном ожидании ответа (сек.)"
+    },
+    "recorder_popup_left": {
+        "message": "слева"
+    },
+    "recorder_popup_right": {
+        "message": "справа"
+    },
+    "recorder_popup_all": {
+        "message": "все вкладки"
+    },
+    "recorder_request_settings": {
+        "message": "Параметры запросов доп. документов"
+    },
+    "recorder_image_request_settings": {
+        "message": "Параметры скорости загрузки пропорций картинок"
+    },
+    "recorder_extra_filters": {
+        "message": "Доп. фильтры"
+    },
+    "recorder_filter": {
+        "message": "Выбрать"
+    },
+    "recorder_desc": {
+        "message": "По убыванию"
+    },
+    "recorder_asc": {
+        "message": "По возрастанию"
+    },
+    "recorder_order_direct": {
+        "message": "Прямой"
+    },
+    "recorder_order_reverse": {
+        "message": "Обратный"
+    },
+    "recorder_sort_order": {
+        "message": "Порядок (ID)"
+    },
+    "recorder_sort_proportions": {
+        "message": "Пропорции"
+    },
+    "recorder_load_prop_skip": {
+        "message": "Пропустить загрузку"
+    },
+    "recorder_load_related_doc": {
+        "message": "Загрузить доп. документы"
+    },
+    "recorder_regular_expr": {
+        "message": "Регулярное выражение"
+    },
+    "recorder_exclude_urls": {
+        "message": "Исключать url"
+    },
+    "recorder_match_url": {
+        "message": "Совпадение url"
+    },
+    "recorder_width": {
+        "message": "Ширина"
+    },
+    "recorder_height": {
+        "message": "Высота"
+    },
+    "recorder_min_dimensions": {
+        "message": "Мин. пропорции"
+    },
+    "recorder_filter_help": {
+        "message": "<b>Выбрать</b> - выполнить фильтрацию по заданным параметрам<br>"
+    },
+    "recorder_filter_help_1": {
+        "message": "Формат рег. выражений : (http|https)://i.example.com/[a-zA-Z0-9]+/img/[a-zA-Z0-9/_]+.jpg<br><br>"
+    },
+    "recorder_filter_help_2": {
+        "message": "<b>Загрузить пропорции</b> - отсортировать изображения по разрешению и отсеять картинки с ошибками \\ технические картинки (< 3x3)<br><br>"
+    },
+    "recorder_filter_help_3": {
+        "message": "<b>Загрузить доп. документы</b> - попробовать найти оригиналы выбранных картинок-превью (рекомендуется использовать только на определенных сайтах с группой [Preview], где кнопка имеет значек __CHECKMARK__)<br><br>"
+    },
+    "recorder_filter_help_4": {
+        "message": "<b>Глубокий поиск</b> - после загрузки доп. документа для картинок-превью, ищет в нем картинки с большими пропорциями и оставляет их как оригиналы. (опция используется по умолчанию если расширение не имеет зарание заготовленных фильтров - кнопка загрузить доп. документы без значка)"
+    },
+    "recorder_cant_find_images": {
+        "message": "Не найдено изображений в доп. документах"
+    },
+    "recorder_cant_find_originals_images": {
+        "message": "Нет изображений похожих на оригиналы"
+    },
+    "recorder_no_related_docs": {
+        "message": "Нет дополнительных документов"
+    },
+    "recorder_canceled": {
+        "message": "Задача отменена"
+    },
+    "recorder_load_doc_loadDoc": {
+        "message": "Загрузка документов<br>Всего изображений : __IMAGESNUM__ <br> Подтвержденные оригиналы : <b>__IMAGESNUM_TRUSTED__</b>"
+    },
+    "recorder_load_doc_loadImg": {
+        "message": "Поиск HD версий изображений в документах..."
+    },
+    "recorder_load_doc_stop": {
+        "message": "Остановить"
+    },
+    "recorder_added_images_num": {
+        "message": "Добавлено __IMAGESNUM__ изображений"
+    },
+    "recorder_load_beasy": {
+        "message": "Выполняется процесс загрузки данных. Отмените действие перед дальнейшей работой"
+    },
+    "recorder_load_beasy_wr": {
+        "message": "Выполняется процесс обновления навигации. Подождите..."
+    },
+    "recorder_max": {
+        "message": "Макс."
+    },
+    "recorder_min": {
+        "message": "Мин."
+    },
+    "recorder_filtered": {
+        "message": "Данные отфильтрованы"
+    },
+    "recorder_terminated": {
+        "message": "Загрузка доп. документов не поддерживается"
+    },
+    "recorder_sort": {
+        "message": "Сортировка"
+    },
+    "recorder_related_doc_trusted_url": {
+        "message": "Совпадение url (картинка в доп. документе)"
+    },
+    "recorder_related_doc_deep_search": {
+        "message": "Глубокий поиск"
+    },
+    "recorder_last_recorded": {
+        "message": "Последние записанные данные"
+    },
+    "recorder_load_proportions": {
+        "message": "Загружаются пропорции..."
+    },
+    "recorder_related_links_notice": {
+        "message": "Для <b>__HOST__</b> можно загрузить доп. картинки"
+    },
+    "recorder_related_links_notice_1": {
+        "message": "Нажмите на <b>Загрузить доп. документы</b> (доп. фильтры) если на странице найдены только превьюшки публикаций, а всех картинок из публикаций не видно или качество картинок не достаточно высокое"
+    },
+    "recorder_dont_show_again": {
+        "message": "Больше не показывать"
+    },
+    "recorder_read_about": {
+        "message": "Подробнее о функции"
+    },
+    "recorder_displayed_info": {
+        "message": "Картинки : __ITEMS__ | Доп. документы : __RELATED_DOCS__"
+    },
+    "tweek_twitter_18w": {
+        "message": "[Twitter] Disable blur & content warnings"
+    },
+    "download_record_stopping": {
+        "message": "Останавливаю..."
+    },
+    "download_record_starting": {
+        "message": "Запускаю..."
     }
 }

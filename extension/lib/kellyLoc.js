@@ -35,14 +35,19 @@ var KellyLoc = new Object();
     
     KellyLoc.s = function(defaultLoc, key, vars) {
         
-        if (this.locs[key]) return this.parseText(this.locs[key], vars);
+        if (typeof this.locs[key] !== 'undefined' && this.locs[key] !== '') return this.parseText(this.locs[key], vars);
         
         if (this.browser == -1) this.browser = KellyTools.getBrowser();
         
-        if (!this.browser || !this.browser.i18n || !this.browser.i18n.getMessage) return this.parseText(defaultLoc, vars);
+        if (!this.browser || !this.browser.i18n || !this.browser.i18n.getMessage) return this.parseText(defaultLoc || key, vars);
         
-        this.locs[key] = this.browser.i18n.getMessage(key);
-        if (!this.locs[key]) this.locs[key] = defaultLoc;  
+        var msg = this.browser.i18n.getMessage(key);
+        // Chrome may return empty string when locale file missing or key undefined – fallback to defaultLoc or key
+        if (msg) {
+            this.locs[key] = msg;
+        } else {
+            this.locs[key] = defaultLoc || key;
+        }
         
         return this.parseText(this.locs[key], vars);
     }
