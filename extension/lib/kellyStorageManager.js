@@ -1373,11 +1373,29 @@ function KellyFavStorageManager(cfg) {
                 }
                 data.coptions.grabber.baseFolder = validated;
             }
-            // also sanitize nameTemplate (without breaking # placeholders, just remove leading/trailing slashes artefacts)
+            // also sanitize nameTemplate (without breaking # placeholders)
             if (data.coptions.grabber.nameTemplate && typeof data.coptions.grabber.nameTemplate === 'string') {
-                // keep placeholders but ensure not empty after validate (validateFolderPath would strip # chars – so use careful)
                 var nt = data.coptions.grabber.nameTemplate.trim();
-                if (!nt) data.coptions.grabber.nameTemplate = '#number#_#filename#';
+                var isBroken = nt.indexOf('#') === -1 && (nt.indexOf('_category_') !== -1 || nt.indexOf('_number_') !== -1 || nt.indexOf('_filename_') !== -1);
+                if (!nt || isBroken) {
+                    console.warn('[StorageManager] nameTemplate broken "' + nt + '" -> restoring #category_1#/#number#_#filename#');
+                    console.log('[StorageManager] nameTemplate broken restore');
+                    data.coptions.grabber.nameTemplate = '#category_1#/#number#_#filename#';
+                } else {
+                    // keep as is, but ensure minimal validate doesn't break # (it keeps # now)
+                    // Do not overwrite with validateFolderPath if it would strip #
+                    var validatedNT = KellyTools.validateFolderPath(nt);
+                    if (validatedNT.indexOf('#') === -1 && nt.indexOf('#') !== -1) {
+                        console.warn('[StorageManager] nameTemplate validate would strip #, keeping original', nt);
+                    } else {
+                        // keep original nt to preserve exact user input
+                        data.coptions.grabber.nameTemplate = nt;
+                    }
+                }
+            } else if (data.coptions.grabber.nameTemplate && typeof data.coptions.grabber.nameTemplate === 'string') {
+                // fallback empty
+                var nt2 = data.coptions.grabber.nameTemplate.trim();
+                if (!nt2) data.coptions.grabber.nameTemplate = '#number#_#filename#';
             }
             if (typeof data.coptions.grabber.invertNumeration === 'undefined') data.coptions.grabber.invertNumeration = true;
             if (!data.coptions.grabber.quality) data.coptions.grabber.quality = 'hd';
@@ -1469,7 +1487,7 @@ function KellyFavStorageManager(cfg) {
         
         // data.coptions.mobileOptimization = false; // enables automaticly by screen width
         
-        if (env.events.onValidateCfg) env.events.onValidateCfg(data);
+        if (env.events && env.events.onValidateCfg) env.events.onValidateCfg(data);
         
         return data;
     }

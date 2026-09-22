@@ -681,8 +681,17 @@ function KellyGrabber(cfg) {
         var nameTemplate = KellyTools.getElementByClass(handler.container, className + '-nameTemplate');
             nameTemplate.onchange = function() {
                 
-                options.nameTemplate = KellyTools.validateFolderPath(this.value);                
+                // Preserve # placeholders: validate but keep # (minimal sanitize keeps #)
+                var raw = this.value;
+                var validated = KellyTools.validateFolderPath(raw);
+                // If validate stripped # but raw had #, keep raw trimmed (migration case)
+                if (raw.indexOf('#') !== -1 && validated.indexOf('#') === -1) {
+                    console.warn('[Grabber] nameTemplate validate stripped #, keeping raw', raw);
+                    validated = raw.trim();
+                }
+                options.nameTemplate = validated || raw.trim();
                 this.value = options.nameTemplate;
+                console.log('[Grabber] nameTemplate changed raw:"' + raw + '" -> "' + options.nameTemplate + '"');
                 
                 handler.setDownloadTasks();
                 delayUpdateOptionsEvent();
@@ -1428,9 +1437,18 @@ function KellyGrabber(cfg) {
     function getNameTemplate() {
         
         if (!options.nameTemplate) {
-            options.nameTemplate = '#category_1#/#id#_#category_1#_#category_2#_#category_3#';
+            options.nameTemplate = '#category_1#/#number#_#filename#';
         }
-        
+        // Migration for broken 1.2.9.8 sanitized template (contains _category_ without #)
+        if (options.nameTemplate.indexOf('#') === -1 && options.nameTemplate.indexOf('_category_') !== -1) {
+            console.warn('[Grabber] getNameTemplate detected broken template "' + options.nameTemplate + '" -> restoring default');
+            options.nameTemplate = '#category_1#/#number#_#filename#';
+        }
+        // Also fallback if template is sanitized underscores version
+        if (options.nameTemplate.indexOf('#') === -1 && options.nameTemplate.indexOf('_number_') !== -1) {
+            console.warn('[Grabber] getNameTemplate broken _number_ without #, restoring');
+            options.nameTemplate = '#category_1#/#number#_#filename#';
+        }
         return options.nameTemplate;
     }
     
@@ -1524,10 +1542,12 @@ function KellyGrabber(cfg) {
         
         if (!fileName){
             KellyTools.log('[Grabber] initDownloadItemFile FAIL validateFolderPath empty for template:"' + getNameTemplate() + '" | fileName after replace:"' + fileName + '" | url:' + ditem.url, 'KellyGrabber', KellyTools.E_ERROR);
+            console.log('[Grabber] initDownloadItemFile FAIL template', getNameTemplate(), 'fileName', fileName, 'url', ditem.url);
             addFailItem(ditem, 'Ошибка валидации шаблона пути для загружаемого файла ' + ditem.url);
             return false;
         }
-        KellyTools.log('[Grabber] initDownloadItemFile fileName="' + fileName + '" url=' + ditem.url + ' ext=' + ditem.ext, 'KellyGrabber');    
+        KellyTools.log('[Grabber] initDownloadItemFile fileName="' + fileName + '" url=' + ditem.url + ' ext=' + ditem.ext, 'KellyGrabber');
+        console.log('[Grabber] initDownloadItemFile fileName="' + fileName + '" url=' + ditem.url + ' ext=' + ditem.ext + ' template="' + getNameTemplate() + '" baseFolder="' + options.baseFolder + '"');    
         
         if (!originalName && ditem.subItem > 0) {
             fileName += '_' + ditem.subItem;
@@ -1929,7 +1949,7 @@ function KellyGrabber(cfg) {
             }
         }
         KellyTools.log('[Grabber] downloadUrl SEND filename="' + download.filename + (downloadOptions.ext ? '.'+downloadOptions.ext : '') + '" conflict=' + download.conflictAction + ' urlType=' + (typeof download.url), 'KellyGrabber');
-        console.log('[KellyGrabber] downloadUrl filename="' + download.filename + (downloadOptions.ext ? '.'+downloadOptions.ext : '') + '" baseFolder="' + options.baseFolder + '"');
+        console.log('[KellyGrabber] downloadUrl filename="' + download.filename + (downloadOptions.ext ? '.'+downloadOptions.ext : '') + '" baseFolder="' + options.baseFolder + '" template="' + getNameTemplate() + '"');
         KellyTools.getBrowser().runtime.sendMessage({method: "downloads.download", referrer : downloadOptions.referrer, download : download}, function(downloadDelta){
             
                  if (blob && downloadDelta.id == -1) URL.revokeObjectURL(blob); // download init fail - revoke url 
@@ -2214,7 +2234,8 @@ function KellyGrabber(cfg) {
         if (baseFileFolder) {
             baseFileFolder += '/';
         }
-        KellyTools.log('[Grabber] downloadItemStart id=' + download.id + ' baseFolder="' + options.baseFolder + '" baseFileFolder="' + baseFileFolder + '" filename="' + download.filename + '"', 'KellyGrabber');     
+        KellyTools.log('[Grabber] downloadItemStart id=' + download.id + ' baseFolder="' + options.baseFolder + '" baseFileFolder="' + baseFileFolder + '" filename="' + download.filename + '"', 'KellyGrabber');
+        console.log('[Grabber] downloadItemStart id=' + download.id + ' baseFolder="' + options.baseFolder + '" baseFileFolder="' + baseFileFolder + '" filename="' + download.filename + '" template="' + getNameTemplate() + '"');     
         
         var downloadOptions = {
             ext : download.ext, // file extension to save to

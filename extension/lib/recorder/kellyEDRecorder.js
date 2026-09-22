@@ -88,6 +88,7 @@ var KellyEDRecorder = new Object;
                 KellyEDRecorder.recorder.url = request.url;
             }
             
+            console.log('[KellyEDRecorder] addRecord images', request.images.length, 'cats', (request.cats ? Object.keys(request.cats).length : 'none'), 'host', request.host, 'url', request.url);
             KellyTools.log('[addRecord] : images : ' + request.images.length + ' | cats : ' + (request.cats ? Object.keys(request.cats).length : 'not setted'));
             
             // addition categories information (color \ name etc.)
@@ -159,6 +160,7 @@ var KellyEDRecorder = new Object;
             
         } else if (request.method == 'startRecord') {
             
+            console.log('[KellyEDRecorder] startRecord');
             response.isRecorded = true; 
             
             KellyEDRecorder.recorder = KellyEDRecorder.getDefaultRecorder();            
@@ -171,6 +173,7 @@ var KellyEDRecorder = new Object;
             if (request.clean) KellyEDRecorder.recorder = KellyEDRecorder.getDefaultRecorder();
             
             response.isRecorded = false;
+            console.log('[KellyEDRecorder] stopRecord images', KellyEDRecorder.recorder.images.length);
             response.imagesNum = KellyEDRecorder.recorder.images.length;
             KellyEDRecorder.recorder.record = false;
             

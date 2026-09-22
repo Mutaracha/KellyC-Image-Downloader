@@ -324,6 +324,7 @@ var KellyEDispetcher = new Object;
 
             response.downloadId = -1;
                  
+            console.log('[KellyEDispetcher] downloads.download request', request.download);
             // Log and validate filename before calling downloads.download – Chrome MV3 may silently drop folders if filename invalid
             if (request.download && request.download.filename) {
                 var origName = request.download.filename;

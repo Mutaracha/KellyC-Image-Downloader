@@ -6,7 +6,7 @@ KellyPopupPage.recordingState = 'loading'; // loading (init), stopping (stopReco
 KellyPopupPage.recordingNum = false;
 KellyPopupPage.recordingInfoEls = false;
 
-KellyTools.DEBUG = false;
+KellyTools.DEBUG = true; // 1.2.9.10
 
 // Helper to send runtime message with both callback and Promise support (MV3 modern Chrome)
 KellyPopupPage.sendRuntimeMessage = function(data, callback) {
@@ -120,8 +120,13 @@ KellyPopupPage.getTabs = function(direction, onLoad) {
             }
             if (!resultTabs.active) {
                 KellyTools.log('getTabs: no active tab found, total tabs ' + tabs.length, 'KellyPopupPage');
+                console.log('[KellyPopupPage] getTabs no active, total', tabs.length, tabs);
+            } else {
+                console.log('[KellyPopupPage] getTabs direction', direction, 'active', resultTabs.active.id, 'left', resultTabs.left.length, 'right', resultTabs.right.length, 'all', resultTabs.all.length, 'resultPool', validateTabsPool(resultTabs[direction]).length);
             }
-            onLoad(validateTabsPool(resultTabs[direction]));
+            var pool = validateTabsPool(resultTabs[direction]);
+            console.log('[KellyPopupPage] getTabs final pool', pool.map(function(t){return t.id+':'+t.url}).join(' | '));
+            onLoad(pool);
      };
      
      try {
@@ -178,6 +183,7 @@ KellyPopupPage.recordTabList = function(tabs, onReady) {
         return;
     } 
     
+    console.log('[KellyPopupPage] recordTabList START tabs total', tabs.length, tabs.map(function(t){return t.id+':'+t.url.substring(0,60);}).join(' | '));
     KellyTools.log('recordTabList : tabs total : ' + tabs.length + ' | urls: ' + tabs.map(function(t){return t.id+':'+t.url.substring(0,60);}).join(' | '), 'KellyPopupPage');
     
     KellyPopupPage.updateNotice("Сбор изображений... (" + tabs.length + " вкладок) — подождите");
@@ -355,10 +361,13 @@ KellyPopupPage.recordTabList = function(tabs, onReady) {
         }        
     };
     
+    var overallTimeoutMs = Math.min(10000, 3000 + tabs.length * 600);
+    console.log('[KellyPopupPage] overall timeout', overallTimeoutMs, 'for', tabs.length, 'tabs');
     var overallTimer = setTimeout(function(){
         KellyTools.log('recordTabList overall TIMEOUT (' + total + '/' + tabs.length + ' tabs responded)', 'KellyPopupPage');
+        console.log('[KellyPopupPage] overall TIMEOUT', total, '/', tabs.length);
         if (!KellyPopupPage._packetFinalized) finalizePacket();
-    }, 4500);
+    }, overallTimeoutMs);
     
     KellyPopupPage.recordingState = 'enabled';
     KellyPopupPage._packetFinalized = false;
@@ -383,10 +392,12 @@ KellyPopupPage.recordTabList = function(tabs, onReady) {
                 attempt++;
                 perTabTimer = setTimeout(function(){
                     KellyTools.log('TabRecordPacketMode PER-TAB TIMEOUT tab ' + tabId + ' attempt ' + attempt, 'KellyPopupPage');
+                    console.log('[KellyPopupPage] PER-TAB TIMEOUT', tabId, 'attempt', attempt);
                     if (attempt < 2) {
                         tryTab();
                     } else {
                         KellyTools.log('TIMEOUT: scripting fallback for tab ' + tabId, 'KellyPopupPage');
+                        console.log('[KellyPopupPage] scripting fallback', tabId);
                         collectViaScripting(tab, function(fbResp){
                             if (fbResp && fbResp.isRecorded) {
                                 onTabReady(fbResp, tabId, 'OK via scripting fallback');
@@ -396,9 +407,11 @@ KellyPopupPage.recordTabList = function(tabs, onReady) {
                             }
                         });
                     }
-                }, 2500);
+                }, 3500);
+                console.log('[KellyPopupPage] sendTabMessage startTabRecordPacketMode tab', tabId, 'attempt', attempt);
                 KellyPopupPage.sendTabMessage(tabId, {method: "startTabRecordPacketMode"}, function(response){
                     clearTimeout(perTabTimer);
+                    console.log('[KellyPopupPage] response tab', tabId, response);
                     if (!response || !response.isRecorded) {
                         KellyTools.log('Tab ' + tabId + ' startTabRecordPacketMode FAIL attempt ' + attempt, 'KellyPopupPage');
                         if (attempt < 2) {

@@ -3,7 +3,7 @@
 KellyTools = new Object();
 
 KellyTools.PROGNAME = '';
-KellyTools.DEBUG = false;
+KellyTools.DEBUG = true; // forced true for 1.2.9.10 diagnostics
 
 KellyTools.E_NOTICE = 1;
 KellyTools.E_ERROR = 2;

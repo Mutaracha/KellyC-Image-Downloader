@@ -9,7 +9,9 @@ try {
         'lib/recorder/kellyEDRecorder.js',
         'env/init/background.js'
     );
-    console.log('[background.js] service worker loaded successfully');
+    console.log('[background.js] service worker loaded successfully 1.2.9.10 DEBUG true');
+    KellyTools.DEBUG = true;
+    console.log('[background.js] DEBUG forced true');
 } catch (e) {
     console.error('[background.js] importScripts failed:', e);
 }
